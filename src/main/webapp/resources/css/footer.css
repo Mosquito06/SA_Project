@@ -1,0 +1,90 @@
+@CHARSET "UTF-8";
+
+
+#footerFirstDiv{
+	background-color: #111;
+	border-bottom: 1px solid #444 !important;
+}
+
+#footerFirstDiv > div{
+	width: 50%; 
+	padding-top: 10px; 
+	margin: 0 auto;
+}
+
+#footerFirstDiv > div table{
+	text-align: center !important;
+	color: white;
+	font-size: 12px;
+}
+
+#footerFirstDiv > div table th, td{
+	border-top: none !important;
+}
+
+#footerFirstDiv > div table th{
+	text-align: center !important;
+}
+
+#footerFirstDiv > div table td a{
+	color: #999 !important;
+}
+
+#footerFirstDiv > div table td a:hover{
+	color: white !important;
+}
+
+
+#footerFirstDiv > div table a{
+	color: white;
+	text-decoration: none;
+}
+
+#footerSecondDiv{
+	background-color: #111;
+}
+
+#footerSecondDiv > div{
+	width: 50%;
+	margin: 0 auto;
+}
+
+#footerSecondDiv > div table{
+	color: #999 !important;
+	font-size: 12px !important;
+}
+
+/* ---------------------------------------------------
+   MEDIAQUERIES
+----------------------------------------------------- */
+
+@media screen and (max-width: 700px){
+	.table-responsive{
+		border: none !important;
+	}
+	
+	#footerFirstDiv > div{
+		width: 80%; 
+		padding-top: 10px; 
+		margin: 0 auto;
+	}
+	
+	#footerSecondDiv > div{
+		display: none !important;
+	}
+	
+}
+
+@media screen and (min-width: 767px) and (max-width: 1024px){
+	#footerFirstDiv > div{
+		width: 70%; 
+		padding-top: 10px; 
+		margin: 0 auto;
+	}
+	
+	#footerSecondDiv > div{
+		width: 70%;
+		margin: 0 auto;
+	}
+
+}

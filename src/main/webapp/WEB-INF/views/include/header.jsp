@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse .navbar-fixed-top TopNav">
+<nav class="navbar navbar-inverse navbar-fixed-top TopNav"> 
   <div class="container-fluid">
     <div class="navbar-header">
             
@@ -42,7 +42,7 @@
    </div>
 </nav>
 
-<nav class="navbar navbar-inverse TopNav" id="secondNav">
+<nav class="navbar navbar-inverse navbar-fixed-top" id="secondNav">
   <div class="container-fluid">
     <div class="row">
 	  

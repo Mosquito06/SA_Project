@@ -10,11 +10,6 @@ nav[class~='TopNav']{
 	margin-bottom: 0 !important;
 }
 
-nav[class~='TopNav']:LAST-CHILD{
-	height: 80px !important;
-	
-}
-
 #logoBtn{
 	float: left !important;
 	width: 100px !important;
@@ -54,6 +49,15 @@ nav[class~='TopNav']:LAST-CHILD{
 
 #mainLogo{
 	width: 100%;  
+}
+
+#secondNav{
+	background-color: white !important;
+	border: none !important;
+	border-bottom: 1px solid #e5e5e5 !important;
+	margin-bottom: 0 !important;
+	height: 80px !important;
+	top: 53px !important; 
 }
 
 #secondNavSecondDiv{
