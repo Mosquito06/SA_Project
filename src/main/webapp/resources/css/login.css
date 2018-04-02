@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+
+#loginModal div.modal-header{
+	border-bottom: none !important;
+}
+
+
+#loginModal .modal-header img{
+	width: 20%;
+	display: block !important;
+	margin: 0 auto !important;
+	
+}
+
+#loginModal #modalContent{
+	width: 67%;
+	margin: 0 auto;
+	border-bottom: 1px solid #e5e5e5;
+	padding-bottom: 3%;
+}
+
+#loginModal #modalContent img{
+	cursor: pointer;	
+}
+
+#loginModal #modalContent .checkbox{
+	margin-bottom: 8%;
+}
+
+#loginModal #modalfooter{
+	width: 67%;
+	margin: 0 auto;
+}
+
+#loginModal #modalfooter a{
+	color: black;
+	font-size: 12px;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#loginModal #modalfooter a:FIRST-CHILD{
+	float: left;
+}
+
+#loginModal #modalfooter a:LAST-CHILD{
+	float: right;
+}
+
+
+#loginModal div.modal-footer{
+	border-top: none !important;	
+}

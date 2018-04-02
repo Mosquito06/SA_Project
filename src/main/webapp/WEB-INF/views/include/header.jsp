@@ -7,7 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=ad">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=da">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/footer.css?a=dd">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?a=da">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -34,7 +36,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
     	<li><a href="#">회원가입</a></li>
-    	<li><a href="#">로그인</a></li>
+    	<li><a data-toggle="modal" data-target="#loginModal">로그인</a></li>
         <li><a href="#">고객센터</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
       </ul>
@@ -75,3 +77,44 @@
 	</div>
    </div>
 </nav>
+
+<div id="loginModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <img src="${pageContext.request.contextPath }/resources/img/main/logo.png">
+      </div>
+      <div class="modal-body">
+        <div id="modalContent">
+	        <form>
+	        	<div class="form-group">
+				  <label for="id">아이디</label>
+				  <input type="text" class="form-control" id="id" name="id" placeholder="아이디">
+				</div>
+				
+				<div class="form-group">
+				  <label for="pw">패스워드</label>
+				  <input type="password" class="form-control" id="pw" name="pw" placeholder="패스워드">
+				</div>
+	        	
+	        	<div class="checkbox">
+				  <label><input type="checkbox" >아이디 기억하기</label>
+				</div>
+	        	
+	        	<img src="${pageContext.request.contextPath }/resources/img/main/loginBtn.JPG">
+	        </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+		<div id="modalfooter">
+			<a href="#">회원가입</a>
+			<a href="#">계정찾기</a>
+		</div>       
+      </div>
+    </div>
+
+  </div>
+</div>
+

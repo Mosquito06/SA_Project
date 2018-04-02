@@ -38,6 +38,7 @@
 #footerFirstDiv > div table a{
 	color: white;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 #footerSecondDiv{
@@ -52,6 +53,10 @@
 #footerSecondDiv > div table{
 	color: #999 !important;
 	font-size: 12px !important;
+}
+
+#phoneText{
+	display: none;
 }
 
 /* ---------------------------------------------------
@@ -73,6 +78,13 @@
 		display: none !important;
 	}
 	
+	#phoneText{
+		background-color: #111;
+		padding: 10px;
+		font-size: 12px;
+		color: #999;
+		display: block !important;
+	}
 }
 
 @media screen and (min-width: 767px) and (max-width: 1024px){

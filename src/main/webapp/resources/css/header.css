@@ -41,6 +41,7 @@ nav[class~='TopNav']{
 	color: #8d8d8d !important;
 	font-size: 12px !important;	
 	font-weight: bold;
+	cursor: pointer !important;	
 }
 
 #myNavbar li a:hover{
@@ -57,7 +58,7 @@ nav[class~='TopNav']{
 	border-bottom: 1px solid #e5e5e5 !important;
 	margin-bottom: 0 !important;
 	height: 80px !important;
-	top: 53px !important; 
+	top: 51px !important; 
 }
 
 #secondNavSecondDiv{
@@ -94,8 +95,6 @@ nav[class~='TopNav']{
 #secondNavThirdDiv .btn{
 	padding: 9px !important;
 }
-
-
 
 /* ---------------------------------------------------
    MEDIAQUERIES

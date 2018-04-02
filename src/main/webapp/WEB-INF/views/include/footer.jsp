@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/footer.css?a=ad">
 
 <footer>
 	<div id="footerFirstDiv">
@@ -9,7 +8,7 @@
 				<table class="table">
 				   <tbody>
 				      <tr>
-				        <th><a href="#">로그인</a></th>
+				        <th><a data-toggle="modal" data-target="#loginModal">로그인</a></th>
 				        <th>고객센터</th>
 				        <th>SOCIAL</th>
 				      </tr>
@@ -54,6 +53,13 @@
 			  	</table>
 			</div>
 		</div>
+	</div>
+	
+	<div id="phoneText">
+        	(유)EasyBuy 대표 김동환 서울시 강남구 테헤란로 152 (역삼동, 강남파이낸스센터 31층)
+			통신판매업신고번호 20xx-대구-0xxxx 등록번호 220-xx-xxxxxx 사업자정보확인
+			개인정보관리책임자 김동환 정보보호최고책임자 김동환 고객센터 전화문의 010-3634-0396
+			FAX 02-xxxx-xxxx E-mail skykim10908@naver.com 
 	</div>
 </footer>
 </body>
