@@ -13,7 +13,7 @@
 				        <th>SOCIAL</th>
 				      </tr>
 				      <tr>
-				        <th><a href="#">회원가입</a></th>
+				        <th><a href="${pageContext.request.contextPath }/sign">회원가입</a></th>
 				        <td><a href="#">주문배송조회</a></td>
 				        <td></td>
 				      </tr>

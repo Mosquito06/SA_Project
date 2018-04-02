@@ -35,7 +35,7 @@
     
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-    	<li><a href="#">회원가입</a></li>
+    	<li><a href="${pageContext.request.contextPath }/sign">회원가입</a></li>
     	<li><a data-toggle="modal" data-target="#loginModal">로그인</a></li>
         <li><a href="#">고객센터</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
@@ -50,7 +50,7 @@
 	  
 	  <div class="col-md-1 col-sm-1" id="secondNavFirstDiv">
 	  	<div class="navbar-header">
-	      <a class="navbar-brand" href="#"><img id="mainLogo" src="${pageContext.request.contextPath }/resources/img/main/logo.png"></a>
+	      <a class="navbar-brand" href="${pageContext.request.contextPath }/"><img id="mainLogo" src="${pageContext.request.contextPath }/resources/img/main/logo.png"></a>
 	    </div>
 	  </div>
 	  
@@ -109,7 +109,7 @@
       </div>
       <div class="modal-footer">
 		<div id="modalfooter">
-			<a href="#">회원가입</a>
+			<a href="${pageContext.request.contextPath }/sign">회원가입</a>
 			<a href="#">계정찾기</a>
 		</div>       
       </div>

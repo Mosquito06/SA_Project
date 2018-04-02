@@ -13,10 +13,13 @@ public class HomeController {
 	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
-		
-		
+	public String goMain() {
 		return "main";
+	}
+	
+	@RequestMapping(value="/sign", method = RequestMethod.GET)
+	public void goSign(){
+		
 	}
 	
 }
