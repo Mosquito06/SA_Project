@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+
+/* ---------------------------------------------------
+   CONTENT
+----------------------------------------------------- */
+	
+	#topBannerDiv{
+		width: 100%;
+		margin-top: 120px;
+	}
+	
+	#topBannerDiv img{
+		width: 100%;
+	}
+	
+	div[class*='BannerText']{
+		text-align: center;
+		color: black;
+		font-size: 40px;
+		font-weight: bold;
+		margin: 2% 0 4% 0;
+	}
+	
+	div[class*='BannerText'] div{
+		margin-top: 1%;
+	}
+	
+	div[class*='BannerText'] div a{
+		color: black;
+		font-size: 18px;
+	}
+	
+	#bottomBannerDiv img{
+		width: 100%;
+	}
+	
+/* ---------------------------------------------------
+   MEDIAQUERIES
+----------------------------------------------------- */
+@media screen and (max-width: 700px){
+		
+	#topBannerDiv{
+		width: 100%;
+		margin-top: 50px; 
+	} 
+	
+	div[class*='BannerText']{
+		font-size: 15px;
+		font-weight: bold;
+		margin: 2% 0 4% 0;
+	}
+	
+	div[class*='BannerText'] div a{
+		font-size: 12px;
+	}
+	
+	
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px){
+	div[class*='BannerText']{
+		font-size: 30px;
+		font-weight: bold;
+		margin: 2% 0 4% 0;
+	}
+	
+}

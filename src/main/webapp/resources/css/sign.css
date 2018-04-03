@@ -1,0 +1,110 @@
+@CHARSET "UTF-8";
+
+/* ---------------------------------------------------
+   CONTENT
+----------------------------------------------------- */
+	section{
+		min-height: 700px;
+	}
+	
+	#signContainer{
+		width: 380px;
+		margin: 200px auto 0;
+		text-align: center;
+	}
+	
+	#signContainer .form-group{
+		margin-bottom: 1% !important;
+	}
+	
+	#signMainText{
+		font-size: 22px;
+		font-weight: bold;
+		margin-bottom: 10%; 
+	}
+	
+	#signFormDiv figcaption{
+		color: black !important;
+		text-align: left !important;
+		font-size: 10px;
+		font-weight: bold;
+	}
+	
+	#signFormDiv .table{
+		border: 2px solid #e5e5e5 !important;
+		margin-bottom: 3% !important;
+	}
+	
+	#signFormDiv .table th, td{
+		font-size: 9px;
+		font-weight: bold; 
+		color: #606060;
+		width: 20% !important;
+	}
+	
+	#signFormDiv .table th{
+		text-align: center !important;
+	}
+	
+	#signFormDiv .table th:FIRST-CHILD, td:FIRST-CHILD{
+		width: 15% !important;
+	}
+	
+	#signFormDiv input{
+		margin-top: 10%; 
+	}
+	
+	#signFormDiv .table-responsive{
+		margin-top: 10%; 
+	}
+	
+	.checkMessage{
+		color: red;
+		font-size: 11px;
+		font-weight: bold;
+		text-align: left;
+		margin-bottom: 5%;
+		display: none;
+	}
+	
+	#signFormBottomText{
+		margin: 5% 0 5% 0;
+		text-align: center;
+	}
+	
+	#signFormDiv img{
+		cursor: pointer;
+		margin-bottom: 25%;
+	}
+
+
+/* ---------------------------------------------------
+   MEDIAQUERIES
+----------------------------------------------------- */
+@media screen and (max-width: 320px){
+	#signContainer{
+		width: 280px !important; 
+	}
+
+}
+
+@media screen and (max-width: 700px){
+	#signContainer{
+		width: 320px;
+		margin: 100px auto 0;
+		text-align: center;
+	}
+	
+	#signMainText{
+		font-size: 18px;
+	}
+	
+	#signFormDiv img{
+		width: 100% !important;
+	}
+	
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px){
+	
+}

@@ -2,99 +2,86 @@
     pageEncoding="UTF-8"%>
 <title>EasyBuy</title>
 <jsp:include page="include/header.jsp"/>
-<style>
-/* ---------------------------------------------------
-   CONTENT
------------------------------------------------------ */
-	section{
-		min-height: 700px;
-	}
+<script>
+	$(function(){
+		$("#signFormDiv input[class='form-control']").each(function(i, obj){
+			$(obj).keyup(function(){
+				checkPattern($(this), i);
+			})
+		})
+		
+		$("#signFormDiv img").click(function(){
+			
+			$("#signFormDiv input[class='form-control']").each(function(i, obj){
+				var value = $(obj).val();
+				if(value == "" || value.length == 0){
+					$(obj).parent().next().css("display", "block").text("필수 입력 항목입니다.");
+					$(obj).focus();					
+					return false;
+				}
+			})
+			
+			$("div.checkMessage").each(function(i, obj){
+				var visible = $(obj).css("display");
+				
+				if(visible == "block"){
+					$(obj).prev().find("input").focus();
+					return false;
+				} 	
+			})
+		})
 	
-	#signContainer{
-		width: 380px;
-		margin: 200px auto 0;
-		text-align: center;
-	}
+	})
 	
-	#signContainer .form-group{
-		margin-bottom: 1% !important;
-	}
-	
-	#signMainText{
-		font-size: 22px;
-		font-weight: bold;
-		margin-bottom: 10%; 
-	}
-	
-	#signFormDiv figcaption{
-		color: black !important;
-		text-align: left !important;
-		font-size: 10px;
-		font-weight: bold;
-	}
-	
-	#signFormDiv .table{
-		border: 2px solid #e5e5e5 !important;
-		margin-bottom: 3% !important;
-	}
-	
-	#signFormDiv .table th, td{
-		font-size: 9px;
-		font-weight: bold; 
-		color: #606060;
-		width: 20% !important;
-	}
-	
-	#signFormDiv .table th{
-		text-align: center !important;
-	}
-	
-	#signFormDiv .table th:FIRST-CHILD, td:FIRST-CHILD{
-		width: 15% !important;
-	}
-	
-	#signFormDiv input{
-		margin-top: 5%; 
-	}
-	
-	.checkMessage{
-		color: red;
-		font-size: 11px;
-		font-weight: bold;
-		text-align: left;
-		margin-bottom: 5%;
+	function checkPattern(input, index){
+		var value = input.val();
+		var pattern = null;
+		var message = "";
+		
+		if(value == "" || value.length == 0){
+			input.parent().next().css("display", "block").text("필수 입력 항목입니다.");
+			return;
+		}
+		
+		if(index == 0){
+			pattern = /^\w{5,12}@[a-z]{2,10}[\.][a-z]{2,3}[\.]?[a-z]{0,2}$/;
+			message = "이메일 형식으로 입력해주세요."
+		}else if(index == 1){
+			pattern = /(?=.*[!@#$%^&*()-_~])(?=.*[0-9])(?=.*[a-zA-Z]).{8,16}/;
+			message = "영문/숫자/특수문자 조합 8~16자 조합으로 입력해주세요."
+		}else if(index == 2){
+			
+			var getPw = input.parent().prev().prev().find("input").val();
+			if(getPw != value){
+				input.parent().next().css("display", "block").text("입력값이 일치하지 않습니다.");
+			}else{
+				input.parent().next().css("display", "none").text("필수 입력 항목입니다.");
+			}
+			return;
+		}else if(index == 3){
+			pattern = /^[a-zA-Z가-힣]{2,10}$/;
+			message = "성명을 정확히 입력해주세요.";
+		}else if(index == 4){
+			pattern = /^[0-9]{11,12}$/;
+			var containCheck = /[a-zA-Z가-힣!@#$%^&*()_-]+/;
+			
+			if(containCheck.test(value)){
+				message = "숫자만 입력 가능합니다.";
+			}else{
+				message = "";
+			}
+		}
+			
+		var check = pattern.test(value);
+		
+		if(!check){
+			input.parent().next().css("display", "block").text(message);
+		}else{
+			input.parent().next().css("display", "none").text("필수 입력 항목입니다.");
+		}
 	}
 
-
-/* ---------------------------------------------------
-   MEDIAQUERIES
------------------------------------------------------ */
-@media screen and (max-width: 320px){
-	#signContainer{
-		width: 280px !important; 
-	}
-
-}
-
-@media screen and (max-width: 700px){
-	#signContainer{
-		width: 320px;
-		margin: 100px auto 0;
-		text-align: center;
-	}
-	
-	#signMainText{
-		font-size: 18px;
-	}
-	
-	
-}
-
-@media screen and (min-width: 767px) and (max-width: 1023px){
-	
-}
-</style>
-
+</script>
 <section>
 	<div id="signContainer">
 		<div id="signMainText">
@@ -103,7 +90,7 @@
 		<div id="signFormDiv">
 			<form action="/action_page.php">
 			  <div class="form-group">
-			    <input type="email" class="form-control" id="signId" placeholder="mosquito">
+			    <input type="text" class="form-control" id="email" placeholder="mosquito@com">
 			  </div>
 			  <div class="checkMessage">
 			  	필수 입력 항목입니다.
@@ -124,21 +111,14 @@
 			  </div>
 			  
 			  <div class="form-group">
-			    <input type="password" class="form-control" id="name" placeholder="이름을 입력해주세요.">
+			    <input type="text" class="form-control" id="name" placeholder="이름을 입력해주세요.">
 			  </div>
 			  <div class="checkMessage">
 			  	필수 입력 항목입니다.
 			  </div>
 			  
 			  <div class="form-group">
-			    <input type="password" class="form-control" id="email" placeholder="mosquito@com">
-			  </div>
-			  <div class="checkMessage">
-			  	필수 입력 항목입니다.
-			  </div>
-			  
-			  <div class="form-group">
-			    <input type="password" class="form-control" id="phone" placeholder="휴대폰 번호 '-'표 없이 입력해주세요.">
+			    <input type="text" class="form-control" id="phone" placeholder="휴대폰 번호 '-'표 없이 입력해주세요.">
 			  </div>
 			  <div class="checkMessage">
 			  	필수 입력 항목입니다.
@@ -175,16 +155,14 @@
 					</figure>
 				</div>
 				
+				<div id="signFormBottomText">
+					약관 및 개인정보 수집·이용동의 내용을<br>
+					 확인하고, 동의합니다.
+				</div>
 				
-			  <button type="submit" class="btn btn-default">Submit</button>
+			  <img src="${pageContext.request.contextPath }/resources/img/sign/signBtn.jpg">
 			</form>
-			
-			
-			 
 		</div>
-		
-		
-	
 	</div>
 </section>
 
