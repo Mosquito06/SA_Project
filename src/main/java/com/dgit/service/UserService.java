@@ -1,6 +1,6 @@
 package com.dgit.service;
 
-public interface BoardService {
+public interface UserService {
 	
 	
 }
