@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.persistence.DivisionDao">
+    <insert id="insert">
+        insert into division(division_name, category_num) values(#{divisionName}, #{category.categoryNum});
+    </insert>
+    
+    <update id="update">
+        update division set division_name = #{divisionName} where division_num = #{divisionNum}
+    </update>
+    
+    <delete id="delete">
+         delete from division where division_num = #{divisionNum}
+    </delete>
+    
+    <select id="selectByCategoryNum" resultType="DivisionVO">
+        select * from division where category_num = #{num}
+    </select>
+        
+    <select id="selectAll" resultType="DivisionVO">
+        select * from division
+    </select>
+</mapper>
