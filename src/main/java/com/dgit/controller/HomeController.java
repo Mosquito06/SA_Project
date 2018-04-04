@@ -11,7 +11,7 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = {"/", "/main"}, method = RequestMethod.GET)
 	public String goMain() {
 		return "main/main";
 	}

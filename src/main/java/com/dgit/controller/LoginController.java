@@ -1,6 +1,7 @@
 package com.dgit.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,6 +72,14 @@ public class LoginController {
 		}
 		
 		return "login/login";
+	}
+	
+	@RequestMapping(value="/loginOut", method = RequestMethod.GET)
+	public String logOut(HttpServletRequest request){
+		request.getSession().removeAttribute("login");
+		String path = request.getContextPath() + "/";
+		
+		return "redirect: " + path;
 	}
 
 }

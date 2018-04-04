@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <footer>
 	<div id="footerFirstDiv">
 		<div>
@@ -8,12 +8,26 @@
 				<table class="table">
 				   <tbody>
 				      <tr>
-				        <th><a data-toggle="modal" data-target="#loginModal">로그인</a></th>
+				      	<c:choose>
+				      		<c:when test="${login == null }">
+				      			<th><a data-toggle="modal" data-target="#loginModal">로그인</a></th>
+				      		</c:when>
+				      		<c:otherwise>
+				      			<th><a href="${pageContext.request.contextPath }/loginOut">로그아웃</a></th>
+				      		</c:otherwise>
+				      	</c:choose>
 				        <th>고객센터</th>
 				        <th>SOCIAL</th>
 				      </tr>
 				      <tr>
-				        <th><a href="${pageContext.request.contextPath }/sign">회원가입</a></th>
+				      	<c:choose>
+				      		<c:when test="${login == null }">
+				      			<th><a href="${pageContext.request.contextPath }/sign">회원가입</a></th>
+				      		</c:when>
+				      		<c:otherwise>
+				      			<th></th>
+				      		</c:otherwise>
+				      	</c:choose>
 				        <td><a href="#">주문배송조회</a></td>
 				        <td></td>
 				      </tr>

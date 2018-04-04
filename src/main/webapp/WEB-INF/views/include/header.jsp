@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,8 +72,16 @@
     
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-    	<li><a href="${pageContext.request.contextPath }/sign">회원가입</a></li>
-    	<li><a data-toggle="modal" data-target="#loginModal">로그인</a></li>
+      	<c:choose>
+      		<c:when test="${login == null }">
+      			<li><a href="${pageContext.request.contextPath }/sign">회원가입</a></li>
+    			<li><a data-toggle="modal" data-target="#loginModal">로그인</a></li>
+      		</c:when>
+      		<c:otherwise>
+      			<li><a data-toggle="modal" data-target="#loginModal">${login.name }</a></li>
+      		</c:otherwise>
+      	</c:choose>
+    	
         <li><a href="#">고객센터</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
       </ul>
