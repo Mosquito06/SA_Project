@@ -8,47 +8,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=a">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=D">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/footer.css?a=dd">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/main.css?a=d">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?a=da">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sign.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/complete.css?a=da">
+<script>
+	var contextPath = "${pageContext.request.contextPath}";
+	// js 파일에서는 el을 못쓰기 때문에 contextPath를 미리 받아둔 변수를 선언해둠
+	
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/sign.js?a=a"></script>
-<script>
-	
-	$(function(){
-		$("#loginModal img:eq(1)").click(function(){
-			var userId = $("#loginId").val();
-			var userPw = $("#loginPw").val();
-			
-			var sendData = {id : userId, pw : userPw};
-			
-			
-			
-			$.ajax({
-				url : "${pageContext.request.contextPath}/loginCheck",
-				type : "POST",
-				headers : {"Content-Type" : "application/json"},
-				data : JSON.stringify(sendData),
-				dataType : "text",
-				success : function(result){
-					if(result == "not exist"){
-						alert("가입되지 않는 ID입니다.");
-					}else if(result == "pw error"){
-						alert("패스워드가 일치하지 않습니다.");
-					}else if(result == "correct"){
-						$("#loginForm").submit();
-					}
-				}
-			})
-			
-		})
-	})
-
-</script>
+<script src="${pageContext.request.contextPath }/resources/js/header.js?a=a"></script>
 </head>
 <body>
 
@@ -64,10 +38,19 @@
         <span class="glyphicon glyphicon-shopping-cart"></span>
       </button>
       
-      <button type="button" class="navbar-toggle" id="logoBtn" data-toggle="collapse">
-        <img src="${pageContext.request.contextPath }/resources/img/main/logo.png">
-      </button>
-      
+      <c:choose>
+   		<c:when test="${login == null }">
+		  <button type="button" class="navbar-toggle" id="logoBtn" data-toggle="collapse">
+	        <img src="${pageContext.request.contextPath }/resources/img/main/logo.png">
+	      </button>
+   		</c:when>
+      	   <c:otherwise>
+      	   	<button type="button" class="navbar-toggle" id="navText" data-toggle="collapse">
+	        	${login.name }
+	        </button>
+      		 
+      	   </c:otherwise>
+      	</c:choose>
     </div>
     
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -78,7 +61,7 @@
     			<li><a data-toggle="modal" data-target="#loginModal">로그인</a></li>
       		</c:when>
       		<c:otherwise>
-      			<li><a data-toggle="modal" data-target="#loginModal">${login.name }</a></li>
+      			<li><a data-toggle="modal" data-target="#loginModal" id="loginUserName">${login.name }</a></li>
       		</c:otherwise>
       	</c:choose>
     	

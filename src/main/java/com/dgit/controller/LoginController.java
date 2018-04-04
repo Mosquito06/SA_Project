@@ -53,14 +53,9 @@ public class LoginController {
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public String login(UserVO user, String path, Model model){
-		logger.info("path = " + path); 
 		String[] pathUpdate = path.split("/");
-		logger.info("path = " + pathUpdate[pathUpdate.length - 1]);
-		
 		String finalPath = pathUpdate[pathUpdate.length - 1].substring(0, pathUpdate[pathUpdate.length - 1].indexOf("."));
 		
-		logger.info("path = " + finalPath); 
-
 		try {
 			UserVO loginUser = userService.selectUserByIdAndPw(user);
 			

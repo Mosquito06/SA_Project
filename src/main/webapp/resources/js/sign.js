@@ -35,7 +35,7 @@ $(function(){
 				var id = $("#signFormDiv input[class='form-control']:eq(0)").val();	
 				
 				$.ajax({
-					url : "checkId/",
+					url : contextPath + "/checkId",
 					type: "get",
 					data : {"id" : id},
 					dataType : "text",

@@ -21,6 +21,16 @@ nav[class~='TopNav']{
  	width: 50%;	
 }
 
+#navText{
+	float: left !important;
+	width: 100px !important;
+	border: none !important;
+	background-color: white !important;
+	color: #8d8d8d !important;
+    font-size: 12px !important;
+    font-weight: bold;
+}
+
 
 #topNavBtn{
 	background-color: white !important;
@@ -106,6 +116,14 @@ nav[class~='TopNav']{
 	}
 	
 	#myNavbar ul li:LAST-CHILD {
+		display: none;
+	}
+	
+	#modalContent img{
+		width: 100%;
+	}
+	
+	#loginUserName{
 		display: none;
 	}
 	

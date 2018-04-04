@@ -18,7 +18,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		logger.info("Login Interceptor post 진입");
+		
 		
 		Object object = modelAndView.getModel().get("login");
 		Object object2 = modelAndView.getModel().get("path");
@@ -37,7 +37,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		logger.info("Login Interceptor pre 진입"); 
+		
 		return true;
 	}
 }
