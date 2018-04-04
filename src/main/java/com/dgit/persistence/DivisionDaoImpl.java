@@ -6,9 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.dgit.domain.CategoryVO;
 import com.dgit.domain.DivisionVO;
-import com.dgit.domain.UserVO;
 
 @Repository
 public class DivisionDaoImpl implements DivisionDao {

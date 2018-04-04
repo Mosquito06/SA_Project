@@ -36,7 +36,7 @@ public class CategoryDaoImpl implements CategoryDao {
 
 	@Override
 	public List<CategoryVO> selectAll() throws Exception {
-		return sqlSession.selectOne(NAMESPACE + ".selectAll");
+		return sqlSession.selectList(NAMESPACE + ".selectAll");
 	}
 	
 	
