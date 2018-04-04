@@ -11,15 +11,8 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String goMain() {
-		return "main";
+		return "main/main";
 	}
-	
-	@RequestMapping(value="/sign", method = RequestMethod.GET)
-	public void goSign(){
-		
-	}
-	
 }

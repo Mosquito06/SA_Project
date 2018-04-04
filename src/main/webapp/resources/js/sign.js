@@ -6,12 +6,15 @@ $(function(){
 		})
 		
 		$("#signFormDiv img").click(function(){
+			var checkEmpty = true;
+			var checkFalse = true;
 			
 			$("#signFormDiv input[class='form-control']").each(function(i, obj){
 				var value = $(obj).val();
 				if(value == "" || value.length == 0){
 					$(obj).parent().next().css("display", "block").text("필수 입력 항목입니다.");
-					$(obj).focus();					
+					$(obj).focus();
+					checkEmpty = false;
 					return false;
 				}
 			})
@@ -21,9 +24,33 @@ $(function(){
 				
 				if(visible == "block"){
 					$(obj).prev().find("input").focus();
+					checkFalse = false;
 					return false;
 				} 	
 			})
+			
+			if(!checkEmpty || !checkFalse){
+				return;
+			}else{
+				var id = $("#signFormDiv input[class='form-control']:eq(0)").val();	
+				
+				$.ajax({
+					url : "checkId/",
+					type: "get",
+					data : {"id" : id},
+					dataType : "text",
+					success: function(result){
+						if(result == "exist"){
+							alert("이미 존재하는 이메일 입니다.");
+							return;
+						}
+						
+						$("#signForm").submit(); 
+					}
+				})
+				
+			}
+		
 		})
 	
 	})

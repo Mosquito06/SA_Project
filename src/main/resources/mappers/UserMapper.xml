@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dgit.persistence.UserDao">
+    <insert id="insertUser">
+    	insert into user(id, pw, name, email, phone, home_tel, address, status) 
+    	values (#{id}, password(#{pw}), #{name}, #{email}, #{phone}, #{homeTel}, #{address}, #{status})
+    </insert>
     
+    <update id="updateUser">
+       update user set id = #{id}, pw = password(#{pw}), name = #{name}, email = #{email}, phone = #{phone}, 
+       home_tel = #{homeTel}, address = #{address}, status = #{status} where client_num = #{clientNum}
+    </update>
     
+    <delete id="deleteUser">
+        delete from user where client_num = #{clientNum}
+    </delete>
     
+    <select id="selectUserByIdAndPw" resultType="UserVO">
+        select * from user where id = #{id} and pw = password(#{pw})
+    </select>
     
-    
-    
-    
-	
+    <select id="selectUserById" resultType="String">
+        select * from user where id = #{id}
+    </select>
 </mapper>

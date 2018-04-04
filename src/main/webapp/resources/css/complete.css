@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+/* ---------------------------------------------------
+   CONTENT
+----------------------------------------------------- */
+		
+	#completeContainer{
+		width: 380px;
+		margin: 300px auto 0;
+		text-align: center;
+	}
+	
+	#completeMainText{
+		font-size: 22px;
+		font-weight: bold;
+		margin-bottom: 10%; 
+	}
+	
+	#comleteSubText{
+		color: #8d8d8d;
+		margin-bottom: 10%;
+	}
+	
+	#completeContainer img{
+		margin-bottom: 70%; 
+		cursor: pointer;
+	}
+
+/* ---------------------------------------------------
+   MEDIAQUERIES
+----------------------------------------------------- */
+@media screen and (max-width: 320px){
+	#completeContainer{
+		width: 280px !important; 
+	}
+
+}
+
+@media screen and (max-width: 700px){
+	#completeContainer{
+		width: 320px;
+		margin: 200px auto 0;
+		text-align: center;
+	}
+	
+	#completeMainText{
+		font-size: 18px;
+	}
+	
+	#completeContainer img{
+		width: 100%;
+		margin-bottom: 50%; 
+	}
+
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px){
+	
+}

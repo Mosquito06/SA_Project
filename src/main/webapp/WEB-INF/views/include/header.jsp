@@ -7,14 +7,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=da">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/footer.css?a=dd">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/main.css?a=d">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?a=da">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sign.css?a=da">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sign.css?a=a">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/complete.css?a=da">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath }/resources/js/sign.js"></script>
+<script src="${pageContext.request.contextPath }/resources/js/sign.js?a=a"></script>
+<script>
+	
+	$(function(){
+		$("#loginModal img:eq(1)").click(function(){
+			var userId = $("#loginId").val();
+			var userPw = $("#loginPw").val();
+			
+			var sendData = {id : userId, pw : userPw};
+			
+			
+			
+			$.ajax({
+				url : "${pageContext.request.contextPath}/loginCheck",
+				type : "POST",
+				headers : {"Content-Type" : "application/json"},
+				data : JSON.stringify(sendData),
+				dataType : "text",
+				success : function(result){
+					if(result == "not exist"){
+						alert("가입되지 않는 ID입니다.");
+					}else if(result == "pw error"){
+						alert("패스워드가 일치하지 않습니다.");
+					}else if(result == "correct"){
+						$("#loginForm").submit();
+					}
+				}
+			})
+			
+		})
+	})
+
+</script>
 </head>
 <body>
 
@@ -91,15 +124,16 @@
       </div>
       <div class="modal-body">
         <div id="modalContent">
-	        <form>
+	        <form action="${pageContext.request.contextPath }/login" method="post" id="loginForm">
 	        	<div class="form-group">
 				  <label for="id">아이디</label>
-				  <input type="text" class="form-control" id="id" name="id" placeholder="아이디">
+				  <input type="text" class="form-control" id="loginId" name="id" placeholder="아이디">
+				  <input type="hidden" name="path" value="${pageContext.request.requestURI }">
 				</div>
 				
 				<div class="form-group">
 				  <label for="pw">패스워드</label>
-				  <input type="password" class="form-control" id="pw" name="pw" placeholder="패스워드">
+				  <input type="password" class="form-control" id="loginPw" name="pw" placeholder="패스워드">
 				</div>
 	        	
 	        	<div class="checkbox">

@@ -1,23 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <title>EasyBuy</title>
-<jsp:include page="include/header.jsp"/>
+<jsp:include page="../include/header.jsp"/>
 <section>
 	<div id="signContainer">
 		<div id="signMainText">
 			회원가입
 		</div>
 		<div id="signFormDiv">
-			<form action="/action_page.php">
+			<form action="sign" method="post" id="signForm">
 			  <div class="form-group">
-			    <input type="text" class="form-control" id="email" placeholder="mosquito@com">
+			    <input type="text" class="form-control" id="email" name="id" placeholder="mosquito@com">
 			  </div>
 			  <div class="checkMessage">
 			  	필수 입력 항목입니다.
 			  </div>
 			  
 			  <div class="form-group">
-			    <input type="password" class="form-control" id="signPw" placeholder="영문 + 숫자 + 특수문자 조합 8 ~ 16자리 이내">
+			    <input type="password" class="form-control" id="signPw" name="pw" placeholder="영문 + 숫자 + 특수문자 조합 8 ~ 16자리 이내">
 			  </div>
 			  <div class="checkMessage">
 			  	필수 입력 항목입니다.
@@ -31,14 +31,14 @@
 			  </div>
 			  
 			  <div class="form-group">
-			    <input type="text" class="form-control" id="name" placeholder="이름을 입력해주세요.">
+			    <input type="text" class="form-control" id="name" name="name" placeholder="이름을 입력해주세요.">
 			  </div>
 			  <div class="checkMessage">
 			  	필수 입력 항목입니다.
 			  </div>
 			  
 			  <div class="form-group">
-			    <input type="text" class="form-control" id="phone" placeholder="휴대폰 번호 '-'표 없이 입력해주세요.">
+			    <input type="text" class="form-control" id="phone" name="phone" placeholder="휴대폰 번호 '-'표 없이 입력해주세요.">
 			  </div>
 			  <div class="checkMessage">
 			  	필수 입력 항목입니다.
@@ -86,4 +86,4 @@
 	</div>
 </section>
 
-<jsp:include page="include/footer.jsp"/>
+<jsp:include page="../include/footer.jsp"/>

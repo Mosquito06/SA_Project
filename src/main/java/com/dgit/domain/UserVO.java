@@ -12,6 +12,7 @@ public class UserVO {
 	private String homeTel;
 	private String address;
 	private Date joinDate;
+	private Status status;
 
 	public UserVO() {
 		super();
@@ -89,10 +90,19 @@ public class UserVO {
 		this.joinDate = joinDate;
 	}
 
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		return "UserVO [clientNum=" + clientNum + ", id=" + id + ", pw=" + pw + ", name=" + name + ", email=" + email
-				+ ", phone=" + phone + ", homeTel=" + homeTel + ", address=" + address + ", joinDate=" + joinDate + "]";
+				+ ", phone=" + phone + ", homeTel=" + homeTel + ", address=" + address + ", joinDate=" + joinDate
+				+ ", status=" + status + "]";
 	}
 
 }

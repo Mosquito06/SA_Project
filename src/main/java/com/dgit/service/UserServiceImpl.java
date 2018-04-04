@@ -1,44 +1,43 @@
-package com.dgit.persistence;
+package com.dgit.service;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dgit.domain.UserVO;
+import com.dgit.persistence.UserDao;
 
 @Repository
-public class UserDaoImpl implements UserDao {
-	private static final String NAMESPACE = "com.dgit.persistence.UserDao";
+public class UserServiceImpl implements UserService {
 	
 	@Autowired
-	private SqlSession sqlSession;
+	private UserDao dao;
 	
 	@Override
 	public void insertUser(UserVO user) throws Exception {
-		sqlSession.insert(NAMESPACE + ".insertUser", user);
+		dao.insertUser(user);
 
 	}
 
 	@Override
 	public void updateUser(UserVO user) throws Exception {
-		sqlSession.update(NAMESPACE + ".updateUser", user);
+		dao.updateUser(user);
 
 	}
 
 	@Override
 	public void deleteUser(UserVO user) throws Exception {
-		sqlSession.delete(NAMESPACE + ".deleteUser", user);
+		dao.deleteUser(user);
 
 	}
 
 	@Override
 	public UserVO selectUserByIdAndPw(UserVO user) throws Exception {
-		return sqlSession.selectOne(NAMESPACE + ".selectUserByIdAndPw", user);
+		return dao.selectUserByIdAndPw(user);
 	}
 
 	@Override
 	public String selectUserById(String id) throws Exception {
-		return sqlSession.selectOne(NAMESPACE + ".selectUserById", id);
+		return dao.selectUserById(id);
 	}
 
 }
