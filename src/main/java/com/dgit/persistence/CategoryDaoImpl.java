@@ -38,7 +38,4 @@ public class CategoryDaoImpl implements CategoryDao {
 	public List<CategoryVO> selectAll() throws Exception {
 		return sqlSession.selectList(NAMESPACE + ".selectAll");
 	}
-	
-	
-
 }

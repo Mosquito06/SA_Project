@@ -151,7 +151,7 @@
 			    						<ul>
 			    							<c:forEach var="section" items="${section }">
 												<c:if test="${division.divisionNum == section.division.divisionNum }">
-													<li><a href="#" class="sectionA">${section.sectionName }</a></li>
+													<li><a href="${pageContext.request.contextPath }/board?serctionNum=${section.sectionNum}" class="sectionA">${section.sectionName }</a></li>
 												</c:if>		    							
 			    							</c:forEach>
 			    						</ul>
