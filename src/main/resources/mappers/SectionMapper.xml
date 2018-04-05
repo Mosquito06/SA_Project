@@ -7,6 +7,13 @@
        	<result property="sectionName" column="section_name"/>
        	<result property="division.divisionNum" column="division_num"/>
     </resultMap>
+    	
+     <resultMap type="TypeInfo" id="resultTypeInfo">
+        <result property="sectionNum" column="section_num"/>
+    	<result property="divisionNum" column="division_num"/>
+    	<result property="divisionName" column="division_name"/>
+    	<result property="categoryName" column="category_name"/>
+     </resultMap>
         
     <insert id="insert">
         insert into section(section_name, division_num) values(#{sectionName}, #{division.divisionNum})
@@ -26,5 +33,11 @@
         
     <select id="selectAll" resultMap="SectionResult">
         select * from section
+    </select>
+    
+    <select id="getTypeNum" resultMap="resultTypeInfo">
+        select section_num, division.division_num, division.division_name, category.category_name from section, division, category 
+		where section.division_num = division.division_num and division.category_num = category.category_num
+		and section_num = #{num}
     </select>
 </mapper>

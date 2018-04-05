@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.dgit.domain.CategoryVO;
 import com.dgit.domain.DivisionVO;
 import com.dgit.domain.SectionVO;
+import com.dgit.domain.TypeInfo;
 import com.dgit.domain.UserVO;
 
 @Repository
@@ -44,6 +45,11 @@ public class SectionDaoImpl implements SectionDao {
 	@Override
 	public List<SectionVO> selectAll() throws Exception {
 		return sqlSession.selectList(NAMESPACE + ".selectAll");
+	}
+
+	@Override
+	public TypeInfo getTypeNum(int num) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".getTypeNum", num);
 	}
 
 	

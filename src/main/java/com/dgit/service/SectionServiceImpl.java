@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dgit.domain.SectionVO;
+import com.dgit.domain.TypeInfo;
 import com.dgit.persistence.SectionDao;
 
 @Repository
@@ -40,5 +41,10 @@ public class SectionServiceImpl implements SectionService {
 	@Override
 	public List<SectionVO> selectAll() throws Exception {
 		return dao.selectAll();
+	}
+
+	@Override
+	public TypeInfo getTypeNum(int num) throws Exception {
+		return dao.getTypeNum(num);
 	}
 }

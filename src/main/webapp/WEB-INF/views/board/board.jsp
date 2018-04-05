@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../include/header.jsp"/>
 <style>
 /* ---------------------------------------------------
@@ -54,7 +55,20 @@
 <section id="boardSection">
 	<div id="boardContainer">
 		<div id="boardLeftNav">
-		
+			<c:if test="${typeInfo != null }">
+				<ul>
+					<li>${typeInfo.categoryName }</li>
+					<li>${typeInfo.divisionName }
+						<ul>
+							<c:if test="${section != null }">
+								<c:forEach var="section" items="section">
+									
+								</c:forEach>
+							</c:if>
+						</ul>
+					</li>
+				</ul>
+			</c:if>
 		</div>
 		<div id="boardContent">
 			
