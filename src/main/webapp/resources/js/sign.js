@@ -55,6 +55,7 @@ $(function(){
 	
 	})
 	
+	// 회원가입 예외 처리 함수
 	function checkPattern(input, index){
 		var value = input.val();
 		var pattern = null;

@@ -1,4 +1,5 @@
 $(function(){
+	// 로그인 처리
 	$("#loginModal img:eq(1)").click(function(){
 		var userId = $("#loginId").val();
 		var userPw = $("#loginPw").val();
@@ -28,6 +29,7 @@ $(function(){
 		})
 	})
 	
+	// nav 버튼 처리
 	$("#cartBtn").click(function(){
 		
 	})
@@ -39,4 +41,34 @@ $(function(){
 	$("#navText").click(function(){
 		
 	})
+	
+	$("#loginNameA").click(function(){
+		var css = $("#loginMenu").css("display");
+		if(css == "none"){
+			$("#loginMenu").css("display", "block");
+		}else{
+			$("#loginMenu").css("display", "none");
+		}
+		
+	})
+	
+	
+	// 메뉴 hover 처리
+	var target = null;
+	$("#secondNavSecondDiv li").hover(function(){
+		target = $(this).attr("data-hover");
+		$("nav[class~=" + target + "]").css("display", "block");
+	}, function(){
+		$("nav[class~=" + target + "]").css("display", "none");
+	})
+	
+	$("nav[class*=category]").mouseover(function(){
+		$("nav[class~=" + target + "]").css("display", "block");
+	})
+	
+	$("nav[class*=category]").mouseout(function(){
+		$("nav[class~=" + target + "]").css("display", "none");
+	})
+	
+	
 })

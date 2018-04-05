@@ -26,6 +26,7 @@
 </head>
 <body>
 
+<!-- 최상단 nav -->
 <nav class="navbar navbar-inverse navbar-fixed-top TopNav"> 
   <div class="container-fluid">
     <div class="navbar-header">
@@ -61,17 +62,44 @@
     			<li><a data-toggle="modal" data-target="#loginModal">로그인</a></li>
       		</c:when>
       		<c:otherwise>
-      			<li><a data-toggle="modal" data-target="#loginModal" id="loginUserName">${login.name }</a></li>
+      			<li><a href="#" id="loginNameA">${login.name }</a></li>
       		</c:otherwise>
       	</c:choose>
     	
-        <li><a href="#">고객센터</a></li>
+    	<!-- 반응형 메뉴 처리 -->
+    	<c:if test="${category != null }">
+    		<c:forEach var="category" items="${category }">
+    			<li class="mobileCategory"><a href="#">${category.categoryName }</a></li>
+    			<c:if test="${division != null }">
+    				<c:forEach var="division" items="${division }">
+    					<li class="dropdown mobileDropdown">
+    					<c:if test="${category.categoryNum == division.category.categoryNum }">
+    						<a class="dropdown-toggle mobileDropdownA" data-toggle="dropdown" href="#">${division.divisionName }
+				       		<span class="caret"></span></a>
+    						<c:if test="${section != null }">
+    							<ul class="dropdown-menu">
+    							<c:forEach var="section" items="${section }">
+    								<c:if test="${division.divisionNum == section.division.divisionNum }">
+										<li><a href="#">${section.sectionName }</a></li>
+									</c:if>		
+    							</c:forEach>
+    							</ul>
+    						</c:if>
+    					</c:if>
+    					  </li>
+   					</c:forEach>
+				</c:if>
+    		</c:forEach>
+    	</c:if>
+    	    	
+        <li><a href="#" class="mobileNavBack">고객센터</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
       </ul>
     </div>
    </div>
 </nav>
 
+<!-- 두번쨰 nav -->
 <nav class="navbar navbar-inverse navbar-fixed-top" id="secondNav">
   <div class="container-fluid">
     <div class="row">
@@ -84,8 +112,11 @@
 	  
 	  <div class="col-md-9 col-sm-8" id="secondNavSecondDiv">
 	  	 <ul class="nav navbar-nav">
-	      <li><a href="#">농산물</a></li>
-	      <li><a href="#">수산물</a></li>
+	  	 	<c:if test="${category != null }">
+	  	 		<c:forEach var="category" items="${category }">
+	  	 			 <li data-hover="category${category.categoryNum }"><a href="#">${category.categoryName}</a></li>	
+	  	 		</c:forEach>
+	  	 	</c:if>
 		</ul>
 	  </div>
 	  
@@ -106,6 +137,36 @@
    </div>
 </nav>
 
+<!-- hover nav -->
+<c:if test="${category != null }">
+	<c:forEach var="category" items="${category }">
+	   <nav class="navbar navbar-inverse navbar-fixed-top hoverNav category${category.categoryNum }">
+		  <div class="container-fluid">
+		    	<ul class="nav navbar-nav hoverUl">
+		    		<c:if test="${division != null }">
+		    			<c:forEach var="division" items="${division}">
+			    			<c:if test="${category.categoryNum == division.category.categoryNum }">
+			    				<li class="divisionLi"><a href="#" class="divisionA">${division.divisionName }</a>
+			    					<c:if test="${section != null }">
+			    						<ul>
+			    							<c:forEach var="section" items="${section }">
+												<c:if test="${division.divisionNum == section.division.divisionNum }">
+													<li><a href="#" class="sectionA">${section.sectionName }</a></li>
+												</c:if>		    							
+			    							</c:forEach>
+			    						</ul>
+			    					</c:if>
+			    				</li>	
+			    			</c:if>
+		    			</c:forEach>
+		    		</c:if>
+				</ul>
+		   </div>
+		</nav>	
+	</c:forEach>
+</c:if>
+
+<!-- 로그인 modal -->
 <div id="loginModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -147,3 +208,12 @@
   </div>
 </div>
 
+<!-- 로그인 시 메뉴 -->
+<div id="loginMenu">
+	<ul>
+		<li><a href="#">마이페이지</a></li>
+		<li><a href="${pageContext.request.contextPath }/loginOut">로그아웃</a></li>
+	</ul>
+</div>
+
+	  	 			

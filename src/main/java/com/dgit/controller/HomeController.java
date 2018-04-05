@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dgit.domain.CategoryVO;
+import com.dgit.domain.DivisionVO;
+import com.dgit.domain.SectionVO;
 import com.dgit.service.CategoryService;
 import com.dgit.service.DivisionService;
 import com.dgit.service.SectionService;
@@ -23,11 +25,11 @@ public class HomeController {
 	@Autowired
 	private CategoryService categoryService;
 	
-	/*@Autowired
+	@Autowired
 	private DivisionService divisionService;
 	
 	@Autowired
-	private SectionService sectionService;*/
+	private SectionService sectionService;
 	
 	
 	@RequestMapping(value = {"/", "/main"}, method = RequestMethod.GET)
@@ -35,13 +37,12 @@ public class HomeController {
 		
 		try {
 			List<CategoryVO> category = categoryService.selectAll(); 
-			
-			for(CategoryVO c : category){
-				logger.info("info : " + c.getCategoryName());
-			}
-			
+			List<DivisionVO> division = divisionService.selectAll(); 
+			List<SectionVO> section = sectionService.selectAll(); 
 			
 			model.addAttribute("category", category);
+			model.addAttribute("division", division);
+			model.addAttribute("section", section);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
