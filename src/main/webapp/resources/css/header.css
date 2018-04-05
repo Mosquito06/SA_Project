@@ -134,6 +134,10 @@ nav[class~=hoverNav] li[class~=divisionLi]{
 	min-height: 200px;
 }
 
+nav[class~=hoverNav] li[class~=divisionLi]:FIRST-CHILD{
+	border-left: none !important;;
+}
+
 .divisionA{
 	color: black !important;
 	font-size: 15px;

@@ -55,6 +55,7 @@ $(function(){
 	
 	// 메뉴 hover 처리
 	var target = null;
+	
 	$("#secondNavSecondDiv li").hover(function(){
 		target = $(this).attr("data-hover");
 		$("nav[class~=" + target + "]").css("display", "block");
