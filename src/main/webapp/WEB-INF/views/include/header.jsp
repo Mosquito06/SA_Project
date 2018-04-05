@@ -182,6 +182,7 @@
 				  <label for="id">아이디</label>
 				  <input type="text" class="form-control" id="loginId" name="id" placeholder="아이디">
 				  <input type="hidden" name="path" value="${pageContext.request.requestURI }">
+				  <input type="hidden" name="query" value="${pageContext.request.queryString }">
 				</div>
 				
 				<div class="form-group">

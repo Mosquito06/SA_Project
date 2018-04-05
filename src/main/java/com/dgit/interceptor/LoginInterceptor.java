@@ -22,12 +22,18 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		
 		Object object = modelAndView.getModel().get("login");
 		Object object2 = modelAndView.getModel().get("path");
+		Object object3 = modelAndView.getModel().get("query");
 		HttpSession session = request.getSession();
 		
 		if(object != null){
 			UserVO user = (UserVO) object;
 			session.setAttribute("login", user);
 			String path = (String) object2;
+			
+			if(object3 != null){
+				String query = (String) object3;
+				path = path + query;
+			}
 						
 			response.sendRedirect(request.getContextPath() + "/" + path);
 		}

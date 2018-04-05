@@ -52,15 +52,21 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
-	public String login(UserVO user, String path, Model model){
+	public String login(UserVO user, String path, String query, Model model){
 		String[] pathUpdate = path.split("/");
 		String finalPath = pathUpdate[pathUpdate.length - 1].substring(0, pathUpdate[pathUpdate.length - 1].indexOf("."));
+		logger.info("query = " + query);
 		
 		try {
 			UserVO loginUser = userService.selectUserByIdAndPw(user);
 			
 			model.addAttribute("login", loginUser);
 			model.addAttribute("path", finalPath);
+			
+			if(query != null || query != ""){
+				query = "?" + query;
+				model.addAttribute("query", query);
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
