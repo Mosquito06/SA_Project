@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.persistence.BoardContentDao">
+    
+    <resultMap type="BoardContentVO" id="boardContentResult">
+        <result property="boardNum.boardNum" column="board_num"/>
+        <result property="boardContent" column="board_content"/>
+    </resultMap>    
+    
+	<insert id="insert">
+	    insert into board_content values(#{boardNum.boardNum}, #{boardContent})
+	</insert>
+	
+	<delete id="delete">
+	    delete from board_content where board_num = #{boardNum.boardNum}
+	</delete>
+    
+	<update id="update">
+	    update board_content set board_content = #{boardContent} where board_num = #{boardNum.boardNum}
+	</update>
+    
+	<select id="selectAll" resultMap="boardContentResult">
+	   select * from board_content
+	</select>
+    
+	<select id="selectboardContentByBoardNum" resultMap="boardContentResult">
+	    select * from board_content where board_num = #{num} 
+	</select>
+
+</mapper>

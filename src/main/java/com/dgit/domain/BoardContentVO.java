@@ -1,10 +1,10 @@
 package com.dgit.domain;
 
-public class BoardContent {
+public class BoardContentVO {
 	private BoardVO boardNum;
 	private String boardContent;
 
-	public BoardContent() {
+	public BoardContentVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

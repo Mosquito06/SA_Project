@@ -40,7 +40,7 @@
 			</div>
 			<div id="ContentBottomDiv">
 				<ul>
-					<c:forEach begin="1" end="30">
+					<c:forEach begin="1" end="20">
 						<li class="boardLi">
 							<div class="boardTop">
 								<a href="#"><img src="${pageContext.request.contextPath }/resources/img/sample.JPG"></a>

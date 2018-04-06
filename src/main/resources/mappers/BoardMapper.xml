@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.persistence.BoardDao">
+    <resultMap type="BoardVO" id="boardResult">
+        <result property="boardNum" column="board_num"/>
+        <result property="boardTitle" column="board_title"/>
+        <result property="boardDate" column="board_date"/>
+        <result property="boardUpdate" column="board_update"/>
+        <result property="boardCount" column="board_count"/>
+        <result property="boardTotalCount" column="board_total_count"/>
+        <result property="clientNum.clientNum" column="client_num"/>
+        <result property="sectionNum.sectionNum" column="section_num"/>
+    </resultMap>    
+    
+	<insert id="insert">
+	    insert into board(board_title, client_num, section_num) values (#{boardTitle}, #{clientNum.clientNum}, #{sectionNum.sectionNum})
+	</insert>
+	
+	<delete id="delete">
+	    delete from board where board_num = #{boardNum}
+	</delete>
+    
+	<update id="update">
+	    update board set board_title = #{boardTitle}, board_update = #{boardUpdate}, board_count = #{boardCount}, 
+	    board_total_count = #{boardTotalCount} where board_num = #{boardNum}
+	</update>
+    
+	<select id="selectAll" resultMap="boardResult">
+	    select * from board
+	</select>
+    
+	<select id="selectBoardByBoardNum" resultMap="boardResult">
+	    select * from board where board_num = #{num}
+	</select>
+	
+	<select id="selectBoardBySectionNum" resultMap="boardResult">
+	    select * from board where section_num = #{num}
+	</select>
+</mapper>

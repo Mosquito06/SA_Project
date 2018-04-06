@@ -2,13 +2,13 @@ package com.dgit.domain;
 
 import java.util.Date;
 
-public class AddFile {
+public class AddFileVO {
 	private int fileNum;
 	private String filePath;
 	private Date regDate;
 	private BoardVO boardNum;
 
-	public AddFile() {
+	public AddFileVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

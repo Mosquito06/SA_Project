@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.persistence.BoardContentDao">
+    
+    <resultMap type="AddFileVO" id="addFileResult">
+        <result property="fileNum" column="file_num"/>
+        <result property="filePath" column="file_path"/>
+        <result property="regDate" column="regdate"/>
+        <result property="boardNum.boardNum" column="board_num"/>
+    </resultMap>    
+    
+	<insert id="insert">
+	    insert into add_File(file_path, board_num) values(#{filePath}, #{boardNum.boardNum})
+	</insert>
+	
+	<delete id="delete">
+	    delete from add_File where file_num = #{fileNum}
+	</delete>
+    
+	<update id="update">
+	    update add_File set file_path = #{filePath}, regdate = #{regDate} where file_num = #{fileNum}
+	</update>
+    
+	<select id="selectAll" resultMap="addFileResult">
+	   select * from add_File
+	</select>
+    
+	<select id="selectAddFileByBoardNum" resultMap="addFileResult">
+	    select * from add_File where board_num = #{num} 
+	</select>
+
+</mapper>
