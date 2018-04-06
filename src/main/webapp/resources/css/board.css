@@ -17,7 +17,6 @@
 	#boardContent{
 		float: right;
 		width: 85%;
-		border: 1px solid black;
 		min-height: 700px;
 	}
 	
@@ -58,10 +57,15 @@
 		font-size: 23px;
 		font-weight: bold;
 		margin: 5% 0 2% 2%;
+		width: 93%; 
 	}
 	
 	#ContentTopText span{
 		color: #999;
+	}
+	
+	#ContentTopText button{
+		float: right;
 	}
 	
 	#ContentBottomDiv{
@@ -77,10 +81,40 @@
 		list-style: none;
 		float: left;
 		width: 220px;
-		height: 300px;
-		border: 1px solid black;
 		margin: 1%;
+		cursor: pointer;
 	}
+	
+	#ContentBottomDiv .boardLi:hover{
+		border: 1px solid #ccc;
+	}
+	
+	#ContentBottomDiv .boardLi .boardTop img{
+		width: 100%;
+	}
+	
+	#ContentBottomDiv .boardLi .boardCountDiv{
+		font-size: 11px;
+		font-weight: bold;
+		width: 90%;
+		border-bottom: 1px solid #ccc;
+		margin: 0 auto;
+		padding: 5px;
+	}
+	
+	#ContentBottomDiv .boardLi .boardCountDiv span.viewCount{
+		float: right;
+	}
+	
+	#ContentBottomDiv .boardLi .boardTextDiv{
+		padding: 10px;
+	}
+	
+	#ContentBottomDiv .boardLi .boardBottom{
+		font-size: 12px;
+		font-weight: bold;
+	}
+
 	
 	#ContentPagingDiv{
 		clear: both;
@@ -89,6 +123,8 @@
 		border: 1px solid black;
 		margin: 0 auto;
 	}
+	
+	
 
 
 /* ---------------------------------------------------
