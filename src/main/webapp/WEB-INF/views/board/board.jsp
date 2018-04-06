@@ -75,11 +75,32 @@
 }
 
 @media screen and (max-width: 700px){
+	#boardLeftNav{
+		display: none;
+	}
 	
+	#boardContainer{
+		margin: 55px auto 0 !important;
+	}
+	
+	#boardContent{
+		width: 100% !important;
+	}
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px){
+	#boardLeftNav > ul{
+		padding-left: 10px;
+	}
 	
+	#boardLeftNav > ul > li:FIRST-CHILD{ 
+		font-size: 18px !important;
+		width: 80% !important;		
+	}
+	
+	#boardLeftNav > ul li ul{
+		padding-left: 20px;
+	}
 }
 </style>
 
