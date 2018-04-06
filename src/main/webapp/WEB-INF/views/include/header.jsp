@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?a=da">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sign.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/complete.css?a=da">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css?a=a">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css?a=da">
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 	// js 파일에서는 el을 못쓰기 때문에 contextPath를 미리 받아둔 변수를 선언해둠
