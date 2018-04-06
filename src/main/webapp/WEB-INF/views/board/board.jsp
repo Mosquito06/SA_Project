@@ -2,108 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../include/header.jsp"/>
-<style>
-/* ---------------------------------------------------
-   CONTENT
------------------------------------------------------ */
-	
+<script>
+	$(function(){
+		$("#searchBtn").css("padding", "6 9");
+	})
 
-	#boardSection{
-		min-height: 700px;
-	}
-	
-	
-	#boardContainer{
-		width: 100%;
-		min-height: 700px;
-		margin: 131px auto 0;
-	}
-	
-	#boardLeftNav{
-		float: left;
-		width: 15%;
-		min-height: 700px;
-	}
-	
-	#boardContent{
-		float: right;
-		width: 85%;
-		border: 1px solid black;
-		min-height: 700px;
-	}
-	
-	#boardLeftNav li{
-		list-style: none;
-		padding: 5px;
-	}
-	
-	#boardLeftNav > ul > li:FIRST-CHILD{ 
-		margin-top: 20%;
-		font-weight: bold;
-		font-size: 25px;
-		width: 90%;
-		border-bottom: 1px solid #ccc;
-		
-	}
-	
-	#boardLeftNav > ul > li{ 
-		margin: 5% 0 5% 0;
-	}
-	
-	#boardLeftNav a{
-		text-decoration: none;
-		color: black;
-		font-size: 13px;
-	}
-	
-	#boardLeftNav a:HOVER{
-		font-weight: bold;
-	}
-	
-	.selectMenu{
-		font-weight: bold;
-		font-size: 15px !important;
-	}
-
-
-/* ---------------------------------------------------
-   MEDIAQUERIES
------------------------------------------------------ */
-@media screen and (max-width: 320px){
-	
-
-}
-
-@media screen and (max-width: 700px){
-	#boardLeftNav{
-		display: none;
-	}
-	
-	#boardContainer{
-		margin: 55px auto 0 !important;
-	}
-	
-	#boardContent{
-		width: 100% !important;
-	}
-}
-
-@media screen and (min-width: 767px) and (max-width: 1023px){
-	#boardLeftNav > ul{
-		padding-left: 10px;
-	}
-	
-	#boardLeftNav > ul > li:FIRST-CHILD{ 
-		font-size: 18px !important;
-		width: 80% !important;		
-	}
-	
-	#boardLeftNav > ul li ul{
-		padding-left: 20px;
-	}
-}
-</style>
-
+</script>
 <section id="boardSection">
 	<div id="boardContainer">
 		<div id="boardLeftNav">
@@ -124,7 +28,10 @@
 			</c:if>
 		</div>
 		<div id="boardContent">
-			
+			<c:if test="${typeInfo.bannerFile != null }">
+				<img src="${pageContext.request.contextPath }/resources/img/board/${typeInfo.bannerFile}">
+			</c:if>
+				
 			
 		</div>
 	</div>

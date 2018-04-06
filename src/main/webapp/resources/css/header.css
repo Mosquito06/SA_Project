@@ -8,6 +8,7 @@ nav[class~='TopNav']{
 	border: none !important;
 	border-bottom: 1px solid #e5e5e5 !important;
 	margin-bottom: 0 !important;
+	z-index: 9999;
 }
 
 #logoBtn{
@@ -109,9 +110,9 @@ li.mobileCategory, li[class~=mobileDropdown]{
 	margin-top: 10px !important;
 }
 
-#secondNavThirdDiv .btn{
-	padding: 9px !important;
-}
+/* #secondNavThirdDiv #searchBtn{
+	padding: 9px 12px !important;
+} */
 
 nav[class~=hoverNav]{
 	background-color: white !important;

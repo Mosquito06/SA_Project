@@ -1,4 +1,6 @@
 $(function(){
+	$("#searchBtn").css("padding", "9 12");
+	
 	// 로그인 처리
 	$("#loginModal img:eq(1)").click(function(){
 		var userId = $("#loginId").val();

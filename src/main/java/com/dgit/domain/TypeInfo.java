@@ -4,6 +4,7 @@ public class TypeInfo {
 	private int sectionNum;
 	private int divisionNum;
 	private String divisionName;
+	private String bannerFile;
 	private String categoryName;
 
 	public TypeInfo() {
@@ -43,10 +44,18 @@ public class TypeInfo {
 		this.categoryName = categoryName;
 	}
 
+	public String getBannerFile() {
+		return bannerFile;
+	}
+
+	public void setBannerFile(String bannerFile) {
+		this.bannerFile = bannerFile;
+	}
+
 	@Override
 	public String toString() {
 		return "TypeInfo [sectionNum=" + sectionNum + ", divisionNum=" + divisionNum + ", divisionName=" + divisionName
-				+ ", categoryName=" + categoryName + "]";
+				+ ", bannerFile=" + bannerFile + ", categoryName=" + categoryName + "]";
 	}
 
 }

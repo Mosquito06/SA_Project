@@ -8,12 +8,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=D">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=dD">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/footer.css?a=dd">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/main.css?a=d">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?a=da">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sign.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/complete.css?a=da">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css?a=a">
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 	// js 파일에서는 el을 못쓰기 때문에 contextPath를 미리 받아둔 변수를 선언해둠
@@ -22,7 +23,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/sign.js?a=a"></script>
-<script src="${pageContext.request.contextPath }/resources/js/header.js?a=a"></script>
+<script src="${pageContext.request.contextPath }/resources/js/header.js?a=da"></script>
 </head>
 <body>
 
@@ -125,7 +126,7 @@
 		  <div class="input-group">
 		    <input type="text" class="form-control" placeholder="Search">
 		    <div class="input-group-btn">
-		      <button class="btn btn-default" type="submit">
+		      <button class="btn btn-default" type="submit" id="searchBtn">
 		        <i class="glyphicon glyphicon-search"></i>
 		      </button>
 		    </div>
