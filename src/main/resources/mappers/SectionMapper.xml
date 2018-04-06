@@ -11,6 +11,7 @@
      <resultMap type="TypeInfo" id="resultTypeInfo">
         <result property="sectionNum" column="section_num"/>
     	<result property="divisionNum" column="division_num"/>
+    	<result property="sectionName" column="section_name"/>
     	<result property="divisionName" column="division_name"/>
     	<result property="bannerFile" column="banner_pic"/>
     	<result property="categoryName" column="category_name"/>
@@ -37,7 +38,7 @@
     </select>
     
     <select id="getTypeNum" resultMap="resultTypeInfo">
-        select section_num, division.division_num, division.division_name, division.banner_pic, category.category_name from section, division, category 
+        select section_num, section_name, division.division_num, division.division_name, division.banner_pic, category.category_name from section, division, category 
 		where section.division_num = division.division_num and division.category_num = category.category_num
 		and section_num = #{num}
     </select>

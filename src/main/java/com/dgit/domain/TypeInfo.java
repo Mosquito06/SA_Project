@@ -3,6 +3,7 @@ package com.dgit.domain;
 public class TypeInfo {
 	private int sectionNum;
 	private int divisionNum;
+	private String sectionName;
 	private String divisionName;
 	private String bannerFile;
 	private String categoryName;
@@ -52,10 +53,19 @@ public class TypeInfo {
 		this.bannerFile = bannerFile;
 	}
 
+	public String getSectionName() {
+		return sectionName;
+	}
+
+	public void setSectionName(String sectionName) {
+		this.sectionName = sectionName;
+	}
+
 	@Override
 	public String toString() {
-		return "TypeInfo [sectionNum=" + sectionNum + ", divisionNum=" + divisionNum + ", divisionName=" + divisionName
-				+ ", bannerFile=" + bannerFile + ", categoryName=" + categoryName + "]";
+		return "TypeInfo [sectionNum=" + sectionNum + ", divisionNum=" + divisionNum + ", sectionName=" + sectionName
+				+ ", divisionName=" + divisionName + ", bannerFile=" + bannerFile + ", categoryName=" + categoryName
+				+ "]";
 	}
 
 }

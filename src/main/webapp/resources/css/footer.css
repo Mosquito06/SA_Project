@@ -4,6 +4,7 @@
 #footerFirstDiv{
 	background-color: #111;
 	border-bottom: 1px solid #444 !important;
+	clear: both;
 }
 
 #footerFirstDiv > div{
