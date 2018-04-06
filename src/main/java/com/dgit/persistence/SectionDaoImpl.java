@@ -48,7 +48,7 @@ public class SectionDaoImpl implements SectionDao {
 	}
 
 	@Override
-	public TypeInfo getTypeNum(int num) throws Exception {
+	public TypeInfo getTypeInfo(int num) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + ".getTypeNum", num);
 	}
 

@@ -11,6 +11,6 @@ public interface SectionService {
 	public void deleteSection(SectionVO category) throws Exception;
 	public List<SectionVO> selectByDivisionNum(int num) throws Exception;
 	public List<SectionVO> selectAll() throws Exception;
-	public TypeInfo getTypeNum(int num) throws Exception;
+	public TypeInfo getTypeInfo(int num) throws Exception;
 	
 }

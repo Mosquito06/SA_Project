@@ -17,13 +17,11 @@
 		width: 100%;
 		min-height: 700px;
 		margin: 131px auto 0;
-		border: 1px solid black;
 	}
 	
 	#boardLeftNav{
 		float: left;
 		width: 15%;
-		border: 1px solid black;
 		min-height: 700px;
 	}
 	
@@ -32,6 +30,39 @@
 		width: 85%;
 		border: 1px solid black;
 		min-height: 700px;
+	}
+	
+	#boardLeftNav li{
+		list-style: none;
+		padding: 5px;
+	}
+	
+	#boardLeftNav > ul > li:FIRST-CHILD{ 
+		margin-top: 20%;
+		font-weight: bold;
+		font-size: 25px;
+		width: 90%;
+		border-bottom: 1px solid #ccc;
+		
+	}
+	
+	#boardLeftNav > ul > li{ 
+		margin: 5% 0 5% 0;
+	}
+	
+	#boardLeftNav a{
+		text-decoration: none;
+		color: black;
+		font-size: 13px;
+	}
+	
+	#boardLeftNav a:HOVER{
+		font-weight: bold;
+	}
+	
+	.selectMenu{
+		font-weight: bold;
+		font-size: 15px !important;
 	}
 
 
@@ -60,9 +91,10 @@
 					<li>${typeInfo.categoryName }</li>
 					<li>${typeInfo.divisionName }
 						<ul>
-							<c:if test="${section != null }">
-								<c:forEach var="section" items="section">
-									
+							<c:if test="${leftSection != null }">
+								<c:forEach var="section" items="${leftSection }">
+									<li><a href="${pageContext.request.contextPath }/board?sectionNum=${section.sectionNum}" ${section.sectionNum == sectionNum? 'class=selectMenu' : '' }>
+									${section.sectionName }</a></li>
 								</c:forEach>
 							</c:if>
 						</ul>

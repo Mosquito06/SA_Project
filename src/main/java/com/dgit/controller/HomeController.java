@@ -35,17 +35,16 @@ public class HomeController {
 	
 	
 	@RequestMapping(value = {"/", "/main"}, method = RequestMethod.GET)
-	public String goMain(HttpServletRequest request) {
+	public String goMain(Model model) {
 		
 		try {
 			List<CategoryVO> category = categoryService.selectAll(); 
 			List<DivisionVO> division = divisionService.selectAll(); 
 			List<SectionVO> section = sectionService.selectAll(); 
 			
-			request.getSession().setAttribute("category", category);
-			request.getSession().setAttribute("division", division);
-			request.getSession().setAttribute("section", section);
-			
+			model.addAttribute("category", category);
+			model.addAttribute("division", division);
+			model.addAttribute("section", section);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -44,7 +44,7 @@ public class SectionServiceImpl implements SectionService {
 	}
 
 	@Override
-	public TypeInfo getTypeNum(int num) throws Exception {
-		return dao.getTypeNum(num);
-	}
+	public TypeInfo getTypeInfo(int num) throws Exception {
+		return dao.getTypeInfo(num);
+	} 
 }
