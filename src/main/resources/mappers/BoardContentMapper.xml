@@ -8,7 +8,7 @@
     </resultMap>    
     
 	<insert id="insert">
-	    insert into board_content values(#{boardNum.boardNum}, #{boardContent})
+	    insert into board_content values (#{boardNum.boardNum}, #{boardContent})
 	</insert>
 	
 	<delete id="delete">
@@ -16,15 +16,15 @@
 	</delete>
     
 	<update id="update">
-	    update board_content set board_content = #{boardContent} where board_num = #{boardNum.boardNum}
+	    update board set board_content = #{boardContent} where board_num = #{boardNum.boardNum}
 	</update>
     
 	<select id="selectAll" resultMap="boardContentResult">
-	   select * from board_content
+	    select * from board_content
 	</select>
     
 	<select id="selectboardContentByBoardNum" resultMap="boardContentResult">
-	    select * from board_content where board_num = #{num} 
+	    select * from board_content where board_num = #{num}
 	</select>
 
 </mapper>
