@@ -1,5 +1,6 @@
 package com.dgit.persistence;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dgit.domain.BoardVO;
+import com.dgit.domain.Criteria;
 
 @Repository
 public class BoardDaoImple implements BoardDao {
@@ -45,8 +47,12 @@ public class BoardDaoImple implements BoardDao {
 	}
 
 	@Override
-	public List<BoardVO> selectBoardBySectionNum(int num) throws Exception {
-		return sqlSession.selectList(NAMESPACE + ".selectBoardBySectionNum", num);
+	public List<BoardVO> selectBoardBySectionNum(int num, Criteria cri) throws Exception {
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("num", num);
+		map.put("cri", cri);
+		
+		return sqlSession.selectList(NAMESPACE + ".selectBoardBySectionNum", map);
 	}
 
 }

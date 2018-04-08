@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dgit.persistence.UserDao">
+    
+    <resultMap type="UserVO" id="userResult">
+        <result property="clientNum" column="client_num"/>
+        <result property="id" column="id"/>
+        <result property="pw" column="pw"/>
+        <result property="name" column="name"/>
+        <result property="email" column="email"/>
+        <result property="phone" column="phone"/>
+        <result property="homeTel" column="home_tel"/>
+        <result property="address" column="address"/>
+        <result property="joinDate" column="join_date"/>
+        <result property="status" column="status"/>
+    </resultMap>   
+        
     <insert id="insertUser">
     	insert into user(id, pw, name, email, phone, home_tel, address, status) 
     	values (#{id}, password(#{pw}), #{name}, #{email}, #{phone}, #{homeTel}, #{address}, #{status})
@@ -19,7 +33,7 @@
         select * from user where id = #{id} and pw = password(#{pw})
     </select>
     
-    <select id="selectUserById" resultType="String">
+    <select id="selectUserById" resultType="UserVO">
         select * from user where id = #{id}
     </select>
 </mapper>

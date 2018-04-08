@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String selectUserById(String id) throws Exception {
+	public UserVO selectUserById(String id) throws Exception {
 		return dao.selectUserById(id);
 	}
 

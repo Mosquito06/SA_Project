@@ -6,7 +6,7 @@ public interface UserDao {
 	public void insertUser(UserVO user) throws Exception;
 	public void updateUser(UserVO user) throws Exception;
 	public void deleteUser(UserVO user) throws Exception;
-	public String selectUserById(String id) throws Exception; 
+	public UserVO selectUserById(String id) throws Exception; 
 	public UserVO selectUserByIdAndPw(UserVO user) throws Exception; 
 	
 }

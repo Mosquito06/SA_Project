@@ -1,6 +1,7 @@
 package com.dgit.domain;
 
 import java.util.Date;
+import java.util.List;
 
 public class BoardVO {
 	private int boardNum;
@@ -11,6 +12,7 @@ public class BoardVO {
 	private int boardTotalCount;
 	private UserVO clientNum;
 	private SectionVO sectionNum;
+	private List<AddFileVO> files;
 
 	public BoardVO() {
 		super();
@@ -81,11 +83,19 @@ public class BoardVO {
 		this.sectionNum = sectionNum;
 	}
 
+	public List<AddFileVO> getFiles() {
+		return files;
+	}
+
+	public void setFiles(List<AddFileVO> files) {
+		this.files = files;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardVO [boardNum=" + boardNum + ", boardTitle=" + boardTitle + ", boardDate=" + boardDate
 				+ ", boardUpdate=" + boardUpdate + ", boardCount=" + boardCount + ", boardTotalCount=" + boardTotalCount
-				+ ", clientNum=" + clientNum + ", sectionNum=" + sectionNum + "]";
+				+ ", clientNum=" + clientNum + ", sectionNum=" + sectionNum + ", files=" + files + "]";
 	}
 
 }

@@ -71,7 +71,7 @@ public class SignController {
 	@ResponseBody
 	public ResponseEntity<String> checkId(String id){
 		ResponseEntity<String> entity = null;
-		String checkId  = "";
+		UserVO checkId  = null;
 		
 		try{
 			checkId = userService.selectUserById(id);

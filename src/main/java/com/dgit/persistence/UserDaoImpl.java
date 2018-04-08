@@ -37,7 +37,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public String selectUserById(String id) throws Exception {
+	public UserVO selectUserById(String id) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + ".selectUserById", id);
 	}
 

@@ -28,7 +28,7 @@ public class LoginController {
 	@ResponseBody
 	public ResponseEntity<String> checkId(@RequestBody UserVO user){
 		ResponseEntity<String> entity = null;
-		String checkId  = "";
+		UserVO checkId  = null;
 
 		try{
 			checkId = userService.selectUserById(user.getId()); 

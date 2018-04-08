@@ -11,10 +11,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.dgit.domain.BoardVO;
 import com.dgit.domain.CategoryVO;
+import com.dgit.domain.Criteria;
 import com.dgit.domain.DivisionVO;
+import com.dgit.domain.SearchCriteria;
 import com.dgit.domain.SectionVO;
 import com.dgit.domain.TypeInfo;
+import com.dgit.service.BoardService;
 import com.dgit.service.CategoryService;
 import com.dgit.service.DivisionService;
 import com.dgit.service.SectionService;
@@ -32,8 +36,11 @@ public class BoardController {
 	@Autowired
 	private SectionService sectionService;
 	
+	@Autowired
+	private BoardService boardService;
+	
 	@RequestMapping(value="/board", method = RequestMethod.GET)
-	public String goBoard(@ModelAttribute("sectionNum") int sectionNum, Model model){
+	public String goBoard(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("cri") SearchCriteria cri, Model model){
 		
 		try {
 			List<CategoryVO> category = categoryService.selectAll(); 
@@ -43,12 +50,14 @@ public class BoardController {
 			model.addAttribute("category", category);
 			model.addAttribute("division", division);
 			model.addAttribute("section", section);
-		
+			
 			TypeInfo typeInfo = sectionService.getTypeInfo(sectionNum);
 			List<SectionVO> leftSection = sectionService.selectByDivisionNum(typeInfo.getDivisionNum());
+			List<BoardVO> boards = boardService.selectBoardBySectionNum(sectionNum, cri);
 			
 			model.addAttribute("typeInfo", typeInfo);
 			model.addAttribute("leftSection", leftSection);
+			model.addAttribute("boards", boards);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

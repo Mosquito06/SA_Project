@@ -40,24 +40,34 @@
 			</div>
 			<div id="ContentBottomDiv">
 				<ul>
-					<c:forEach begin="1" end="20">
-						<li class="boardLi">
-							<div class="boardTop">
-								<a href="#"><img src="${pageContext.request.contextPath }/resources/img/sample.JPG"></a>
-							</div>
-							<div class="boardBottom">
-								<div class="boardCountDiv">
-									<span class="totlaCount">총 주문수량 : 0</span>
-									<span class="viewCount">조회수 : 0</span>
+					<c:if test="${boards != null }">
+						<c:forEach var="item" items="${boards }">
+							<li class="boardLi">
+								<div class="boardTop">
+									<c:choose>
+										<c:when test="${item.files.size() > 0 }">
+											<a href="#"><img src="${pageContext.request.contextPath }/resources/img/sample.JPG"></a>
+										</c:when>
+										<c:otherwise>
+											<a href="#"><img src="${pageContext.request.contextPath }/resources/img/board/basicImg.jpg"></a>
+										</c:otherwise>
+									</c:choose>
+									
 								</div>
-								<div class="boardTextDiv">
-									<span class="boardInputDate">등록날짜 : <%-- <fmt:formatDate value="2018-04-06 14:06:31" pattern="yyyy-MM-dd"/> --%> 2018-04-06 </span><br>
-									<span class="boardTitle">제목 : 게시물 테스트 중</span><br>
-									<span class="boardWriter">김동환(skykim10908)</span>
+								<div class="boardBottom">
+									<div class="boardCountDiv">
+										<span class="totlaCount">총 주문수량 : ${item.boardTotalCount }</span>
+										<span class="viewCount">조회수 : ${item.boardCount }</span>
+									</div>
+									<div class="boardTextDiv">
+										<span class="boardInputDate">등록날짜 : <fmt:formatDate value="${item.boardDate }" pattern="yyyy-MM-dd"/> </span><br>
+										<span class="boardTitle">제목 : ${item.boardTitle }</span><br>
+										<span class="boardWriter">등록 : ${item.clientNum.name }</span>
+									</div>
 								</div>
-							</div>
-						</li>
-					</c:forEach>
+							</li>
+						</c:forEach>
+					</c:if>
 				</ul>
 			</div>
 			<div id="ContentPagingDiv">
