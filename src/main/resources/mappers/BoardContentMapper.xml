@@ -16,7 +16,7 @@
 	</delete>
     
 	<update id="update">
-	    update board set board_content = #{boardContent} where board_num = #{boardNum.boardNum}
+	    update board_content set board_content = #{boardContent} where board_num = #{boardNum.boardNum}
 	</update>
     
 	<select id="selectAll" resultMap="boardContentResult">

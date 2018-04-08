@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.persistence.ReplyDao">
+    
+    <resultMap type="ReplyVO" id="replyResult">
+        <result property="replyNum" column="reply_num"/>
+        <result property="replyContent" column="reply_content"/>
+        <result property="replyTime" column="reply_time"/>
+        <result property="replyWriter" column="reply_writer"/>
+        <result property="boardNum.boardNum" column="board_num"/>
+    </resultMap>    
+    
+	<insert id="insert">
+	    insert into reply(reply_content, reply_writer, board_num) 
+	    values (#{replyContent}, #{replyWriter}, #{boardNum.boardNum})
+	</insert>
+	
+	<delete id="delete">
+	    delete from reply where reply_num = #{replyNum}
+	</delete>
+    
+	<update id="update">
+	    update reply set reply_content = #{replyContent}, reply_time = #{replyTime}
+	    where reply_num = #{replyNum}
+	</update>
+    
+	<select id="selectAll" resultMap="replyResult">
+	    select * from reply
+	</select>
+    
+	<select id="selectboardContentByBoardNum" resultMap="replyResult">
+	    select * from reply where board_num = #{num}
+	</select>
+
+</mapper>
