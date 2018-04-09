@@ -43,9 +43,9 @@
 	    select * from board
 	</select>
     
-	<select id="selectBoardByBoardNum" resultMap="boardResult">
-	    select * from board where board_num = #{num}
-	</select>
+	<select id="selectBoardByBoardNum" resultMap="boardJoinResult">
+	    select * from board, user where board.client_num = user.client_num and board_num = #{num}
+	</select> 
 	
 	<select id="selectBoardBySectionNum" resultMap="boardJoinResult">
 	    select * from board, user where board.client_num = user.client_num 

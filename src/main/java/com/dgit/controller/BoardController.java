@@ -83,6 +83,9 @@ public class BoardController {
 			model.addAttribute("category", category);
 			model.addAttribute("division", division);
 			model.addAttribute("section", section);
+			
+			BoardVO board = boardService.selectBoardByBoardNum(boardNum);
+			model.addAttribute("board", board);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
