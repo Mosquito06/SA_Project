@@ -70,4 +70,11 @@ public class BoardController {
 		
 		return "board/board";
 	}
+	
+	@RequestMapping(value="read", method= RequestMethod.GET)
+	public String read(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("cri") SearchCriteria cri, @ModelAttribute("boardNum") int boardNum, Model model){
+		
+		
+		return "board/read";
+	}
 }

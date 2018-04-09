@@ -5,7 +5,10 @@
 <jsp:include page="../include/header.jsp"/>
 <script>
 	$(function(){
-		
+		 $(".boardLi").click(function(){
+			var goLocation = $(this).attr("data-location");
+			location.href = goLocation;
+		 })  
 	})
 
 </script>
@@ -43,14 +46,14 @@
 					<c:choose>
 						<c:when test="${boards.size() > 0 }">
 							<c:forEach var="item" items="${boards }">
-								<li class="boardLi">
+								<li class="boardLi" data-location="${pageContext.request.contextPath }/read${pageMaker.makeQuery(pageMaker.cri.page)}&sectionNum=${sectionNum}&boardNum=${item.boardNum}">
 									<div class="boardTop">
 										<c:choose>
 											<c:when test="${item.files.size() > 0 }">
-												<a href="#"><img src="${pageContext.request.contextPath }/resources/img/sample.JPG"></a>
+												<img src="${pageContext.request.contextPath }/resources/img/sample.JPG">
 											</c:when>
 											<c:otherwise>
-												<a href="#"><img src="${pageContext.request.contextPath }/resources/img/board/basicImg.jpg"></a>
+												<img src="${pageContext.request.contextPath }/resources/img/board/basicImg.jpg">
 											</c:otherwise>
 										</c:choose>
 										
