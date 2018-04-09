@@ -34,7 +34,7 @@
 			</c:if>
 			<div id="ContentTopText">
 				<c:if test="${typeInfo.sectionName != null }">
-					${typeInfo.sectionName} <span>(게시물 갯수)</span>
+					${typeInfo.sectionName} <span>(${pageMaker.totalCount })</span>
 					<button type="button" class="btn btn-default">등록하기</button>
 				</c:if>
 			</div>
@@ -80,7 +80,7 @@
 			<div id="ContentPagingDiv">
 				<ul class="pagination">
 					<c:if test="${pageMaker.prev }">
-						<li><a href="${pageContext.request.contextPath }/board${pageMaker.makeQuery(pageMaker.startPage - 1)}&sectionNum=${sectionNum}">Previous</a></li>
+						<li><a href="${pageContext.request.contextPath }/board${pageMaker.makeQuery(pageMaker.startPage - 1)}&sectionNum=${sectionNum}">Prev</a></li>
 					</c:if>
 					<c:forEach var="page" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
 						<li ${pageMaker.cri.page == page? 'class=active' : "" }><a href="${pageContext.request.contextPath }/board${pageMaker.makeQuery(page)}&sectionNum=${sectionNum}">${page }</a></li>
