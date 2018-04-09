@@ -110,9 +110,14 @@
 		padding: 10px;
 	}
 	
-	#ContentBottomDiv .boardLi .boardBottom{
+	#ContentBottomDiv .boardLi .boardBottom .boardTitle{
 		font-size: 12px;
 		font-weight: bold;
+	}
+	
+	.boardInputDate, .boardWriter, .boardPrice{
+		font-size: 12px;
+		color: #666;
 	}
 	
 	.noneContentLi{

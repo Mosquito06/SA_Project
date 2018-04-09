@@ -8,13 +8,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=d">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=dD">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/footer.css?a=ddd">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/main.css?a=d">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?a=da">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sign.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/complete.css?a=da">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css?a=ds">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css?a=sa">
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 	// js 파일에서는 el을 못쓰기 때문에 contextPath를 미리 받아둔 변수를 선언해둠

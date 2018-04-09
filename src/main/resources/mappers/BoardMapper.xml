@@ -9,6 +9,7 @@
         <result property="boardUpdate" column="board_update"/>
         <result property="boardCount" column="board_count"/>
         <result property="boardTotalCount" column="board_total_count"/>
+        <result property="boardPrice" column="board_price"/>
         <result property="clientNum.clientNum" column="client_num"/>
         <result property="sectionNum.sectionNum" column="section_num"/>
     </resultMap>  
@@ -20,12 +21,13 @@
         <result property="boardUpdate" column="board_update"/>
         <result property="boardCount" column="board_count"/>
         <result property="boardTotalCount" column="board_total_count"/>
+        <result property="boardPrice" column="board_price"/>
         <result property="sectionNum.sectionNum" column="section_num"/>
         <association property="clientNum" resultMap="com.dgit.persistence.UserDao.userResult"/>
     </resultMap>   
     
 	<insert id="insert">
-	    insert into board(board_title, client_num, section_num) values (#{boardTitle}, #{clientNum.clientNum}, #{sectionNum.sectionNum})
+	    insert into board(board_title, board_price, client_num, section_num) values (#{boardTitle}, #{boardPrice}, #{clientNum.clientNum}, #{sectionNum.sectionNum})
 	</insert>
 	
 	<delete id="delete">
@@ -33,7 +35,7 @@
 	</delete>
     
 	<update id="update">
-	    update board set board_title = #{boardTitle}, board_update = #{boardUpdate}, board_count = #{boardCount}, 
+	    update board set board_title = #{boardTitle}, board_price = #{boardPrice}, board_update = #{boardUpdate}, board_count = #{boardCount}, 
 	    board_total_count = #{boardTotalCount} where board_num = #{boardNum}
 	</update>
     

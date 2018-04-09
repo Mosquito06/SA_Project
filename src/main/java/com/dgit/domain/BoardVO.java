@@ -10,6 +10,7 @@ public class BoardVO {
 	private Date boardUpdate;
 	private int boardCount;
 	private int boardTotalCount;
+	private int boardPrice;
 	private UserVO clientNum;
 	private SectionVO sectionNum;
 	private List<AddFileVO> files;
@@ -91,11 +92,20 @@ public class BoardVO {
 		this.files = files;
 	}
 
+	public int getBoardPrice() {
+		return boardPrice;
+	}
+
+	public void setBoardPrice(int boardPrice) {
+		this.boardPrice = boardPrice;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardVO [boardNum=" + boardNum + ", boardTitle=" + boardTitle + ", boardDate=" + boardDate
 				+ ", boardUpdate=" + boardUpdate + ", boardCount=" + boardCount + ", boardTotalCount=" + boardTotalCount
-				+ ", clientNum=" + clientNum + ", sectionNum=" + sectionNum + ", files=" + files + "]";
+				+ ", boardPrice=" + boardPrice + ", clientNum=" + clientNum + ", sectionNum=" + sectionNum + ", files="
+				+ files + "]";
 	}
 
 }

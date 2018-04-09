@@ -61,8 +61,9 @@
 											<span class="viewCount">조회수 : ${item.boardCount }</span>
 										</div>
 										<div class="boardTextDiv">
-											<span class="boardInputDate">등록날짜 : <fmt:formatDate value="${item.boardDate }" pattern="yyyy-MM-dd"/> </span><br>
 											<span class="boardTitle">제목 : ${item.boardTitle }</span><br>
+											<span class="boardInputDate">등록날짜 : <fmt:formatDate value="${item.boardDate }" pattern="yyyy-MM-dd"/> </span><br>
+											<span class="boardPrice">가격 : <fmt:formatNumber value="${item.boardPrice }" currencyCode="KRW"/> 원</span><br>
 											<span class="boardWriter">등록 : ${item.clientNum.name }</span>
 										</div>
 									</div>
