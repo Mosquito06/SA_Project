@@ -55,4 +55,9 @@ public class BoardDaoImple implements BoardDao {
 		return sqlSession.selectList(NAMESPACE + ".selectBoardBySectionNum", map);
 	}
 
+	@Override
+	public int selectBoardCount(int num) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".selectBoardCount", num);
+	}
+
 }

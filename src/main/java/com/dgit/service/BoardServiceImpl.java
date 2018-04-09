@@ -64,6 +64,11 @@ public class BoardServiceImpl implements BoardService {
 		return boards;
 	}
 
+	@Override
+	public int selectBoardCount(int num) throws Exception {
+		return dao.selectBoardCount(num);
+	}
+
 	
 
 	

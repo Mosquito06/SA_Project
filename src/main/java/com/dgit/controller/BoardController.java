@@ -15,6 +15,7 @@ import com.dgit.domain.BoardVO;
 import com.dgit.domain.CategoryVO;
 import com.dgit.domain.Criteria;
 import com.dgit.domain.DivisionVO;
+import com.dgit.domain.PageMaker;
 import com.dgit.domain.SearchCriteria;
 import com.dgit.domain.SectionVO;
 import com.dgit.domain.TypeInfo;
@@ -41,6 +42,8 @@ public class BoardController {
 	
 	@RequestMapping(value="/board", method = RequestMethod.GET)
 	public String goBoard(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("cri") SearchCriteria cri, Model model){
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
 		
 		try {
 			List<CategoryVO> category = categoryService.selectAll(); 
@@ -54,10 +57,12 @@ public class BoardController {
 			TypeInfo typeInfo = sectionService.getTypeInfo(sectionNum);
 			List<SectionVO> leftSection = sectionService.selectByDivisionNum(typeInfo.getDivisionNum());
 			List<BoardVO> boards = boardService.selectBoardBySectionNum(sectionNum, cri);
-			
+			pageMaker.setTotalCount(boardService.selectBoardCount(sectionNum));
+	
 			model.addAttribute("typeInfo", typeInfo);
 			model.addAttribute("leftSection", leftSection);
 			model.addAttribute("boards", boards);
+			model.addAttribute("pageMaker", pageMaker);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

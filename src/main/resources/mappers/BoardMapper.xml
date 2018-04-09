@@ -49,4 +49,8 @@
 	    select * from board, user where board.client_num = user.client_num 
 	    and section_num = #{num} order by board_date desc limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
+	
+	<select id="selectBoardCount" resultType="int">
+	    select count(board_num) from board where section_num = #{num};
+	</select>
 </mapper>
