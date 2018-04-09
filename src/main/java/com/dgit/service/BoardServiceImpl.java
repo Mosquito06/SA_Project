@@ -56,7 +56,7 @@ public class BoardServiceImpl implements BoardService {
 		List<BoardVO> boards = dao.selectBoardBySectionNum(num, cri);
 		for(BoardVO b : boards){
 			List<AddFileVO> files = addFileDao.selectAddFileByBoardNum(num);
-			if(files != null){
+			if(files.size() > 0){
 				b.setFiles(files);
 			}
 		}

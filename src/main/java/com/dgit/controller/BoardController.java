@@ -72,9 +72,21 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="read", method= RequestMethod.GET)
-	public String read(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("cri") SearchCriteria cri, @ModelAttribute("boardNum") int boardNum, Model model){
+	public String read(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("cri") SearchCriteria cri, 
+			@ModelAttribute("boardNum") int boardNum, Model model){
 		
-		
+		try{
+			List<CategoryVO> category = categoryService.selectAll(); 
+			List<DivisionVO> division = divisionService.selectAll(); 
+			List<SectionVO> section = sectionService.selectAll(); 
+			
+			model.addAttribute("category", category);
+			model.addAttribute("division", division);
+			model.addAttribute("section", section);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+
 		return "board/read";
 	}
 }

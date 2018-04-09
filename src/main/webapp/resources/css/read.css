@@ -1,0 +1,60 @@
+@CHARSET "UTF-8";
+/* ---------------------------------------------------
+   CONTENT
+----------------------------------------------------- */
+	#readContainer{
+		min-height: 700px;
+		margin: 131px auto 0;
+		width: 70%;
+		border: 1px solid black;
+	}
+	
+	#readLeftDiv{
+		width: 68%; 
+		height: 700px;
+		float: left;
+		border: 1px solid black;
+		
+	}
+	
+	#readLeftDiv img{
+		width: 435px; 
+		display: inline-block;
+		margin: 0.5%;
+		
+	}
+	
+	#readRightDiv{
+		width: 32%; 
+		float: right;
+		height: 700px;
+		border: 1px solid black;
+	}
+
+/* ---------------------------------------------------
+   MEDIAQUERIES
+----------------------------------------------------- */
+@media screen and (max-width: 320px){
+	
+}
+
+@media screen and (min-width: 360px) and (max-width: 414px){
+	
+}	
+
+
+@media screen and (max-width: 700px){
+	#readContainer{
+		width: 100% !important;
+		margin: 55px auto 0 !important;
+	}
+	
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px){
+	
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1025px){
+	
+}
