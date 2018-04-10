@@ -3,6 +3,10 @@
 <jsp:include page="../include/header.jsp"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script>
+	var boardNum = ${board.boardNum};
+
+</script>
 <section>
 	<div id="readContainer">
 		<div id="readLeftDiv">
@@ -62,27 +66,38 @@
 				<strong>유의사항</strong><br>
 				<span>유의 사항 없습니다.</span>
 			</div>
-			<div id="reviewDiv">
-				<strong>REVIEWS(${reples.size() })</strong><br>
-				<ul>
-					<c:choose>
-						<c:when test="${reples.size() > 0 }">
-							<c:forEach var="reply" items="${reples }">
-								<li class="reviewLi">
-									<span class="reviewTitle">${reply.replyTitle }</span>
-									<span class="reviewWriterAndDate">${reply.replyWriter } - <fmt:formatDate value="${reply.replyTime }" pattern="yyyy.MM.dd"/></span>
-									<span class="reviewContent">${reply.replyContent }</span>
-								</li>
-							</c:forEach>
-						</c:when>
-						<c:otherwise>
-							
-						</c:otherwise>
-					</c:choose>
-				</ul>
+			<div id="reviewConteinerDiv">
+				<div id="reviewContent">
+					<strong>REVIEWS(${pageMaker.totalCount })</strong> 
+					<span id="reviewCollapseSpan"> + </span>
+					<ul>
+						<c:choose>
+							<c:when test="${reples.size() > 0 }">
+								<c:forEach var="reply" items="${reples }">
+									<li class="reviewLi">
+										<span class="reviewTitle">${reply.replyTitle }</span>
+										<span class="reviewWriterAndDate">${reply.replyWriter } - <fmt:formatDate value="${reply.replyTime }" pattern="yyyy.MM.dd"/></span>
+										<span class="reviewContent">${reply.replyContent }</span>
+									</li>
+								</c:forEach>
+							</c:when>
+							<c:otherwise>
+								
+							</c:otherwise>
+						</c:choose>
+					</ul>
+				</div>
 				<div id="reviewPaging">
 					<ul class="pagination">
-					
+						<c:if test="${pageMager.prev }">
+							<li><a href="#">Prev</a></li>
+						</c:if>
+						<c:forEach var="page" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
+							<li ${pageMaker.cri.page == page? 'class=active' : "" }><a href="${page }">${page }</a></li>
+						</c:forEach>
+						<c:if test="${pageMager.next }">
+							<li><a href="#">Next</a></li>
+						</c:if>
 					</ul>
 				</div>
 			</div>

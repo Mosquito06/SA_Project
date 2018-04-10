@@ -53,6 +53,6 @@
 	</select>
 	
 	<select id="selectBoardCount" resultType="int">
-	    select count(board_num) from board where section_num = #{num};
+	   select count(board_num) from board where section_num = #{num}
 	</select>
 </mapper>

@@ -19,11 +19,8 @@ public class TestCategoryService {
 	
 	@Autowired
 	private CategoryService service;
-	
-	@Autowired
-	private ReplyService replyService;
-	
-	//@Test
+
+	@Test
 	public void testSelectAll(){
 		try {
 			List<CategoryVO> category = service.selectAll();
@@ -36,21 +33,6 @@ public class TestCategoryService {
 			e.printStackTrace();
 		}
 	}
-	
-	@Test
-	public void textReply(){
-		try {
-			List<ReplyVO> reply = replyService.selectReplyByBoardNum(1);
-			for(ReplyVO r : reply){
-				System.out.println(r.toString());
-			}
-		
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	
+
 	
 }

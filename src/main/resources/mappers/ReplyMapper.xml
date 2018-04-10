@@ -30,7 +30,12 @@
 	</select>
     
 	<select id="selectReplyByBoardNum" resultMap="replyResult">
-	    select * from reply where board_num = #{num} order by reply_time desc
+	    select * from reply where board_num = #{num} order by reply_time desc 
+	    limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="selectReplyCount" resultType="int">
+	    select count(reply_num) from reply where board_num = #{num}
 	</select>
 
 </mapper>

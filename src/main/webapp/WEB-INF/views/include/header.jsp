@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sign.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/complete.css?a=da">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css?a=a">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/read.css?a=d">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/read.css?a=dd">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
@@ -26,6 +26,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/sign.js?a=a"></script>
 <script src="${pageContext.request.contextPath }/resources/js/header.js?a=da"></script>
+<script src="${pageContext.request.contextPath }/resources/js/read.js?a=da"></script>
 </head>
 <body>
 

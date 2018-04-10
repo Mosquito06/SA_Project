@@ -29,7 +29,6 @@
 	}
 	
 	#readRightDiv div{
-		min-height: 100px; 
 		width: 100%;
 	}
 	
@@ -110,7 +109,7 @@
 		border: 1px solid #C0C0C0;
 	}
 	
-	#AsTextDiv, #warningDiv, #reviewDiv{
+	#AsTextDiv, #warningDiv, #reviewConteinerDiv{
 		border-top: 1px solid #e5e5e5;
 		border-bottom: 1px solid #e5e5e5;
 		padding: 10px;
@@ -129,44 +128,64 @@
 		padding-left: 20px;
 	}
 	
-	#reviewDiv{
+	#reviewConteinerDiv{
 		margin-bottom: 5%;
+		padding-top: 30px;
 	}
 	
-	#reviewDiv ul{
+	#reviewConteinerDiv #reviewContent > span{
+		float: right;
+		font-size: 20px;
+		font-weight: bold;
+		cursor: pointer;
+	}
+	
+	#reviewConteinerDiv ul{
 		margin-top: 5%;
 		padding-left: 20px;
 		list-style: none;
+		clear: both;
+		display: none;
+		
 	}
 	
-	#reviewDiv ul li span{
+	#reviewConteinerDiv ul li span{
 		display: block;
 	}
 	
-	#reviewDiv ul li.reviewLi{
+	#reviewConteinerDiv ul li.reviewLi{
 		margin-bottom: 10%;
 	}
 	
-	#reviewDiv .reviewTitle{
+	#reviewConteinerDiv .reviewTitle{
 		font-size: 14px;
 		font-weight: bold;
 		margin-bottom: 5%;
 	}
 	
-	#reviewDiv .reviewWriterAndDate{
+	#reviewConteinerDiv .reviewWriterAndDate{
 		font-size: 12px;
 		color: #6d6d6d; 
 		margin-bottom: 5%;
 	}
 	
-	#reviewDiv .reviewContent{
+	#reviewConteinerDiv .reviewContent{
 		font-size: 14px;
 		color: #000;
 	}
 	
+	#reviewPaging{
+		height: 30px;
+	}
 	
+	#reviewPaging a{
+		color: black !important;
+	}
 	
-	
+	#reviewPaging .active a{
+		background-color: #ccc !important;
+		border-color: #ccc !important;
+	}
 }
 	
 /* ---------------------------------------------------

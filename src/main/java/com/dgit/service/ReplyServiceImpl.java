@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.dgit.domain.Criteria;
 import com.dgit.domain.ReplyVO;
 import com.dgit.persistence.ReplyDao;
 
@@ -38,8 +39,13 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public List<ReplyVO> selectReplyByBoardNum(int num) throws Exception {
-		return dao.selectReplyByBoardNum(num);
+	public List<ReplyVO> selectReplyByBoardNum(int num, Criteria cri) throws Exception {
+		return dao.selectReplyByBoardNum(num, cri);
+	}
+
+	@Override
+	public int selectReplyCount(int boardNum) throws Exception {
+		return dao.selectReplyCount(boardNum);
 	}
 
 	

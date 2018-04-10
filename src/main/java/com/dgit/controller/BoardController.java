@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dgit.domain.BoardVO;
 import com.dgit.domain.CategoryVO;
+import com.dgit.domain.Criteria;
 import com.dgit.domain.DivisionVO;
 import com.dgit.domain.PageMaker;
 import com.dgit.domain.ReplyVO;
@@ -89,10 +90,20 @@ public class BoardController {
 			model.addAttribute("section", section);
 			
 			BoardVO board = boardService.selectBoardByBoardNum(boardNum);
-			List<ReplyVO> reples = replyService.selectReplyByBoardNum(boardNum);
-						
+			
+			Criteria criteria = new Criteria();
+			criteria.setPage(1);
+			criteria.setPerPageNum(5);
+			
+			List<ReplyVO> reples = replyService.selectReplyByBoardNum(boardNum, criteria);
+			
+			PageMaker pageMaker = new PageMaker();
+			pageMaker.setCri(criteria);
+			pageMaker.setTotalCount(replyService.selectReplyCount(boardNum));
+			
 			model.addAttribute("board", board);
 			model.addAttribute("reples", reples);
+			model.addAttribute("pageMaker", pageMaker);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
