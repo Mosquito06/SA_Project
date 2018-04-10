@@ -24,9 +24,11 @@
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/sign.js?a=a"></script>
 <script src="${pageContext.request.contextPath }/resources/js/header.js?a=da"></script>
-<script src="${pageContext.request.contextPath }/resources/js/read.js?a=da"></script>
+<script src="${pageContext.request.contextPath }/resources/js/read.js?a=sa"></script>
+
 </head>
 <body>
 

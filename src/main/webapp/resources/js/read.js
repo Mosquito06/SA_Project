@@ -26,20 +26,40 @@ $(function(){
 		
 	})
 	
+	// Handlebars 날짜 포맷 및 함수 획득
+	Handlebars.registerHelper("setDate", function(date){
+		var dateObj = new Date(date);
+		var year = dateObj.getFullYear();
+		var month = dateObj.getMonth() + 1;
+		var date = dateObj.getDate();
+		
+		return year + "." + month + "." + date;
+	})
+	
+	var templateFunc = Handlebars.compile($("#template").html());
+	
+	function getReples(page){
+		
+		$.ajax({
+			url : contextPath + "/read/" + boardNum + "/" + page,
+			type : "get",
+			dataType : "json",
+			success : function(result){
+				console.log(result);
+				$("#reviewContent ul").empty();
+				$("#totalCountSpan").text(result.pageMaker.totalCount);
+				$("#reviewContent ul").html(templateFunc(result.reples));
+						
+			}
+			
+		})
+		
+	}
+	
 })
 
 
-function getReples(page){
-	
-	$.ajax({
-		url : "${pageContext.request.contextPath}/read/" + boardNum + "/" + page,
-		type : "get",
-		dataType : "json",
-		success : function(result){
-			console.log(result);
-		}
-		
-	})
-	
-}
+
+
+
 

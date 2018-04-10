@@ -7,6 +7,15 @@
 	var boardNum = ${board.boardNum};
 
 </script>
+<script id="template" type="text/x-handlebars-template">
+	{{#each.}}
+		<li class="reviewLi">
+			<span class="reviewTitle">{{replyTitle}}</span>
+			<span class="reviewWriterAndDate">{{replyWriter}} - {{setDate replyTime}}</span>
+			<span class="reviewContent">{{replyContent }}</span>
+		</li>
+	{{/each}}
+</script>
 <section>
 	<div id="readContainer">
 		<div id="readLeftDiv">
@@ -68,7 +77,7 @@
 			</div>
 			<div id="reviewConteinerDiv">
 				<div id="reviewContent">
-					<strong>REVIEWS(${pageMaker.totalCount })</strong> 
+					<strong>REVIEWS(<span id="totalCountSpan">${pageMaker.totalCount }</span>)</strong> 
 					<span id="reviewCollapseSpan"> + </span>
 					<ul>
 						<c:choose>
