@@ -5,15 +5,13 @@
 	#readContainer{
 		margin: 131px auto 0;
 		width: 70%;
-		border: 1px solid black;
+		min-height: 1370px;
 	}
 	
 	#readLeftDiv{
 		width: 68%; 
 		height: 700px;
 		float: left;
-		border: 1px solid black;
-		
 	}
 	
 	#readLeftDiv img{
@@ -26,12 +24,11 @@
 	#readRightDiv{
 		width: 32%; 
 		float: right;
-		border: 1px solid black;
 		padding: 5px;
+		font-family: 'Nanum Gothic', sans-serif;
 	}
 	
 	#readRightDiv div{
-		border: 1px solid black;
 		min-height: 100px; 
 		width: 100%;
 	}
@@ -45,10 +42,17 @@
 	#readTitle{
 		font-size: 28px;
 		font-weight: bold;
+		margin-bottom: 5%;
+	}
+	
+	#readTitle span{ 
+		color: #666;
+		font-size: 15px;
 	}
 	
 	#readseller{
 		line-height: 30px;
+		margin-bottom: 8%;
 	}
 	
 	#readseller span{
@@ -57,6 +61,7 @@
 	
 	#readContent{
 		line-height: 30px;
+		margin-bottom: 5%;
 	}
 	
 	#readCountDiv input{
@@ -78,6 +83,91 @@
 		background-color: #fff;
 		border-radius: 2px;
 	}
+	
+	#readCountDiv button:hover{
+		background-color: #F6F6F6; 
+		border: 1px solid black;
+	}
+	
+	#readCountDiv button:LAST-CHILD{
+		margin-left: -1.2%; 
+	}
+	
+	#readBtnDiv{
+		margin-bottom: 10%;
+	}
+	
+	#readBtnDiv button{
+		background-color: black;
+		padding: 15px 70px; 
+		color: white;
+		font-weight: bold;
+		margin-top: 10%;
+	}
+	
+	#readBtnDiv button:hover{
+		background-color: #C0C0C0;
+		border: 1px solid #C0C0C0;
+	}
+	
+	#AsTextDiv, #warningDiv, #reviewDiv{
+		border-top: 1px solid #e5e5e5;
+		border-bottom: 1px solid #e5e5e5;
+		padding: 10px;
+	}
+
+	#AsTextDiv ul {
+		margin-top: 5%;
+		font-size: 12px;
+		padding-left: 20px;
+	}
+	
+	#warningDiv span{
+		display: block;
+		margin-top: 5%; 
+		font-size: 12px;
+		padding-left: 20px;
+	}
+	
+	#reviewDiv{
+		margin-bottom: 5%;
+	}
+	
+	#reviewDiv ul{
+		margin-top: 5%;
+		padding-left: 20px;
+		list-style: none;
+	}
+	
+	#reviewDiv ul li span{
+		display: block;
+	}
+	
+	#reviewDiv ul li.reviewLi{
+		margin-bottom: 10%;
+	}
+	
+	#reviewDiv .reviewTitle{
+		font-size: 14px;
+		font-weight: bold;
+		margin-bottom: 5%;
+	}
+	
+	#reviewDiv .reviewWriterAndDate{
+		font-size: 12px;
+		color: #6d6d6d; 
+		margin-bottom: 5%;
+	}
+	
+	#reviewDiv .reviewContent{
+		font-size: 14px;
+		color: #000;
+	}
+	
+	
+	
+	
+}
 	
 /* ---------------------------------------------------
    MEDIAQUERIES

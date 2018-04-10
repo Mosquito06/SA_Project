@@ -13,15 +13,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dgit.domain.BoardVO;
 import com.dgit.domain.CategoryVO;
-import com.dgit.domain.Criteria;
 import com.dgit.domain.DivisionVO;
 import com.dgit.domain.PageMaker;
+import com.dgit.domain.ReplyVO;
 import com.dgit.domain.SearchCriteria;
 import com.dgit.domain.SectionVO;
 import com.dgit.domain.TypeInfo;
 import com.dgit.service.BoardService;
 import com.dgit.service.CategoryService;
 import com.dgit.service.DivisionService;
+import com.dgit.service.ReplyService;
 import com.dgit.service.SectionService;
 
 @Controller
@@ -39,6 +40,9 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService boardService;
+	
+	@Autowired
+	private ReplyService replyService;
 	
 	@RequestMapping(value="/board", method = RequestMethod.GET)
 	public String goBoard(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("cri") SearchCriteria cri, Model model){
@@ -85,7 +89,10 @@ public class BoardController {
 			model.addAttribute("section", section);
 			
 			BoardVO board = boardService.selectBoardByBoardNum(boardNum);
+			List<ReplyVO> reples = replyService.selectReplyByBoardNum(boardNum);
+						
 			model.addAttribute("board", board);
+			model.addAttribute("reples", reples);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

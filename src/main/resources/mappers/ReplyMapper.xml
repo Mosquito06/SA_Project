@@ -4,6 +4,7 @@
     
     <resultMap type="ReplyVO" id="replyResult">
         <result property="replyNum" column="reply_num"/>
+        <result property="replyTitle" column="reply_title"/>
         <result property="replyContent" column="reply_content"/>
         <result property="replyTime" column="reply_time"/>
         <result property="replyWriter" column="reply_writer"/>
@@ -11,8 +12,8 @@
     </resultMap>    
     
 	<insert id="insert">
-	    insert into reply(reply_content, reply_writer, board_num) 
-	    values (#{replyContent}, #{replyWriter}, #{boardNum.boardNum})
+	    insert into reply(reply_title, reply_content, reply_writer, board_num) 
+	    values (#{replyTitle}, #{replyContent}, #{replyWriter}, #{boardNum.boardNum})
 	</insert>
 	
 	<delete id="delete">
@@ -20,7 +21,7 @@
 	</delete>
     
 	<update id="update">
-	    update reply set reply_content = #{replyContent}, reply_time = #{replyTime}
+	    update reply set reply_title = #{replyTitle}, reply_content = #{replyContent}, reply_time = #{replyTime}
 	    where reply_num = #{replyNum}
 	</update>
     
@@ -28,8 +29,8 @@
 	    select * from reply
 	</select>
     
-	<select id="selectboardContentByBoardNum" resultMap="replyResult">
-	    select * from reply where board_num = #{num}
+	<select id="selectReplyByBoardNum" resultMap="replyResult">
+	    select * from reply where board_num = #{num} order by reply_time desc
 	</select>
 
 </mapper>

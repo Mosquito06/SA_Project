@@ -51,7 +51,8 @@ nav[class~='TopNav']{
 	color: #8d8d8d !important;
 	font-size: 12px !important;	
 	font-weight: bold;
-	cursor: pointer !important;	
+	cursor: pointer !important;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
 #myNavbar li a:hover{
@@ -99,6 +100,7 @@ li.mobileCategory, li[class~=mobileDropdown]{
 	font-weight: bold;
 	color:  #8d8d8d !important;
 	height: 63px;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
 #secondNavSecondDiv ul li a:hover{
@@ -121,6 +123,7 @@ nav[class~=hoverNav]{
 	min-height: 300px !important;
 	top: 131px !important;
 	display: none;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
 nav[class~=hoverNav] ul[class~=hoverUl]{
@@ -152,6 +155,7 @@ nav[class~=hoverNav] li[class~=divisionLi]:FIRST-CHILD{
 nav[class~=hoverNav] li[class~=divisionLi] li{
 	list-style: none;
 	margin-left: -25px;
+	margin-bottom: 5%;
 }
 
 .sectionA{

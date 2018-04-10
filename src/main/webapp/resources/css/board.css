@@ -12,6 +12,7 @@
 		float: left;
 		width: 15%;
 		min-height: 700px;
+		font-family: 'Nanum Gothic', sans-serif;
 	}
 	
 	#boardContent{
@@ -58,6 +59,7 @@
 		font-weight: bold;
 		margin: 5% 0 2% 2%;
 		width: 93%; 
+		font-family: 'Nanum Gothic', sans-serif;
 	}
 	
 	#ContentTopText span{
@@ -71,6 +73,7 @@
 	#ContentBottomDiv{
 		width: 95%;
 		margin: 0 auto;
+		font-family: 'Nanum Gothic', sans-serif;
 	}
 	
 	#ContentBottomDiv ul{
@@ -133,6 +136,7 @@
 		width: 95%;
 		margin: 5% auto;
 		padding: 3%;
+		font-family: 'Nanum Gothic', sans-serif;
 	}
 	
 	#ContentPagingDiv ul{

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ReplyVO {
 	private int replyNum;
+	private String replyTitle;
 	private String replyContent;
 	private Date replyTime;
 	private String replyWriter;
@@ -20,6 +21,14 @@ public class ReplyVO {
 
 	public void setReplyNum(int replyNum) {
 		this.replyNum = replyNum;
+	}
+
+	public String getReplyTitle() {
+		return replyTitle;
+	}
+
+	public void setReplyTitle(String replyTitle) {
+		this.replyTitle = replyTitle;
 	}
 
 	public String getReplyContent() {
@@ -56,8 +65,8 @@ public class ReplyVO {
 
 	@Override
 	public String toString() {
-		return "ReplyVO [replyNum=" + replyNum + ", replyContent=" + replyContent + ", replyTime=" + replyTime
-				+ ", replyWriter=" + replyWriter + ", boardNum=" + boardNum + "]";
+		return "ReplyVO [replyNum=" + replyNum + ", replyTitle=" + replyTitle + ", replyContent=" + replyContent
+				+ ", replyTime=" + replyTime + ", replyWriter=" + replyWriter + ", boardNum=" + boardNum + "]";
 	}
 
 }
