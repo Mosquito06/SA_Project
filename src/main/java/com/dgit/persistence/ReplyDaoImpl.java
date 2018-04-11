@@ -59,5 +59,10 @@ public class ReplyDaoImpl implements ReplyDao {
 		return sqlSession.selectOne(NAMESPACE + ".selectReplyCount", boardNum);
 	}
 
+	@Override
+	public ReplyVO selectReplyByReplyNum(int num) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".selectReplyByReplyNum", num);
+	}
+
 	
 }

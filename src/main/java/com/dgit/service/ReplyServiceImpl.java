@@ -48,5 +48,10 @@ public class ReplyServiceImpl implements ReplyService {
 		return dao.selectReplyCount(boardNum);
 	}
 
+	@Override
+	public ReplyVO selectReplyByReplyNum(int num) throws Exception {
+		return dao.selectReplyByReplyNum(num);
+	}
+
 	
 }

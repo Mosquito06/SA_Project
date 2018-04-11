@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/read.css?a=sdd">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/review.css?a=sd">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/updateReview.css?a=sd">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 <script>
 	var contextPath = "${pageContext.request.contextPath}";

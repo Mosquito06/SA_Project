@@ -101,15 +101,12 @@ public class BoardController {
 			Criteria criteria = new Criteria();
 			criteria.setPage(1);
 			criteria.setPerPageNum(5);
-			
-			List<ReplyVO> reples = replyService.selectReplyByBoardNum(boardNum, criteria);
-			
+						
 			PageMaker pageMaker = new PageMaker();
 			pageMaker.setCri(criteria);
 			pageMaker.setTotalCount(replyService.selectReplyCount(boardNum));
 			
 			model.addAttribute("board", board);
-			model.addAttribute("reples", reples);
 			model.addAttribute("pageMaker", pageMaker);
 			model.addAttribute("boardContent", boardContent); 
 		}catch(Exception e){

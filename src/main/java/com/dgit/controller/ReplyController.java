@@ -1,5 +1,6 @@
 package com.dgit.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -109,5 +111,39 @@ public class ReplyController {
 		}
 			
 		return entity;
+	}
+	
+	@RequestMapping(value="/updateReview", method = RequestMethod.GET)
+	public String updatePage(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("cri") SearchCriteria cri, 
+			@ModelAttribute("boardNum") int boardNum, @ModelAttribute("replyNum") int replyNum, Model model){
+		
+		try {
+			ReplyVO reply = replyService.selectReplyByReplyNum(replyNum);
+			model.addAttribute("reply", reply);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+		return "board/updateReview";
+	}
+	
+	@RequestMapping(value="/updateReview", method = RequestMethod.POST)
+	public String updateReview(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("cri") SearchCriteria cri, 
+			@ModelAttribute("boardNum") int boardNum, HttpServletRequest req, int replyNum, String replyTitle, String replyContent){
+		
+		
+		try {
+			ReplyVO reply = replyService.selectReplyByReplyNum(replyNum);
+			reply.setReplyContent(replyContent);
+			reply.setReplyTitle(replyTitle);
+			reply.setReplyTime(new Date());
+			replyService.updateReply(reply);
+			
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+				
+		return "redirect: read";
 	}
 }

@@ -11,7 +11,10 @@
 	{{#each.}}
 		<li class="reviewLi">
 			{{#if replyWriter}}
-				<span class="label label-warning reviewUpdate" data-update="{{replyNum }}>수정</span>
+				<span class="label label-warning reviewUpdate" 
+					data-href="${pageContext.request.contextPath }/updateReview${pageMaker.makeQuery(cri.page) }
+					&boardNum=${boardNum}&sectionNum=${sectionNum}&replyNum={{replyNum}}">수정
+				</span>
 				<span class="label label-danger reviewDelete" data-del="{{replyNum }}">삭제</span>
 			{{/if}}
 			<span class="reviewTitle">{{replyTitle}}</span>
@@ -86,37 +89,12 @@
 					<span id="reviewCollapseSpan"> + </span>
 					<a href="${pageContext.request.contextPath }/addReview${pageMaker.makeQuery(cri.page) }&boardNum=${boardNum}&sectionNum=${sectionNum}" id="reviewAddTag">리뷰 작성하기</a>
 					<ul>
-						<c:choose>
-							<c:when test="${reples.size() > 0 }">
-								<c:forEach var="reply" items="${reples }">
-									<li class="reviewLi">
-										<c:if test="${login.name == reply.replyWriter}">
-											<span class="label label-warning reviewUpdate">수정</span>
-											<span class="label label-danger reviewDelete" data-del="${reply.replyNum }">삭제</span>
-										</c:if>
-										<span class="reviewTitle">${reply.replyTitle }</span>
-										<span class="reviewWriterAndDate">${reply.replyWriter } - <fmt:formatDate value="${reply.replyTime }" pattern="yyyy.MM.dd"/></span>
-										<span class="reviewContent">${reply.replyContent }</span>
-									</li>
-								</c:forEach>
-							</c:when>
-							<c:otherwise>
-								
-							</c:otherwise>
-						</c:choose>
+
 					</ul>
 				</div>
 				<div id="reviewPaging">
 					<ul class="pagination">
-						<c:if test="${pageMager.prev }">
-							<li><a href="#">Prev</a></li>
-						</c:if>
-						<c:forEach var="page" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
-							<li ${pageMaker.cri.page == page? 'class=active' : "" }><a href="${page }">${page }</a></li>
-						</c:forEach>
-						<c:if test="${pageMager.next }">
-							<li><a href="#">Next</a></li>
-						</c:if>
+
 					</ul>
 				</div>
 			</div>

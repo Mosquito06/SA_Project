@@ -11,5 +11,6 @@ public interface ReplyDao {
 	public void update(ReplyVO reply) throws Exception;
 	public List<ReplyVO> selectAll() throws Exception;
 	public List<ReplyVO> selectReplyByBoardNum(int num, Criteria cri) throws Exception;
+	public ReplyVO selectReplyByReplyNum(int num) throws Exception;
 	public int selectReplyCount(int boardNum) throws Exception;
 }

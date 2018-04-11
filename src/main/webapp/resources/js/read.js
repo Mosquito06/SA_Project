@@ -2,6 +2,7 @@ $(function(){
 		
 	// 댓글 Collapse 처리
 	$("#reviewCollapseSpan").click(function(){
+		getReples(1);
 		var status = $(this).html();
 		if(status == "+"){
 			$("#reviewAddTag").slideDown(500, function(){
@@ -52,22 +53,27 @@ $(function(){
 	
 	// 댓글 삭제 처리
 	$(document).on("click", ".reviewDelete", function(){
-		var target = $(this).attr("data-del");
-		$.ajax({
-			url : contextPath + "/deleteReview/" + Number(target),
-			type : "delete",
-			dataType: "text",
-			success : function(result){
-				alert("삭제했습니다.");
-				getReples(1);
-			}
-		})
-	
+		var check = confirm("정말로 삭제하시겠습니까?");
+		if(check){
+			var target = $(this).attr("data-del");
+			$.ajax({
+				url : contextPath + "/deleteReview/" + Number(target),
+				type : "delete",
+				dataType: "text",
+				success : function(result){
+					alert("삭제했습니다.");
+					getReples(1);
+				}
+			})
+		}
 	})
 	
-	
-	
-	
+	// 댓글 화면으로 get
+	$(document).on("click", ".reviewUpdate", function(){
+		var target = $(this).attr("data-href");
+		location.href = target;	
+	})
+
 	// 댓글 획득 ajax
 	function getReples(page){
 		

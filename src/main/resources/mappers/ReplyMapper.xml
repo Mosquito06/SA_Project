@@ -37,5 +37,9 @@
 	<select id="selectReplyCount" resultType="int">
 	    select count(reply_num) from reply where board_num = #{num}
 	</select>
+	
+	<select id="selectReplyByReplyNum" resultMap="replyResult">
+	    select * from reply where reply_num = #{num}
+	</select>
 
 </mapper>
