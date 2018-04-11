@@ -1,0 +1,111 @@
+@CHARSET "UTF-8";
+
+/* ---------------------------------------------------
+   CONTENT
+----------------------------------------------------- */
+	#addContainer{
+		width: 50%;
+		margin: 131px auto;
+		font-family: 'Nanum Gothic', sans-serif;
+		text-align: center; 
+	}
+	
+	#addContainer .form-group{
+		margin-bottom: 1% !important;
+	}
+	
+	#addMainText{
+		width: 380px;
+		font-size: 22px;
+		font-weight: bold;
+		margin: 0 auto 5%; 
+	}
+	
+	#addFormDiv{
+		width: 380px;
+		margin: 0 auto;
+	}
+	
+	#addFormDiv input{
+		margin-top: 10%; 
+	}
+	
+	#addFormDiv textarea{
+		margin-top: 10%; 
+	}
+	
+	.addCheckMessage{
+		color: red;
+		font-size: 11px;
+		font-weight: bold;
+		text-align: left;
+		margin-bottom: 5%;
+		display: none !important;  
+	}
+	
+	#files{
+		display: none;
+	}
+	
+	#addFileBtn{
+		margin-bottom: 2%;
+		background-color: black;
+	    padding: 10px 30px;
+	    color: white; 
+	    font-weight: bold;
+	}
+	
+	#addBoardBtn{
+		margin-bottom: 2%;
+		background-color: black;
+	    padding: 10px 30px;
+	    color: white; 
+	    font-weight: bold;
+	}
+	
+	#imgPreviewDiv{
+		width: 100%;
+		min-height: 300px;
+		display: none;
+	}
+	
+	#addImgMessage{
+		font-size: 11px;
+		font-weight: bold; 
+		margin-bottom: 10%;
+	}
+	
+	#imgPreviewDiv img{
+		max-width: 400px;
+		margin: 10px;
+	}
+	
+	
+
+/* ---------------------------------------------------
+   MEDIAQUERIES
+----------------------------------------------------- */
+@media screen and (max-width: 320px){
+	
+}
+
+@media screen and (min-width: 360px) and (max-width: 414px){
+	
+}	
+
+
+@media screen and (max-width: 700px){
+	#addContainer{
+		width: 100% !important;
+		margin: 55px auto 0 !important;
+	}
+	
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px){
+	
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1025px){
+	
+}

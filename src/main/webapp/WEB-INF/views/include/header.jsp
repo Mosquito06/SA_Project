@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/read.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/review.css?a=s">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/updateReview.css?a=d">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/add.css?a=d">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 <script>
 	var contextPath = "${pageContext.request.contextPath}";

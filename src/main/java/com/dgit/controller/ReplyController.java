@@ -21,16 +21,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dgit.domain.BoardVO;
+import com.dgit.domain.CategoryVO;
 import com.dgit.domain.Criteria;
+import com.dgit.domain.DivisionVO;
 import com.dgit.domain.PageMaker;
 import com.dgit.domain.ReplyVO;
 import com.dgit.domain.SearchCriteria;
+import com.dgit.domain.SectionVO;
 import com.dgit.domain.UserVO;
+import com.dgit.service.CategoryService;
+import com.dgit.service.DivisionService;
 import com.dgit.service.ReplyService;
+import com.dgit.service.SectionService;
 
 @Controller
 public class ReplyController {
 	private static final Logger logger = LoggerFactory.getLogger(ReplyController.class);
+	
+	@Autowired
+	private CategoryService categoryService;
+	
+	@Autowired
+	private DivisionService divisionService;
+	
+	@Autowired
+	private SectionService sectionService;
 	
 	@Autowired
 	private ReplyService replyService;
@@ -65,8 +80,21 @@ public class ReplyController {
 	
 	@RequestMapping(value="/addReview", method = RequestMethod.GET)
 	public String addPage(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("cri") SearchCriteria cri, 
-			@ModelAttribute("boardNum") int boardNum){
+			@ModelAttribute("boardNum") int boardNum, Model model){
 		
+		try {
+			List<CategoryVO> category = categoryService.selectAll();
+			List<DivisionVO> division = divisionService.selectAll(); 
+			List<SectionVO> section = sectionService.selectAll(); 
+			
+			model.addAttribute("category", category);
+			model.addAttribute("division", division);
+			model.addAttribute("section", section);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		} 
+
 		return "board/addReview";
 	}
 	
@@ -118,6 +146,14 @@ public class ReplyController {
 			@ModelAttribute("boardNum") int boardNum, @ModelAttribute("replyNum") int replyNum, Model model){
 		
 		try {
+			List<CategoryVO> category = categoryService.selectAll();
+			List<DivisionVO> division = divisionService.selectAll(); 
+			List<SectionVO> section = sectionService.selectAll(); 
+			
+			model.addAttribute("category", category);
+			model.addAttribute("division", division);
+			model.addAttribute("section", section);
+						
 			ReplyVO reply = replyService.selectReplyByReplyNum(replyNum);
 			model.addAttribute("reply", reply);
 		} catch (Exception e) {

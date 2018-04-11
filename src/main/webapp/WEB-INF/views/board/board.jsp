@@ -5,13 +5,20 @@
 <jsp:include page="../include/header.jsp"/>
 <script>
 	$(function(){
-		 $(".boardLi").click(function(){
+		var login = "${login}"; 
+		
+		$(".boardLi").click(function(){
 			var goLocation = $(this).attr("data-location");
 			location.href = goLocation;
 		 })
 		 
-		 $("#addBoardBtn").click(function(){
-			location.href = "${pageContext.request.contextPath }/add";
+		 $("#addBtn").click(function(){  
+			 if(login == "" || login == null){
+					$("#navLoginAtag").trigger("click");
+					return;
+				}
+			 
+			 location.href = "${pageContext.request.contextPath }/add";
 		 })
 	})
 
@@ -42,7 +49,7 @@
 			<div id="ContentTopText">
 				<c:if test="${typeInfo.sectionName != null }">
 					${typeInfo.sectionName} <span>(${pageMaker.totalCount })</span>
-					<button type="button" class="btn btn-default" id="addBoardBtn">등록하기</button>
+					<button type="button" class="btn btn-default" id="addBtn">등록하기</button>
 				</c:if>
 			</div>
 			<div id="ContentBottomDiv">
