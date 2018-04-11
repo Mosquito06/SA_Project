@@ -11,7 +11,7 @@
 		 })
 		 
 		 $("#addBoardBtn").click(function(){
-			
+			location.href = "${pageContext.request.contextPath }/add";
 		 })
 	})
 
