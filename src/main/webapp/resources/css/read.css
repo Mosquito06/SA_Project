@@ -221,27 +221,284 @@
 /* ---------------------------------------------------
    MEDIAQUERIES
 ----------------------------------------------------- */
-@media screen and (max-width: 320px){
+@media screen and (max-width: 700px){
 	
 }
 
+
 @media screen and (min-width: 360px) and (max-width: 414px){
+	#readLeftDiv img{
+		width: 170px;
+	}
 	
+	#readContainer{
+		margin: 55px auto 0;
+		width: 100%;
+		min-height: 1050px !important;
+	}
+	
+	#readLeftDiv{
+		width: 50%; 
+		text-align: center;
+	}
+	
+	#readRightDiv{
+		width: 50%;
+	}
+	
+	#readTitle{
+		font-size: 15px;
+	}
+	
+	#readTitle span{ 
+		font-size: 12px;
+	}
+	
+	#readseller span{
+		font-size: 12px;
+	}
+	
+	#readCountDiv input{
+		width: 40px;
+		height: 35px;
+	}
+	
+	#readCountDiv button{
+		width: 40px;
+		height: 35px;
+	}
+	
+	#readBtnDiv button{
+		padding: 10px 20px;
+		font-size: 10px;
+	}
+	
+	#readRightDiv strong{
+		font-size: 11px
+	}
+	
+	#AsTextDiv ul {
+		font-size: 8px;
+	}
+	
+	#reviewAddTag{
+		font-size: 10px;
+	}
+	
+	#reviewConteinerDiv .reviewTitle{
+		font-size: 10px;
+	}
+	
+	#reviewConteinerDiv .reviewWriterAndDate{
+		font-size: 8px;
+	}
+	
+	#reviewConteinerDiv .reviewContent{
+		font-size: 10px;
+	}
+	
+	#reviewConteinerDiv ul li span[class~='reviewUpdate']{
+		position: absolute;
+		top: 0; 
+		left: -70px;
+	}
+	
+	#reviewConteinerDiv ul li span[class~='reviewDelete']{
+		position: absolute;
+		top: 0; 
+		left: -35px;
+	}
 }	
 
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 320px){
+	#readLeftDiv img{
+		width: 150px;
+	}
+	
 	#readContainer{
-		width: 100% !important;
-		margin: 55px auto 0 !important;
+		margin: 55px auto 0;
+		width: 100%;
+		min-height: 1050px !important;
+	}
+	
+	#readLeftDiv{
+		width: 50%; 
+		text-align: center;
+	}
+	
+	#readRightDiv{
+		width: 50%;
+	}
+	
+	#readTitle{
+		font-size: 15px;
+	}
+	
+	#readTitle span{ 
+		font-size: 12px;
+	}
+	
+	#readseller span{
+		font-size: 12px;
+	}
+	
+	#readCountDiv input{
+		width: 30px;
+		height: 25px;
+	}
+	
+	#readCountDiv button{
+		width: 30px;
+		height: 25px;
+	}
+	
+	#readBtnDiv button{
+		padding: 10px 15px;
+		font-size: 7px;
+	}
+	
+	#readRightDiv strong{
+		font-size: 11px;
+	}
+	
+	#AsTextDiv ul {
+		font-size: 8px;
+	}
+	
+	#reviewAddTag{
+		font-size: 6px;
+	}
+	
+	#reviewConteinerDiv .reviewTitle{
+		font-size: 10px;
+	}
+	
+	#reviewConteinerDiv .reviewWriterAndDate{
+		font-size: 8px;
+	}
+	
+	#reviewConteinerDiv .reviewContent{
+		font-size: 10px;
+	}
+	
+	#reviewConteinerDiv ul li span[class~='reviewUpdate']{
+		position: absolute;
+		top: 0; 
+		left: -70px;
+	}
+	
+	#reviewConteinerDiv ul li span[class~='reviewDelete']{
+		position: absolute;
+		top: 0; 
+		left: -35px;
 	}
 	
 }
 
+
 @media screen and (min-width: 767px) and (max-width: 1023px){
+	#readLeftDiv img{
+		width: 200px;
+	}
 	
+	#readContainer{
+		margin: 131px auto 0;
+		width: 90%;
+		min-height: 0;
+		background-color: green;
+	}
+	
+	#readLeftDiv{
+		width: 60%; 
+	}
+	
+	#readRightDiv{
+		width: 40%;
+	}
+	
+	#readTitle{
+		font-size: 18px;
+	}
+	
+	#readBtnDiv button{
+		padding: 10px 35px; 
+	}
+	
+	#AsTextDiv ul {
+		font-size: 8px;
+	}
+	
+	#reviewConteinerDiv .reviewTitle{
+		font-size: 10px;
+	}
+	
+	#reviewConteinerDiv .reviewWriterAndDate{
+		font-size: 8px;
+	}
+	
+	#reviewConteinerDiv .reviewContent{
+		font-size: 10px;
+	}
+	
+	#reviewConteinerDiv ul li span[class~='reviewUpdate']{
+		position: absolute;
+		top: 0; 
+		left: -70px;
+	}
+	
+	#reviewConteinerDiv ul li span[class~='reviewDelete']{
+		position: absolute;
+		top: 0; 
+		left: -35px;
+	}
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1025px){
+	#readLeftDiv img{
+		width: 255px;
+		
+	}
 	
+	#readContainer{
+		margin: 131px auto 0;
+		width: 80%;
+		min-height: 0;
+	}
+	
+	#readTitle{
+		font-size: 18px;
+	}
+	
+	#readBtnDiv button{
+		padding: 10px 25px; 
+	}
+	
+	#AsTextDiv ul {
+		font-size: 8px;
+	}
+	
+	#reviewConteinerDiv .reviewTitle{
+		font-size: 10px;
+	}
+	
+	#reviewConteinerDiv .reviewWriterAndDate{
+		font-size: 8px;
+	}
+	
+	#reviewConteinerDiv .reviewContent{
+		font-size: 10px;
+	}
+	
+	#reviewConteinerDiv ul li span[class~='reviewUpdate']{
+		position: absolute;
+		top: 0; 
+		left: -70px;
+	}
+	
+	#reviewConteinerDiv ul li span[class~='reviewDelete']{
+		position: absolute;
+		top: 0; 
+		left: -35px;
+	}
 }

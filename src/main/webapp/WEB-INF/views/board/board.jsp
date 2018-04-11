@@ -8,7 +8,11 @@
 		 $(".boardLi").click(function(){
 			var goLocation = $(this).attr("data-location");
 			location.href = goLocation;
-		 })  
+		 })
+		 
+		 $("#addBoardBtn").click(function(){
+			
+		 })
 	})
 
 </script>
@@ -38,7 +42,7 @@
 			<div id="ContentTopText">
 				<c:if test="${typeInfo.sectionName != null }">
 					${typeInfo.sectionName} <span>(${pageMaker.totalCount })</span>
-					<button type="button" class="btn btn-default">등록하기</button>
+					<button type="button" class="btn btn-default" id="addBoardBtn">등록하기</button>
 				</c:if>
 			</div>
 			<div id="ContentBottomDiv">

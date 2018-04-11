@@ -61,7 +61,7 @@ $(function(){
 				type : "delete",
 				dataType: "text",
 				success : function(result){
-					alert("삭제했습니다.");
+					alert("삭제되었습니다.");
 					getReples(1);
 				}
 			})

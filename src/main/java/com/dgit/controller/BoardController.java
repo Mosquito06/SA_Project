@@ -115,4 +115,11 @@ public class BoardController {
 
 		return "board/read";
 	}
+	
+	@RequestMapping(value="add", method = RequestMethod.GET)
+	public String addPage(){
+		
+		
+		return "board/add";
+	}
 }
