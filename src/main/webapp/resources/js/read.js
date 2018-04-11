@@ -1,17 +1,20 @@
 $(function(){
-	
+		
 	// 댓글 Collapse 처리
 	$("#reviewCollapseSpan").click(function(){
 		var status = $(this).html();
 		if(status == "+"){
-			$("#reviewContent ul").slideDown(1000, function(){
-				$("#reviewPaging ul").slideDown(500);
+			$("#reviewAddTag").slideDown(500, function(){
+				$("#reviewContent ul").slideDown(1000, function(){
+					$("#reviewPaging ul").slideDown(500);
+				});
 			});
-			
+									
 			$(this).html("-");
 		}else{
 			$("#reviewPaging ul").slideUp(500, function(){
 				$("#reviewContent ul").slideUp(1000);
+				$("#reviewAddTag").slideUp(500);
 			});
 
 			$(this).html("+");
@@ -19,7 +22,7 @@ $(function(){
 	})
 	
 	// 댓글 페이징 클릭 시 처리
-	$("#reviewPaging a").click(function(e){
+	$("#reviewPaging").on("click", "li a", function(e){
 		e.preventDefault();
 		var page = $(this).attr("href");
 		getReples(page);
@@ -32,12 +35,40 @@ $(function(){
 		var year = dateObj.getFullYear();
 		var month = dateObj.getMonth() + 1;
 		var date = dateObj.getDate();
-		
+		month = month < 10? "0" + month: month;
+			
 		return year + "." + month + "." + date;
 	})
 	
 	var templateFunc = Handlebars.compile($("#template").html());
 	
+	Handlebars.registerHelper("if", function(replyWriter, option){
+		if(replyWriter == loginName){
+			return option.fn(this);
+		}else{
+			return "";
+		}
+	})
+	
+	// 댓글 삭제 처리
+	$(document).on("click", ".reviewDelete", function(){
+		var target = $(this).attr("data-del");
+		$.ajax({
+			url : contextPath + "/deleteReview/" + Number(target),
+			type : "delete",
+			dataType: "text",
+			success : function(result){
+				alert("삭제했습니다.");
+				getReples(1);
+			}
+		})
+	
+	})
+	
+	
+	
+	
+	// 댓글 획득 ajax
 	function getReples(page){
 		
 		$.ajax({
@@ -49,12 +80,38 @@ $(function(){
 				$("#reviewContent ul").empty();
 				$("#totalCountSpan").text(result.pageMaker.totalCount);
 				$("#reviewContent ul").html(templateFunc(result.reples));
-						
+				getPaging(result.pageMaker);
 			}
 			
 		})
 		
 	}
+	
+	// 댓글 페이징 처리 함수
+	function getPaging(pageMaker){
+		$("#reviewPaging ul").empty();
+		var str = "";
+		
+		if(pageMaker.prev){
+			str += "<li><a href='" + pageMaker.startPage -1 + "'> << </a></li>"
+		}
+		
+		for(var i = pageMaker.startPage; i <= pageMaker.endPage; i++){
+			if(pageMaker.cri.page == i){
+				str += "<li class='active'><a href='" + i + "'>"+ i +"</a></li>"
+			}else{
+				str += "<li><a href='" + i + "'>"+ i +"</a></li>"
+			}
+		}
+				
+		if(pageMaker.next){
+			str += "<li><a href='" + pageMaker.endPage + 1 + "'> >> </a></li>"
+		}
+		
+		$("#reviewPaging ul").html(str);
+	}
+	
+	$('[data-toggle="popover"]').popover(); 
 	
 })
 

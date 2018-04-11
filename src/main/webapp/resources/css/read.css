@@ -140,19 +140,49 @@
 		cursor: pointer;
 	}
 	
+	#reviewAddTag{
+		font-size: 13px;
+		color: #2e2e2e !important;
+		border-bottom: 1px solid #2e2e2e;
+		text-decoration: none;
+		margin-left: 10%;
+		display: none;
+	}
+	
+	
 	#reviewConteinerDiv ul{
 		margin-top: 5%;
-		padding-left: 20px;
+		padding-left: 80px;
 		list-style: none;
 		clear: both;
 		display: none;
-		
+	}
+	
+	#reviewConteinerDiv ul li.reviewLi{
+		position: relative;
 	}
 	
 	#reviewConteinerDiv ul li span{
 		display: block;
 	}
 	
+	#reviewConteinerDiv ul li span[class~='reviewUpdate']{
+		display: inline-block;
+		position: absolute;
+		top: 3px; 
+		left: -70px;
+		cursor: pointer;
+		
+	}
+	
+	#reviewConteinerDiv ul li span[class~='reviewDelete']{
+		display: inline-block;
+		position: absolute;
+		top: 3px; 
+		left: -35px;
+		cursor: pointer;
+	}
+		
 	#reviewConteinerDiv ul li.reviewLi{
 		margin-bottom: 10%;
 	}

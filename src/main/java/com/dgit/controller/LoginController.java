@@ -55,6 +55,7 @@ public class LoginController {
 	public String login(UserVO user, String path, String query, Model model){
 		String[] pathUpdate = path.split("/");
 		String finalPath = pathUpdate[pathUpdate.length - 1].substring(0, pathUpdate[pathUpdate.length - 1].indexOf("."));
+		logger.info("finalPath = " + finalPath);
 		logger.info("query = " + query);
 		
 		try {

@@ -1,0 +1,62 @@
+@CHARSET "UTF-8";
+
+/* ---------------------------------------------------
+   CONTENT
+----------------------------------------------------- */
+	#reviewContainer{
+		width: 60%;
+		margin: 131px auto;
+		font-family: 'Nanum Gothic', sans-serif;
+		
+		
+	}
+	
+	#reviewTextDiv{
+		font-size: 30px;
+		font-weight: bold;
+		color: #111;
+		text-align: center; 
+		border-bottom: 1px solid #e5e5e5;
+		padding: 50px;
+	}
+
+	#reviewFormDiv{
+		padding: 50px 30px;
+		border-bottom: 1px solid #e5e5e5;
+		margin-bottom: 13%; 
+	}
+	
+	#reviewFormDiv button{
+		width: 100%;
+		padding: 10px 0;
+	}
+
+
+
+/* ---------------------------------------------------
+   MEDIAQUERIES
+----------------------------------------------------- */
+@media screen and (max-width: 320px){
+	
+}
+
+@media screen and (min-width: 360px) and (max-width: 414px){
+	
+}	
+
+
+@media screen and (max-width: 700px){
+	#reviewContainer{
+		width: 100% !important;
+		margin: 55px auto 0 !important;
+	}
+	
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px){
+	
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1025px){
+	
+}

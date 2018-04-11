@@ -5,11 +5,15 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script>
 	var boardNum = ${board.boardNum};
-
+	var loginName = "${login.name}";
 </script>
 <script id="template" type="text/x-handlebars-template">
 	{{#each.}}
 		<li class="reviewLi">
+			{{#if replyWriter}}
+				<span class="label label-warning reviewUpdate" data-update="{{replyNum }}>수정</span>
+				<span class="label label-danger reviewDelete" data-del="{{replyNum }}">삭제</span>
+			{{/if}}
 			<span class="reviewTitle">{{replyTitle}}</span>
 			<span class="reviewWriterAndDate">{{replyWriter}} - {{setDate replyTime}}</span>
 			<span class="reviewContent">{{replyContent }}</span>
@@ -36,7 +40,8 @@
 				<span>전화번호: ${board.clientNum.phone }</span><br>
 			</div>
 			<div id="readContent">
-				<strong>제품 소개</strong><br>  
+				<strong>제품 소개</strong><br>
+				${boardContent.boardContent }
 			</div>
 			<div id="readCountDiv">
 				<strong>수량</strong><br> 
@@ -77,13 +82,18 @@
 			</div>
 			<div id="reviewConteinerDiv">
 				<div id="reviewContent">
-					<strong>REVIEWS(<span id="totalCountSpan">${pageMaker.totalCount }</span>)</strong> 
+					<strong>REVIEWS(<span id="totalCountSpan">${pageMaker.totalCount }</span>)</strong>
 					<span id="reviewCollapseSpan"> + </span>
+					<a href="${pageContext.request.contextPath }/addReview${pageMaker.makeQuery(cri.page) }&boardNum=${boardNum}&sectionNum=${sectionNum}" id="reviewAddTag">리뷰 작성하기</a>
 					<ul>
 						<c:choose>
 							<c:when test="${reples.size() > 0 }">
 								<c:forEach var="reply" items="${reples }">
 									<li class="reviewLi">
+										<c:if test="${login.name == reply.replyWriter}">
+											<span class="label label-warning reviewUpdate">수정</span>
+											<span class="label label-danger reviewDelete" data-del="${reply.replyNum }">삭제</span>
+										</c:if>
 										<span class="reviewTitle">${reply.replyTitle }</span>
 										<span class="reviewWriterAndDate">${reply.replyWriter } - <fmt:formatDate value="${reply.replyTime }" pattern="yyyy.MM.dd"/></span>
 										<span class="reviewContent">${reply.replyContent }</span>

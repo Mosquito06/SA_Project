@@ -15,19 +15,19 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sign.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/complete.css?a=da">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css?a=a">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/read.css?a=dd">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/read.css?a=sdd">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/review.css?a=sd">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 	// js 파일에서는 el을 못쓰기 때문에 contextPath를 미리 받아둔 변수를 선언해둠
-	
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/sign.js?a=a"></script>
 <script src="${pageContext.request.contextPath }/resources/js/header.js?a=da"></script>
-<script src="${pageContext.request.contextPath }/resources/js/read.js?a=sa"></script>
+<script src="${pageContext.request.contextPath }/resources/js/read.js?a=sddd"></script>
 
 </head>
 <body>
@@ -65,7 +65,7 @@
       	<c:choose>
       		<c:when test="${login == null }">
       			<li><a href="${pageContext.request.contextPath }/sign">회원가입</a></li>
-    			<li><a data-toggle="modal" data-target="#loginModal">로그인</a></li>
+    			<li><a data-toggle="modal" data-target="#loginModal" id="navLoginAtag">로그인</a></li>
       		</c:when>
       		<c:otherwise>
       			<li><a href="#" id="loginNameA">${login.name }</a></li>

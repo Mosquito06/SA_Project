@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.dgit.domain.BoardContentVO;
 import com.dgit.domain.BoardVO;
 import com.dgit.domain.CategoryVO;
 import com.dgit.domain.Criteria;
@@ -20,6 +21,7 @@ import com.dgit.domain.ReplyVO;
 import com.dgit.domain.SearchCriteria;
 import com.dgit.domain.SectionVO;
 import com.dgit.domain.TypeInfo;
+import com.dgit.service.BoardContentService;
 import com.dgit.service.BoardService;
 import com.dgit.service.CategoryService;
 import com.dgit.service.DivisionService;
@@ -45,6 +47,9 @@ public class BoardController {
 	@Autowired
 	private ReplyService replyService;
 	
+	@Autowired
+	private BoardContentService boardContentService;
+	
 	@RequestMapping(value="/board", method = RequestMethod.GET)
 	public String goBoard(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("cri") SearchCriteria cri, Model model){
 		PageMaker pageMaker = new PageMaker();
@@ -63,7 +68,7 @@ public class BoardController {
 			List<SectionVO> leftSection = sectionService.selectByDivisionNum(typeInfo.getDivisionNum());
 			List<BoardVO> boards = boardService.selectBoardBySectionNum(sectionNum, cri);
 			pageMaker.setTotalCount(boardService.selectBoardCount(sectionNum));
-	
+			
 			model.addAttribute("typeInfo", typeInfo);
 			model.addAttribute("leftSection", leftSection);
 			model.addAttribute("boards", boards);
@@ -90,6 +95,8 @@ public class BoardController {
 			model.addAttribute("section", section);
 			
 			BoardVO board = boardService.selectBoardByBoardNum(boardNum);
+			BoardContentVO boardContent = boardContentService.selectboardContentByBoardNum(boardNum);
+			
 			
 			Criteria criteria = new Criteria();
 			criteria.setPage(1);
@@ -104,6 +111,7 @@ public class BoardController {
 			model.addAttribute("board", board);
 			model.addAttribute("reples", reples);
 			model.addAttribute("pageMaker", pageMaker);
+			model.addAttribute("boardContent", boardContent); 
 		}catch(Exception e){
 			e.printStackTrace();
 		}
