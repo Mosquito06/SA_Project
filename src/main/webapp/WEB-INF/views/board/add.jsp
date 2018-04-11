@@ -1,37 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp"/>
-<script>
-	$(function(){
-		$("#addFileBtn").click(function(){
-			$("#files").trigger("click");
-		})
-		
-		$("#files").change(function(){
-			$("#imgPreviewDiv").empty();
-			
-			var file = document.getElementById("files");
-			
-			if(file.files.length > 6){
-				alert("최대 6장까지 등록가능합니다.");
-				return;
-			}
-			
-			$(file.files).each(function(i, file){
-				var reader = new FileReader();
-				reader.onload = function(e){
-					var img = $("<img>").attr("src", e.target.result);
-					$("#imgPreviewDiv").append(img);
-				}
-				
-				reader.readAsDataURL(file);
-				
-			})
-			
-			$("#imgPreviewDiv").css("display", "block");
-		})
-	})
-</script>
 <section>
 	<div id="addContainer">
 		<div id="addMainText">

@@ -117,9 +117,19 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/add", method = RequestMethod.GET)
-	public String addPage(){
+	public String addPage(Model model){
 		
-		
+		try{
+			List<CategoryVO> category = categoryService.selectAll(); 
+			List<DivisionVO> division = divisionService.selectAll(); 
+			List<SectionVO> section = sectionService.selectAll(); 
+			
+			model.addAttribute("category", category);
+			model.addAttribute("division", division);
+			model.addAttribute("section", section);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		return "board/add";
 	}
 }

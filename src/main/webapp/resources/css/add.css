@@ -5,7 +5,7 @@
 ----------------------------------------------------- */
 	#addContainer{
 		width: 50%;
-		margin: 131px auto;
+		margin: 200px auto;
 		font-family: 'Nanum Gothic', sans-serif;
 		text-align: center; 
 	}
@@ -40,7 +40,7 @@
 		font-weight: bold;
 		text-align: left;
 		margin-bottom: 5%;
-		display: none !important;  
+		display: none;  
 	}
 	
 	#files{
@@ -85,21 +85,34 @@
 /* ---------------------------------------------------
    MEDIAQUERIES
 ----------------------------------------------------- */
-@media screen and (max-width: 320px){
-	
-}
-
 @media screen and (min-width: 360px) and (max-width: 414px){
-	
-}	
-
-
-@media screen and (max-width: 700px){
 	#addContainer{
-		width: 100% !important;
-		margin: 55px auto 0 !important;
+		width: 100%;
+		margin: 100px auto; 
 	}
 	
+	#addMainText{
+		width: 280px;
+	}
+	
+	#addFormDiv{
+		width: 280px;
+	}
+}
+
+@media screen and (max-width: 321px){
+	#addContainer{
+		width: 90%; 
+		margin: 100px auto; 
+	}
+	
+	#addMainText{
+		width: 250px !important;
+	}
+	
+	#addFormDiv{
+		width: 280px;
+	}
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px){

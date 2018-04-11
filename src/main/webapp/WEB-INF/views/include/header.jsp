@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/read.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/review.css?a=s">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/updateReview.css?a=d">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/add.css?a=d">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/add.css?a=sd">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
@@ -29,8 +29,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/sign.js?a=a"></script>
 <script src="${pageContext.request.contextPath }/resources/js/header.js?a=da"></script>
-<script src="${pageContext.request.contextPath }/resources/js/read.js?a=sddd"></script>
-
+<script src="${pageContext.request.contextPath }/resources/js/read.js?a=dd"></script>
+<script src="${pageContext.request.contextPath }/resources/js/add.js?a=d"></script>
 </head>
 <body>
 
