@@ -17,7 +17,7 @@
 			  </div>
 			  
 			  <div class="form-group">
-			    <input type="text" class="form-control addCheck" id="addAddress" name="address" placeholder="주소를 입력하세요.">
+			    <input type="text" class="form-control addCheck" id="addAddress" value="${login.address }" name="address" placeholder="주소를 입력하세요.">
 			  </div>
 			  <div class="addCheckMessage">
 			  	필수 입력 항목입니다.

@@ -69,10 +69,10 @@ public class UploadFileUtils {
 	private static String makeThumbnail(String uploadPath, String path, String filename) throws IOException{
 		// 원본 이미지를 읽어드림
 		BufferedImage sourceImg = ImageIO.read(new File(uploadPath + path, filename));
-		
+		System.out.println("sourceImg : " + sourceImg);
 		// 원본 이미지를 리사이징 함.
 		// 높이를 맞춤. 100px, 나머지는 자동
-		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 100);
+		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.QUALITY, Scalr.Mode.FIT_TO_HEIGHT, 435); 
 		
 		// 원본이미지에 썸네일 이미지가 덮어쓰는 것을 방지하기 위해 경로 내에 이름을 변경
 		String thumbnailName = uploadPath + path + "/s_" + filename;

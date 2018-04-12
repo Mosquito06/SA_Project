@@ -58,27 +58,29 @@
 						<c:when test="${boards.size() > 0 }">
 							<c:forEach var="item" items="${boards }">
 								<li class="boardLi" data-location="${pageContext.request.contextPath }/read${pageMaker.makeQuery(pageMaker.cri.page)}&sectionNum=${sectionNum}&boardNum=${item.boardNum}">
-									<div class="boardTop">
-										<c:choose>
-											<c:when test="${item.files.size() > 0 }">
-												<img src="${pageContext.request.contextPath }/resources/img/sample.JPG">
-											</c:when>
-											<c:otherwise>
-												<img src="${pageContext.request.contextPath }/resources/img/board/basicImg.jpg">
-											</c:otherwise>
-										</c:choose>
-										
-									</div>
-									<div class="boardBottom">
-										<div class="boardCountDiv">
-											<span class="totlaCount">총 주문수량 : ${item.boardTotalCount }</span>
-											<span class="viewCount">조회수 : ${item.boardCount }</span>
+									<div >
+										<div class="boardTop">
+											<c:choose>
+												<c:when test="${item.files.size() > 0 }">
+													<img src="${pageContext.request.contextPath }/resources/upload/skykim10908@naver.com/${item.files.get(0).filePath}">
+												</c:when>
+												<c:otherwise>
+													<img src="${pageContext.request.contextPath }/resources/img/board/basicImg.jpg">
+												</c:otherwise>
+											</c:choose>
+											
 										</div>
-										<div class="boardTextDiv">
-											<span class="boardTitle">제목 : ${item.boardTitle }</span><br>
-											<span class="boardInputDate">등록날짜 : <fmt:formatDate value="${item.boardDate }" pattern="yyyy-MM-dd"/> </span><br>
-											<span class="boardPrice">가격 : <fmt:formatNumber value="${item.boardPrice }" currencyCode="KRW"/> 원</span><br>
-											<span class="boardWriter">등록 : ${item.clientNum.name }</span>
+										<div class="boardBottom">
+											<div class="boardCountDiv">
+												<span class="totlaCount">총 주문수량 : ${item.boardTotalCount }</span>
+												<span class="viewCount">조회수 : ${item.boardCount }</span>
+											</div>
+											<div class="boardTextDiv">
+												<span class="boardTitle">제목 : ${item.boardTitle }</span><br>
+												<span class="boardInputDate">등록날짜 : <fmt:formatDate value="${item.boardDate }" pattern="yyyy-MM-dd"/> </span><br>
+												<span class="boardPrice">가격 : <fmt:formatNumber value="${item.boardPrice }" currencyCode="KRW"/> 원</span><br>
+												<span class="boardWriter">등록 : ${item.clientNum.name }</span>
+											</div>
 										</div>
 									</div>
 								</li>

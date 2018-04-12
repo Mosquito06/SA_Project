@@ -84,16 +84,25 @@
 		list-style: none;
 		float: left;
 		width: 220px;
+		height: 350px;
 		margin: 1%;
 		cursor: pointer;
+		
 	}
 	
-	#ContentBottomDiv .boardLi:hover{
+	#ContentBottomDiv .boardLi > div{
+		width:98%;
+		height:98%;
+		margin: 0 auto;
+	}
+	
+	#ContentBottomDiv .boardLi:hover > div{
 		border: 1px solid #ccc;
 	}
-	
+		
 	#ContentBottomDiv .boardLi .boardTop img{
 		width: 100%;
+		height: 220px;
 	}
 	
 	#ContentBottomDiv .boardLi .boardCountDiv{

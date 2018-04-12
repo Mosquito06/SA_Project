@@ -1,5 +1,6 @@
 package com.dgit.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -7,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.dgit.domain.AddFileVO;
 import com.dgit.domain.BoardVO;
@@ -16,6 +18,7 @@ import com.dgit.persistence.AddFileDao;
 import com.dgit.persistence.BoardContentDao;
 import com.dgit.persistence.BoardDao;
 import com.dgit.persistence.UserDao;
+import com.dgit.util.UploadFileUtils;
 
 @Repository
 public class BoardServiceImpl implements BoardService {
@@ -48,9 +51,20 @@ public class BoardServiceImpl implements BoardService {
 		
 		boardContentDao.insert(createBoard.getBoardContent()); 
 		
-		if(!createBoard.getImgFiles().isEmpty()){
+		if(!createBoard.getImgFiles().get(0).isEmpty()){
 			logger.info("저장하려는 파일이 존재함");
+			String uploadPath = createBoard.getRealPath() + "/" + UploadPath +  "/" + createBoard.getUser().getId();
 			
+			for(MultipartFile f: createBoard.getImgFiles()){
+				String savePath = UploadFileUtils.uploadFile(uploadPath, f.getOriginalFilename(), f.getBytes());
+				/*logger.info("savePath : " + savePath);*/
+				AddFileVO addFile = new AddFileVO();
+				addFile.setFilePath(savePath);
+				addFile.setBoardNum(createBoard.getBoard());
+				addFile.setRegDate(new Date());
+				
+				addFileDao.insert(addFile);
+			}
 			
 			
 		}
@@ -76,8 +90,17 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
+	@Transactional
 	public BoardVO selectBoardByBoardNum(int num) throws Exception {
-		return dao.selectBoardByBoardNum(num);
+			
+		BoardVO board = dao.selectBoardByBoardNum(num);
+		
+		List<AddFileVO> files = addFileDao.selectAddFileByBoardNum(board.getBoardNum());
+		if(!files.isEmpty()){
+			board.setFiles(files); 
+		}
+		
+		return board;
 	}
 
 	@Override
@@ -86,9 +109,10 @@ public class BoardServiceImpl implements BoardService {
 		
 		List<BoardVO> boards = dao.selectBoardBySectionNum(num, cri);
 		for(BoardVO b : boards){
-			List<AddFileVO> files = addFileDao.selectAddFileByBoardNum(num);
+			List<AddFileVO> files = addFileDao.selectAddFileByBoardNum(b.getBoardNum());
+			/*System.out.println(files.isEmpty());*/
 			if(!files.isEmpty()){
-				System.out.println("가져오려는 파일이 존재함");
+				/*System.out.println("가져오려는 파일이 존재함");*/
 				b.setFiles(files); 
 			}
 		}

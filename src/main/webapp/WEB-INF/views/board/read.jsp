@@ -26,9 +26,18 @@
 <section>
 	<div id="readContainer">
 		<div id="readLeftDiv">
-			<c:forEach begin="1" end="6">
-				<img src="${pageContext.request.contextPath }/resources/img/sam.jpg">
-			</c:forEach>
+			<c:choose>
+				<c:when test="${board.files.size() > 0 }">
+					<c:forEach var="img" items="${board.files }">
+						<img src="${pageContext.request.contextPath }/resources/upload/skykim10908@naver.com${img.filePath}">
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<c:forEach begin="1" end="6">
+						<img src="${pageContext.request.contextPath }/resources/img/board/emptyImg(435).png">
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
 		</div>
 		
 		<div id="readRightDiv">
