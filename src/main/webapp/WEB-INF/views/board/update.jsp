@@ -63,10 +63,10 @@
 			  </div>
 			</form>
 		</div>
-		<div id="updateImgPreviewDiv">
+		<div id="updateImgPreviewDiv" ${(board.files != null)? "style='display:block'" : ''}>
 			<c:if test="${board.files != null }">
 				<c:forEach var="img" items="${board.files }">
-					<img src="${pageContext.request.contextPath }/resources/upload${img.filePath}"> 
+					<img class="boardImg" src="${pageContext.request.contextPath }/resources/upload${img.filePath}"> 
 				</c:forEach>
 			</c:if>
 		</div>

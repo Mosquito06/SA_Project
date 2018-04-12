@@ -1,7 +1,7 @@
 $(function(){
 	// 파일 선택 버튼 클릭 시 숨겨둔 file 트리거 발동
-	$("#addFileBtn").click(function(){
-		$("#ImgFiles").trigger("click");
+	$("#updateFileBtn").click(function(){
+		$("#updateImgFiles").trigger("click");
 	})
 	
 	
@@ -77,37 +77,4 @@ $(function(){
 		$("#addForm").submit();
 	})
 	
-	function isCheckPattern(input, index){
-		var value = input.val();
-		
-		var emptyCheck = isEmptyCheck(input);
-		if(emptyCheck){
-			return;
-		}
-		
-		if(index == 4){
-			var pattern = /^[0-9]+$/;
-			var check = pattern.test(value);
-			
-			if(!check){
-				input.parent().next().css("display", "block").text("숫자만 입력가능합니다.");
-			}else{
-				input.parent().next().css("display", "none").text("필수 입력 항목입니다.");
-			}
-		}
-	}
-	
-	
-	function isEmptyCheck(input){
-		var value = input.val();
-		
-		if(value == "" || value.length == 0){
-			input.parent().next().css("display", "block").text("필수 입력 항목입니다.");
-			return true;
-		}else{
-			input.parent().next().css("display", "none").text("필수 입력 항목입니다.");
-			return false;
-		}
-	}
-
 })
