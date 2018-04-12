@@ -3,38 +3,38 @@
 /* ---------------------------------------------------
    CONTENT
 ----------------------------------------------------- */
-	#addContainer{
+	#updateContainer{
 		width: 50%;
 		margin: 200px auto;
 		font-family: 'Nanum Gothic', sans-serif;
 		text-align: center; 
 	}
 	
-	#addContainer .form-group{
+	#updateContainer .form-group{
 		margin-bottom: 1% !important;
 	}
 	
-	#addMainText{
+	#updateMainText{
 		width: 380px;
 		font-size: 22px;
 		font-weight: bold;
 		margin: 0 auto 5%; 
 	}
 	
-	#addFormDiv{
+	#updateForm{
 		width: 380px;
 		margin: 0 auto;
 	}
 	
-	#addFormDiv input{
+	#updateForm input{
 		margin-top: 10%; 
 	}
 	
-	#addFormDiv textarea{
+	#updateForm textarea{
 		margin-top: 10%; 
 	}
 	
-	.addCheckMessage{
+	.updateCheckMessage{
 		color: red;
 		font-size: 11px;
 		font-weight: bold;
@@ -43,11 +43,11 @@
 		display: none;  
 	}
 	
-	#ImgFiles{
+	#updateImgFiles{
 		display: none;
 	}
 	
-	#addFileBtn{
+	#updateFileBtn{
 		margin-bottom: 2%;
 		background-color: black;
 	    padding: 10px 30px;
@@ -55,7 +55,7 @@
 	    font-weight: bold;
 	}
 	
-	#addBoardBtn{
+	#updateBoardBtn{
 		margin-bottom: 2%;
 		background-color: black;
 	    padding: 10px 30px;
@@ -63,21 +63,20 @@
 	    font-weight: bold;
 	}
 	
-	#imgPreviewDiv{
+	#updateImgPreviewDiv{
 		width: 100%;
 		min-height: 300px;
 		display: none;
 	}
 	
-	#addImgMessage{
+	#updateImgMessage{
 		font-size: 11px;
 		font-weight: bold; 
 		margin-bottom: 10%;
 	}
 	
-	#imgPreviewDiv img{
+	#updateImgPreviewDiv img{
 		max-width: 150px;
-		max-height : 150px;
 		margin: 10px;
 	}
 	
@@ -87,31 +86,31 @@
    MEDIAQUERIES
 ----------------------------------------------------- */
 @media screen and (min-width: 360px) and (max-width: 414px){
-	#addContainer{
+	#updateContainer{
 		width: 100%;
 		margin: 100px auto; 
 	}
 	
-	#addMainText{
+	#updateMainText{
 		width: 280px;
 	}
 	
-	#addFormDiv{
+	#updateForm{
 		width: 280px;
 	}
 }
 
 @media screen and (max-width: 321px){
-	#addContainer{
+	##updateContainer{
 		width: 90%; 
 		margin: 100px auto; 
 	}
 	
-	#addMainText{
-		width: 250px !important;
+	#updateMainText{
+		width: 250px !important; 
 	}
 	
-	#addFormDiv{
+	#updateForm{
 		width: 280px;
 	}
 }

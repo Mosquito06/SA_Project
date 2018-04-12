@@ -235,6 +235,10 @@
 	    
 	}
 	
+	#DelAndUpBtnDiv button:HOVER{
+		background-color: #C0C0C0; 
+		border: 1px solid #C0C0C0;
+	}
 }
 	
 /* ---------------------------------------------------

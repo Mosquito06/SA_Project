@@ -85,7 +85,11 @@ $(function(){
 		}	
 	})
 	
-	
+	// 게시물 수정 버튼 이벤트
+	$("#boardUpdateBtn").click(function(){
+		var target = $(this).attr("data-up");
+		location.href = target;
+	})
 	
 	// 댓글 획득 ajax
 	function getReples(page){

@@ -182,4 +182,27 @@ public class BoardController {
 		
 		return "redirect: board";
 	}
+	
+	@RequestMapping(value="/update", method = RequestMethod.GET)
+	public String updatePage(@ModelAttribute("sectionNum") int sectionNum, int boardNum, Model model){
+		
+		try{
+			List<CategoryVO> category = categoryService.selectAll(); 
+			List<DivisionVO> division = divisionService.selectAll(); 
+			List<SectionVO> section = sectionService.selectAll(); 
+			
+			BoardVO board = boardService.selectBoardByBoardNum(boardNum);
+			BoardContentVO boardContent = boardContentService.selectboardContentByBoardNum(boardNum);
+			
+			
+			model.addAttribute("category", category);
+			model.addAttribute("division", division);
+			model.addAttribute("section", section);
+			model.addAttribute("board", board);
+			model.addAttribute("boardContent", boardContent);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return "board/update";
+	}
 }
