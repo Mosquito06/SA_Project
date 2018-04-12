@@ -55,9 +55,6 @@ public class BoardController {
 	@Autowired
 	private BoardContentService boardContentService;
 	
-	@Autowired
-	private UserService userService;
-	
 	@RequestMapping(value="/board", method = RequestMethod.GET)
 	public String goBoard(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("cri") SearchCriteria cri, Model model){
 		PageMaker pageMaker = new PageMaker();
@@ -163,6 +160,25 @@ public class BoardController {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		return "redirect: board";
+	}
+	
+	@RequestMapping(value="/del", method = RequestMethod.GET)
+	public String delBoard(@ModelAttribute("sectionNum") int sectionNum, int boardNum, HttpServletRequest req){
+		logger.info("del 진입?");
+		
+		String rootPath = req.getSession().getServletContext().getRealPath("/");
+		BoardVO board = new BoardVO();
+		board.setBoardNum(boardNum);
+				
+		try {
+			boardService.deleteBoard(board, rootPath);
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		
+		}	
+		
 		return "redirect: board";
 	}
 }

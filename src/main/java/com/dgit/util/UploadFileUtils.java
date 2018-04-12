@@ -90,7 +90,8 @@ public class UploadFileUtils {
 	
 	public static void deleteImg(String filename){
 		String originalFile = filename.substring(0, filename.indexOf("s_")) + filename.substring(filename.indexOf("s_") + 2);
-
+		System.out.println(originalFile);
+		System.out.println(filename);
 		try{
 			System.gc(); // 가비지 컬렉터 호출
 			File del = new File(filename);

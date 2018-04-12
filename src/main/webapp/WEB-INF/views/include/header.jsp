@@ -15,8 +15,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sign.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/complete.css?a=da">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css?a=da">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/read.css?a=ad">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/review.css?a=s">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/read.css?a=a">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/review.css?a=ss">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/updateReview.css?a=d">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/add.css?a=fdd">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">

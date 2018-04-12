@@ -74,7 +74,19 @@ $(function(){
 		var target = $(this).attr("data-href");
 		location.href = target;	
 	})
-
+	
+	// 게시물 삭제 버튼 이벤트
+	$("#boardDeleteBtn").click(function(){
+		var check = confirm("정말로 삭제하시겠습니까?");
+		
+		if(check){
+			var target = $(this).attr("data-del");
+			location.href = target;
+		}	
+	})
+	
+	
+	
 	// 댓글 획득 ajax
 	function getReples(page){
 		

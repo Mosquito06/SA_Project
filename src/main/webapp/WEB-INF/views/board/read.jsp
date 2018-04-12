@@ -107,13 +107,13 @@
 					</ul>
 				</div>
 			</div>
-			<%-- <c:if test=""> --%>
+			<c:if test="${board.clientNum.id == login.id }">
 				<div id="DelAndUpBtnDiv">
-					<strong>수정 / 삭제</strong>
-					<button>수정</button>
-					<button>삭제</button>
+					<strong>수정 / 삭제</strong><br>
+					<button id="boardUpdateBtn">수정</button>
+					<button id="boardDeleteBtn" data-del="${pageContext.request.contextPath }/del?boardNum=${boardNum}&sectionNum=${sectionNum}">삭제</button>
 				</div>
-			<%-- </c:if> --%>
+			</c:if>
 		</div>
 		
 	</div>

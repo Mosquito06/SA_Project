@@ -65,15 +65,22 @@ public class BoardServiceImpl implements BoardService {
 				
 				addFileDao.insert(addFile);
 			}
-			
-			
+
 		}
-		
-		
+
 	}
 
 	@Override
-	public void deleteBoard(BoardVO board) throws Exception {
+	@Transactional
+	public void deleteBoard(BoardVO board, String rootPath) throws Exception {
+		List<AddFileVO> files = addFileDao.selectAddFileByBoardNum(board.getBoardNum());
+		
+		if(!files.isEmpty()){
+			for(AddFileVO f : files){
+				UploadFileUtils.deleteImg(rootPath + UploadPath + f.getFilePath());
+			}
+		}
+				
 		dao.delete(board);
 		
 	}
