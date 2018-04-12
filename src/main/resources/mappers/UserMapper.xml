@@ -21,7 +21,7 @@
     </insert>
     
     <update id="updateUser">
-       update user set id = #{id}, pw = password(#{pw}), name = #{name}, email = #{email}, phone = #{phone}, 
+       update user set name = #{name}, email = #{email}, phone = #{phone}, 
        home_tel = #{homeTel}, address = #{address}, status = #{status} where client_num = #{clientNum}
     </update>
     
@@ -29,11 +29,11 @@
         delete from user where client_num = #{clientNum}
     </delete>
     
-    <select id="selectUserByIdAndPw" resultType="UserVO">
+    <select id="selectUserByIdAndPw" resultMap="userResult">
         select * from user where id = #{id} and pw = password(#{pw})
     </select>
     
-    <select id="selectUserById" resultType="UserVO">
+    <select id="selectUserById" resultMap="userResult">
         select * from user where id = #{id}
     </select>
 </mapper>

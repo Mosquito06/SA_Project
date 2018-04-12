@@ -2,6 +2,8 @@ package com.dgit.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,23 +12,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.dgit.domain.BoardContentVO;
 import com.dgit.domain.BoardVO;
 import com.dgit.domain.CategoryVO;
+import com.dgit.domain.CreateBoard;
 import com.dgit.domain.Criteria;
 import com.dgit.domain.DivisionVO;
 import com.dgit.domain.PageMaker;
-import com.dgit.domain.ReplyVO;
 import com.dgit.domain.SearchCriteria;
 import com.dgit.domain.SectionVO;
 import com.dgit.domain.TypeInfo;
+import com.dgit.domain.UserVO;
 import com.dgit.service.BoardContentService;
 import com.dgit.service.BoardService;
 import com.dgit.service.CategoryService;
 import com.dgit.service.DivisionService;
 import com.dgit.service.ReplyService;
 import com.dgit.service.SectionService;
+import com.dgit.service.UserService;
 
 @Controller
 public class BoardController {
@@ -49,6 +54,9 @@ public class BoardController {
 	
 	@Autowired
 	private BoardContentService boardContentService;
+	
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping(value="/board", method = RequestMethod.GET)
 	public String goBoard(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("cri") SearchCriteria cri, Model model){
@@ -117,7 +125,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/add", method = RequestMethod.GET)
-	public String addPage(Model model){
+	public String addPage(@ModelAttribute("sectionNum") int sectionNum, Model model){
 		
 		try{
 			List<CategoryVO> category = categoryService.selectAll(); 
@@ -131,5 +139,30 @@ public class BoardController {
 			e.printStackTrace();
 		}
 		return "board/add";
+	}
+	
+	@RequestMapping(value="/add", method = RequestMethod.POST)
+	public String addBoard(int num, UserVO user, BoardVO board, BoardContentVO boardContent, 
+			List<MultipartFile> ImgFiles, HttpServletRequest req, Model model){
+		logger.info("add Post 진입?");
+
+		UserVO loginUser = (UserVO) req.getSession().getAttribute("login");
+		loginUser.setAddress(user.getAddress());
+		
+		SectionVO section = new SectionVO();
+		section.setSectionNum(num);
+		board.setSectionNum(section);
+		
+		String rootPath = req.getSession().getServletContext().getRealPath("/");
+		CreateBoard createBoard = new CreateBoard(loginUser, board, boardContent, ImgFiles, rootPath);
+		
+		try{
+			boardService.insertBoard(createBoard);
+			model.addAttribute("sectionNum", num);
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return "redirect: board";
 	}
 }

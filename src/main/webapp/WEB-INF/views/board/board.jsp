@@ -18,7 +18,7 @@
 					return;
 				}
 			 
-			 location.href = "${pageContext.request.contextPath }/add";
+			 location.href = "${pageContext.request.contextPath }/add?sectionNum=${sectionNum}";
 		 })
 	})
 

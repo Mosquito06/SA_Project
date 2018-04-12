@@ -26,7 +26,7 @@
         <association property="clientNum" resultMap="com.dgit.persistence.UserDao.userResult"/>
     </resultMap>   
     
-	<insert id="insert">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="boardNum">
 	    insert into board(board_title, board_price, client_num, section_num) values (#{boardTitle}, #{boardPrice}, #{clientNum.clientNum}, #{sectionNum.sectionNum})
 	</insert>
 	

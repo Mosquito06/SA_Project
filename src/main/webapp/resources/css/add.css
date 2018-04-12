@@ -43,7 +43,7 @@
 		display: none;  
 	}
 	
-	#files{
+	#ImgFiles{
 		display: none;
 	}
 	
@@ -76,7 +76,7 @@
 	}
 	
 	#imgPreviewDiv img{
-		max-width: 400px;
+		max-width: 150px;
 		margin: 10px;
 	}
 	

@@ -6,30 +6,35 @@ $(function(){
 		})
 		
 		$("#signFormDiv img").click(function(){
-			var checkEmpty = true;
-			var checkFalse = true;
-			
-			$("#signFormDiv input[class='form-control']").each(function(i, obj){
-				var value = $(obj).val();
-				if(value == "" || value.length == 0){
-					$(obj).parent().next().css("display", "block").text("필수 입력 항목입니다.");
-					$(obj).focus();
-					checkEmpty = false;
-					return false;
-				}
-			})
+			var checkEmpty = false;
+			var checkFalse = false;
 			
 			$("div.checkMessage").each(function(i, obj){
 				var visible = $(obj).css("display");
 				
 				if(visible == "block"){
 					$(obj).prev().find("input").focus();
-					checkFalse = false;
+					checkFalse = true;
 					return false;
 				} 	
 			})
 			
-			if(!checkEmpty || !checkFalse){
+			if(checkFalse){
+				return;
+			}
+			
+			$("#signFormDiv input[class='form-control']").each(function(i, obj){
+				var value = $(obj).val();
+				if(value == "" || value.length == 0){
+					$(obj).parent().next().css("display", "block").text("필수 입력 항목입니다.");
+					$(obj).focus();
+					checkEmpty = true;
+					return false;
+				}
+			})
+						
+			
+			if(checkEmpty){
 				return;
 			}else{
 				var id = $("#signFormDiv input[class='form-control']:eq(0)").val();	

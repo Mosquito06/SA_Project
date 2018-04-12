@@ -2,28 +2,59 @@ package com.dgit.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dgit.domain.AddFileVO;
 import com.dgit.domain.BoardVO;
+import com.dgit.domain.CreateBoard;
 import com.dgit.domain.Criteria;
 import com.dgit.persistence.AddFileDao;
+import com.dgit.persistence.BoardContentDao;
 import com.dgit.persistence.BoardDao;
+import com.dgit.persistence.UserDao;
 
 @Repository
 public class BoardServiceImpl implements BoardService {
+	private static final Logger logger = LoggerFactory.getLogger(BoardServiceImpl.class);
+	private final String UploadPath = "resources/upload";
+	
 	
 	@Autowired
 	private BoardDao dao;
 	
 	@Autowired
 	private AddFileDao addFileDao;
+	
+	@Autowired
+	private UserDao userDao;
 
+	@Autowired
+	private BoardContentDao boardContentDao;
+	
 	@Override
-	public void insertBoard(BoardVO board) throws Exception {
-		dao.insert(board);
+	@Transactional
+	public void insertBoard(CreateBoard createBoard) throws Exception {
+		userDao.updateUser(createBoard.getUser());
+		
+		createBoard.getBoard().setClientNum(createBoard.getUser());
+				
+		dao.insert(createBoard.getBoard());
+		
+		createBoard.getBoardContent().setBoardNum(createBoard.getBoard());
+		
+		boardContentDao.insert(createBoard.getBoardContent()); 
+		
+		if(!createBoard.getImgFiles().isEmpty()){
+			logger.info("저장하려는 파일이 존재함");
+			
+			
+			
+		}
+		
 		
 	}
 
@@ -56,8 +87,9 @@ public class BoardServiceImpl implements BoardService {
 		List<BoardVO> boards = dao.selectBoardBySectionNum(num, cri);
 		for(BoardVO b : boards){
 			List<AddFileVO> files = addFileDao.selectAddFileByBoardNum(num);
-			if(files.size() > 0){
-				b.setFiles(files);
+			if(!files.isEmpty()){
+				System.out.println("가져오려는 파일이 존재함");
+				b.setFiles(files); 
 			}
 		}
 		

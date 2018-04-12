@@ -27,6 +27,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		
 		if(object != null){
 			UserVO user = (UserVO) object;
+			
 			session.setAttribute("login", user);
 			String path = (String) object2;
 			
