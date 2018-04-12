@@ -29,7 +29,7 @@
 			<c:choose>
 				<c:when test="${board.files.size() > 0 }">
 					<c:forEach var="img" items="${board.files }">
-						<img src="${pageContext.request.contextPath }/resources/upload/skykim10908@naver.com${img.filePath}">
+						<img src="${pageContext.request.contextPath }/resources/upload${img.filePath}">
 					</c:forEach>
 				</c:when>
 				<c:otherwise>

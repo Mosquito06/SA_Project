@@ -53,10 +53,10 @@ public class BoardServiceImpl implements BoardService {
 		
 		if(!createBoard.getImgFiles().get(0).isEmpty()){
 			logger.info("저장하려는 파일이 존재함");
-			String uploadPath = createBoard.getRealPath() + "/" + UploadPath +  "/" + createBoard.getUser().getId();
+			String uploadPath = createBoard.getRealPath() + "/" + UploadPath;
 			
 			for(MultipartFile f: createBoard.getImgFiles()){
-				String savePath = UploadFileUtils.uploadFile(uploadPath, f.getOriginalFilename(), f.getBytes());
+				String savePath = UploadFileUtils.uploadFile(uploadPath, createBoard.getUser().getId(), f.getOriginalFilename(), f.getBytes());
 				/*logger.info("savePath : " + savePath);*/
 				AddFileVO addFile = new AddFileVO();
 				addFile.setFilePath(savePath);

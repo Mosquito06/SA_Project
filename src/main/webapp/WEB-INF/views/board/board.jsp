@@ -62,7 +62,7 @@
 										<div class="boardTop">
 											<c:choose>
 												<c:when test="${item.files.size() > 0 }">
-													<img src="${pageContext.request.contextPath }/resources/upload/skykim10908@naver.com/${item.files.get(0).filePath}">
+													<img src="${pageContext.request.contextPath }/resources/upload${item.files.get(0).filePath}">
 												</c:when>
 												<c:otherwise>
 													<img src="${pageContext.request.contextPath }/resources/img/board/basicImg.jpg">

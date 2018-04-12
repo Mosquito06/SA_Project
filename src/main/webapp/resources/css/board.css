@@ -225,6 +225,7 @@
 	
 	#boardContent img{
 		width: 100%;
+		height: 170px !important;
 	}
 	
 	#ContentPagingDiv{
@@ -254,7 +255,9 @@
 	
 	#boardContent img{
 		width: 100%;
+		height: 200px !important;
 	}
+		
 	
 	#ContentBottomDiv .boardLi{
 		width: 180px !important;  

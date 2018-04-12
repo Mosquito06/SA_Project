@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;
 
 public class UploadFileUtils {
-	public static String uploadFile(String uploadPath, String originalName, byte[] fileData) throws Exception{
+	public static String uploadFile(String uploadPath, String userId, String originalName, byte[] fileData) throws Exception{
 		File dirPath = new File(uploadPath);		
 		if(!dirPath.exists()){
 			dirPath.mkdirs();
@@ -25,7 +25,7 @@ public class UploadFileUtils {
 		
 		// 년월일 폴더 생성
 		// 한 폴더에 저장할 수 있는 용량이 제한되어 있으므로, 년월일 폴더를 만들도록 함
-		String savedPath = calPath(uploadPath);		
+		String savedPath = calPath(uploadPath, userId);		
 		
 		// c:/zzz/upload/2018/03/19 아래에 해당 파일을 저장하라는 의미
 		File target = new File(uploadPath + savedPath, savedName);
@@ -54,16 +54,17 @@ public class UploadFileUtils {
 		}
 	}
 	
-	private static String calPath(String uploadPath){
+	private static String calPath(String uploadPath, String userId){
 		Calendar cal = Calendar.getInstance();
 		
 		String yearPath = "/" + cal.get(Calendar.YEAR);
 		String monthPath = String.format("%s/%02d", yearPath, cal.get(Calendar.MONTH) + 1);
 		String dataPath = String.format("%s/%02d", monthPath, cal.get(Calendar.DATE));
+		String userPath = dataPath + "/" + userId;
 		
-		makeDir(uploadPath, yearPath, monthPath, dataPath);
+		makeDir(uploadPath, yearPath, monthPath, dataPath, userPath);
 		
-		return dataPath; // /2018/03/19 가 반환됨
+		return userPath; // /2018/03/19 가 반환됨
 	}
 	
 	private static String makeThumbnail(String uploadPath, String path, String filename) throws IOException{
