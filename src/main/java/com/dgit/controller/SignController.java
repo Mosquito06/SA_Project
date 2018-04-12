@@ -94,10 +94,13 @@ public class SignController {
 	public String Sign(UserVO user, HttpServletRequest request){
 		user.setEmail(user.getId());
 		user.setStatus(Status.JOIN); 
-		request.getSession().setAttribute("login", user);;
+		
 		
 		try {
 			userService.insertUser(user);
+			/*System.out.println("user = " + user.getClientNum());*/
+			request.getSession().setAttribute("login", user);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

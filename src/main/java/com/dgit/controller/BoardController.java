@@ -145,6 +145,7 @@ public class BoardController {
 
 		UserVO loginUser = (UserVO) req.getSession().getAttribute("login");
 		loginUser.setAddress(user.getAddress());
+		/*System.out.println("loginUser : " + loginUser.getClientNum());*/
 		
 		SectionVO section = new SectionVO();
 		section.setSectionNum(num);

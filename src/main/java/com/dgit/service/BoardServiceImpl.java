@@ -52,7 +52,7 @@ public class BoardServiceImpl implements BoardService {
 		boardContentDao.insert(createBoard.getBoardContent()); 
 		
 		if(!createBoard.getImgFiles().get(0).isEmpty()){
-			logger.info("저장하려는 파일이 존재함");
+			/*logger.info("저장하려는 파일이 존재함");*/
 			String uploadPath = createBoard.getRealPath() + "/" + UploadPath;
 			
 			for(MultipartFile f: createBoard.getImgFiles()){

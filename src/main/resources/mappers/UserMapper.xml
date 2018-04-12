@@ -15,7 +15,7 @@
         <result property="status" column="status"/>
     </resultMap>   
         
-    <insert id="insertUser">
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="clientNum">
     	insert into user(id, pw, name, email, phone, home_tel, address, status) 
     	values (#{id}, password(#{pw}), #{name}, #{email}, #{phone}, #{homeTel}, #{address}, #{status})
     </insert>
