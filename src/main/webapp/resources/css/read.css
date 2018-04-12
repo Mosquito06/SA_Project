@@ -130,7 +130,7 @@
 	}
 	
 	#reviewConteinerDiv{
-		margin-bottom: 5%;
+		/* margin-bottom: 5%; */
 		padding-top: 30px;
 	}
 	
@@ -216,6 +216,12 @@
 	#reviewPaging .active a{
 		background-color: #ccc !important;
 		border-color: #ccc !important;
+	}
+	
+	#DelAndUpBtnDiv{
+		border-top: 1px solid #e5e5e5;
+	    border-bottom: 1px solid #e5e5e5;
+	    padding: 10px;
 	}
 }
 	

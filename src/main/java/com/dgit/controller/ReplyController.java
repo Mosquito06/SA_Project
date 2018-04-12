@@ -111,6 +111,7 @@ public class ReplyController {
 		reply.setReplyTitle(replyTitle);
 		reply.setReplyWriter(user.getName());
 		reply.setBoardNum(board);
+		reply.setReplyId(user.getId());
 				
 		try {
 			replyService.insertReply(reply);

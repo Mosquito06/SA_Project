@@ -8,12 +8,13 @@
         <result property="replyContent" column="reply_content"/>
         <result property="replyTime" column="reply_time"/>
         <result property="replyWriter" column="reply_writer"/>
+        <result property="replyId" column="reply_id"/>
         <result property="boardNum.boardNum" column="board_num"/>
     </resultMap>    
     
 	<insert id="insert">
-	    insert into reply(reply_title, reply_content, reply_writer, board_num) 
-	    values (#{replyTitle}, #{replyContent}, #{replyWriter}, #{boardNum.boardNum})
+	    insert into reply(reply_title, reply_content, reply_writer, reply_id, board_num) 
+	    values (#{replyTitle}, #{replyContent}, #{replyWriter}, #{replyId}, #{boardNum.boardNum})
 	</insert>
 	
 	<delete id="delete">

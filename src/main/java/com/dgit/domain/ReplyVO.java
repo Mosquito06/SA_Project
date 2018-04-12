@@ -8,6 +8,7 @@ public class ReplyVO {
 	private String replyContent;
 	private Date replyTime;
 	private String replyWriter;
+	private String replyId;
 	private BoardVO boardNum;
 
 	public ReplyVO() {
@@ -55,6 +56,14 @@ public class ReplyVO {
 		this.replyWriter = replyWriter;
 	}
 
+	public String getReplyId() {
+		return replyId;
+	}
+
+	public void setReplyId(String replyId) {
+		this.replyId = replyId;
+	}
+
 	public BoardVO getBoardNum() {
 		return boardNum;
 	}
@@ -66,7 +75,8 @@ public class ReplyVO {
 	@Override
 	public String toString() {
 		return "ReplyVO [replyNum=" + replyNum + ", replyTitle=" + replyTitle + ", replyContent=" + replyContent
-				+ ", replyTime=" + replyTime + ", replyWriter=" + replyWriter + ", boardNum=" + boardNum + "]";
+				+ ", replyTime=" + replyTime + ", replyWriter=" + replyWriter + ", replyId=" + replyId + ", boardNum="
+				+ boardNum + "]";
 	}
 
 }

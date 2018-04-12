@@ -5,12 +5,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script>
 	var boardNum = ${board.boardNum};
-	var loginName = "${login.name}";
+	var loginId = "${login.id}";
 </script>
 <script id="template" type="text/x-handlebars-template">
 	{{#each.}}
 		<li class="reviewLi">
-			{{#if replyWriter}}
+			{{#if replyId}}
 				<span class="label label-warning reviewUpdate" 
 					data-href="${pageContext.request.contextPath }/updateReview${pageMaker.makeQuery(cri.page) }
 					&boardNum=${boardNum}&sectionNum=${sectionNum}&replyNum={{replyNum}}">수정
@@ -107,6 +107,13 @@
 					</ul>
 				</div>
 			</div>
+			<%-- <c:if test=""> --%>
+				<div id="DelAndUpBtnDiv">
+					<strong>수정 / 삭제</strong>
+					<button>수정</button>
+					<button>삭제</button>
+				</div>
+			<%-- </c:if> --%>
 		</div>
 		
 	</div>

@@ -43,8 +43,9 @@ $(function(){
 	
 	var templateFunc = Handlebars.compile($("#template").html());
 	
-	Handlebars.registerHelper("if", function(replyWriter, option){
-		if(replyWriter == loginName){
+	// Handlebars 수정 및 삭제 버튼 획득
+	Handlebars.registerHelper("if", function(replyId, option){
+		if(replyId == loginId){
 			return option.fn(this);
 		}else{
 			return "";
