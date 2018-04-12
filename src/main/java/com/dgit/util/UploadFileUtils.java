@@ -70,7 +70,7 @@ public class UploadFileUtils {
 	private static String makeThumbnail(String uploadPath, String path, String filename) throws IOException{
 		// 원본 이미지를 읽어드림
 		BufferedImage sourceImg = ImageIO.read(new File(uploadPath + path, filename));
-		System.out.println("sourceImg : " + sourceImg);
+		
 		// 원본 이미지를 리사이징 함.
 		// 높이를 맞춤. 100px, 나머지는 자동
 		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.QUALITY, Scalr.Mode.FIT_TO_HEIGHT, 435); 

@@ -328,6 +328,16 @@
 		top: 0; 
 		left: -35px;
 	}
+	
+	#DelAndUpBtnDiv{
+	    padding: 5px !important; 
+	}
+	
+	#DelAndUpBtnDiv button{
+		font-size: 8px;
+	    padding: 5px 25px !important; 
+	    margin: 5% 1%;
+	}
 }	
 
 
@@ -415,6 +425,16 @@
 		left: -35px;
 	}
 	
+	#DelAndUpBtnDiv{
+	    padding: 5px !important; 
+	}
+	
+	#DelAndUpBtnDiv button{
+		font-size: 8px;
+	    padding: 5px 20px !important; 
+	    margin: 5% 1%;
+	}
+	
 }
 
 
@@ -474,6 +494,15 @@
 		top: 0; 
 		left: -35px;
 	}
+	
+	#DelAndUpBtnDiv{
+	    padding: 5px !important; 
+	}
+	
+	#DelAndUpBtnDiv button{
+	    padding: 10px 40px !important; 
+	    margin: 5% 1%;
+	}
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1025px){
@@ -523,5 +552,14 @@
 		position: absolute;
 		top: 0; 
 		left: -35px;
+	}
+	
+	#DelAndUpBtnDiv{
+	    padding: 5px !important; 
+	}
+	
+	#DelAndUpBtnDiv button{
+	    padding: 10px 40px !important; 
+	    margin: 5% 1%;
 	}
 }
