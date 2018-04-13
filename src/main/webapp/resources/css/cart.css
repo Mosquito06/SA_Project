@@ -45,6 +45,64 @@
 		display: block;
 	}
 	
+	#cartLeftDiv .cartText{
+		width: 50% !important;
+	}
+	
+	#cartLeftDiv .cartText .cartProductName{
+		font-size: 14px;
+		font-weight: bold;
+		color: #111;
+		display: block;
+		margin-bottom: 7%;
+	}
+	
+	#cartLeftDiv .cartOptionDiv input{
+		width: 50px;
+		height: 40px;
+		border: 1px solid #d1d1d1;
+		padding: 6px 5px;
+		text-align: center;
+		margin-right: 8px; 
+		margin-top: 10px; 
+	} 
+	
+	#cartLeftDiv .cartOptionDiv button{
+		width: 46px;
+		height: 40px;
+		border: 1px solid #d1d1d1;
+		padding: 0;
+		text-align: center;
+		background-color: #fff;
+		border-radius: 2px;
+	}
+	
+	#cartLeftDiv .cartOptionDiv button:hover{
+		background-color: #F6F6F6; 
+		border: 1px solid black;
+	}
+	
+	#cartLeftDiv .cartPrice{
+		font-size: 14px;
+		font-weight: bold;
+		color: #fa5400;
+	}
+	
+	#cartLeftDiv .cartDelBtn button{
+		width: 46px;
+		height: 40px;
+		border: 1px solid #d1d1d1;
+		padding: 0;
+		text-align: center;
+		background-color: #fff;
+		border-radius: 2px;
+	}
+	
+	#cartLeftDiv .cartDelBtn button:hover{
+		background-color: #F6F6F6; 
+		border: 1px solid black;
+	}
+	
 	#cartRightDiv{
 		width: 35%;
 		float: right;

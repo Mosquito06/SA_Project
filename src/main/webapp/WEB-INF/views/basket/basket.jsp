@@ -17,16 +17,22 @@
 				 			<img src="${pageContext.request.contextPath }/resources/img/sample.jpg">
 				 		</td>
 				 		<td class="cartText">
-				 			<span class="cartProductName">나이키 에어 베이퍼맥스 플라이니트 목 2</span><br>
+				 			<span class="cartProductName">나이키 에어 베이퍼맥스 플라이니트 목 2</span>
+				 			<div class="cartOptionDiv">
+				 				<input type="text" value="1">
+				 				<button>-</button>
+				 				<button>+</button>
+				 			</div>
 				 			
 				 		</td> 
 				 		<td class="cartPrice">
 				 			239,000 원
 				 		</td>
 				 		<td class="cartDelBtn">
-				 			
+				 			<button type="button" data-toggle="modal" data-target="#cartDelModal">X</button>
 				 		</td>
 				 	</tr>
+				 		
 				</table>
 			</figure>
 		</div>
@@ -72,4 +78,22 @@
 		</div>
 	</div>
 </section>
+
+<div id="cartDelModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">삭제하시겠습니까?</h5>
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn" data-dismiss="modal">취소</button>
+        <button type="button" class="btn" data-dismiss="modal">확인</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <jsp:include page="../include/footer.jsp"/>
