@@ -11,8 +11,15 @@ $(function(){
 		
 		var file = document.getElementById("ImgFiles");
 		
+		if(file.files.length == 0){
+			$("#imgPreviewDiv").css("display", "none");
+			return;
+		}
+		
+		
 		if(file.files.length > 6){
 			alert("최대 6장까지 등록가능합니다.");
+			$("#imgPreviewDiv").css("display", "none");
 			return;
 		}
 		
@@ -21,7 +28,9 @@ $(function(){
 			reader.onload = function(e){
 				var div = $("<div>");
 				var img = $("<img>").attr("src", e.target.result);
+				var button = $("<button>").attr("type", "button").addClass("btn btn-danger AddPreviewDelBtn").attr("data-del", file.name).text("삭제");
 				div.append(img);
+				div.append(button);
 				$("#imgPreviewDiv").append(div);
 			}
 			
@@ -30,6 +39,21 @@ $(function(){
 		})
 
 		$("#imgPreviewDiv").css("display", "block");
+	})
+	
+	// 파일 미리보기 삭제
+	$(document).on("click", ".AddPreviewDelBtn", function(){
+		var currentLength = $("#imgPreviewDiv img").length;
+		if(currentLength <= 1){
+			$("#imgPreviewDiv").css("display", "none");
+		}
+		
+		$(this).parent().remove();
+		
+		var target = $(this).attr("data-del");
+		var input = $("<input>").attr("type", "hidden").attr("name", "addDelFiles").attr("value", target);
+		
+		$("#addForm").prepend(input);
 	})
 	
 	// 입력 이벤트 처리
@@ -74,6 +98,13 @@ $(function(){
 		
 		if(checkEmpty){
 			return;
+		}
+		
+		var exist = $("input[name='addDelFiles']").length;
+		
+		if(exist == 0){
+			var input = $("<input>").attr("type", "hidden").attr("name", "addDelFiles").attr("value", "");
+			$("#addForm").prepend(input);
 		}
 		
 		$("#addForm").submit();

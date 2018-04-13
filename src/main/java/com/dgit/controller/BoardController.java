@@ -140,8 +140,28 @@ public class BoardController {
 	
 	@RequestMapping(value="/add", method = RequestMethod.POST)
 	public String addBoard(int num, UserVO user, BoardVO board, BoardContentVO boardContent, 
-			List<MultipartFile> ImgFiles, HttpServletRequest req, Model model){
+			List<MultipartFile> ImgFiles, String[] addDelFiles, HttpServletRequest req, Model model){
 		logger.info("add Post 진입?");
+		
+		/*System.out.println("ImgFiles.get(0).isEmpty() : "  + ImgFiles.get(0).isEmpty());
+		System.out.println("addDelFiles : "  + addDelFiles.length);
+		System.out.println("=====================================");*/	
+		
+		if(!ImgFiles.get(0).isEmpty() && addDelFiles.length > 0){
+			for(int i = ImgFiles.size() - 1; i >= 0; i--){
+				/*System.out.println("ImgFiles.size() : " + ImgFiles.size());
+				System.out.println("i : " + i);
+				System.out.println("getOriginalFilename : " + ImgFiles.get(i).getOriginalFilename());*/
+				for(int ii = 0; ii < addDelFiles.length; ii++){
+					/*System.out.println("ii : " + ii);*/
+					/*System.out.println("delFileName : " + addDelFiles[ii].toString());*/
+					if(ImgFiles.get(i).getOriginalFilename().equals(addDelFiles[ii].toString())){
+						ImgFiles.remove(i);
+						break;
+					}
+				}
+			}
+		}
 
 		UserVO loginUser = (UserVO) req.getSession().getAttribute("login");
 		loginUser.setAddress(user.getAddress());
@@ -226,6 +246,7 @@ public class BoardController {
 						if(ImgFiles.get(i).getOriginalFilename().equals(updateDelFiles[ii].toString())){
 							ImgFiles.remove(i);
 							updateDelFiles[ii] = null;
+							break;
 						}
 					}
 				}

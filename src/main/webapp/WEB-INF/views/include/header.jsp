@@ -31,7 +31,7 @@
 <script src="${pageContext.request.contextPath }/resources/js/sign.js?a=ad"></script>
 <script src="${pageContext.request.contextPath }/resources/js/header.js?a=da"></script>
 <script src="${pageContext.request.contextPath }/resources/js/read.js?a=d"></script>
-<script src="${pageContext.request.contextPath }/resources/js/add.js?a=dd"></script>
+<script src="${pageContext.request.contextPath }/resources/js/add.js?a=d"></script>
 <script src="${pageContext.request.contextPath }/resources/js/update.js?a=d"></script>
 </head>
 <body>
