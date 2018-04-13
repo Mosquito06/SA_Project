@@ -113,13 +113,16 @@ public class BoardServiceImpl implements BoardService {
 		if(updateBoard.getUpdateDelFiles().length > 0){
 			for(String s : updateBoard.getUpdateDelFiles()){
 				if(s != null){
-					UploadFileUtils.deleteImg(updateBoard.getRealPath() + UploadPath + s.toString());
+					System.out.println("startsWith('/') : " + s.startsWith("/"));
 					
-					AddFileVO addFile = new AddFileVO();
-					addFile.setFilePath(s.toString());
-										
-					addFileDao.delete(addFile);
-					
+					if(s.startsWith("/")){
+						UploadFileUtils.deleteImg(updateBoard.getRealPath() + UploadPath + s.toString());
+						
+						AddFileVO addFile = new AddFileVO();
+						addFile.setFilePath(s.toString());
+											
+						addFileDao.delete(addFile);
+					}
 				}
 			}
 		}
