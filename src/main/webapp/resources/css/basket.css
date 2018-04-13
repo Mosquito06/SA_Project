@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+/* ---------------------------------------------------
+   CONTENT
+----------------------------------------------------- */
+	#basketContainer{
+		width: 70%;
+		margin: 200px auto;
+		font-family: 'Nanum Gothic', sans-serif;
+		border: 1px solid black;
+		text-align: center; 
+		min-height: 700px;
+	}
+	
+	
+/* ---------------------------------------------------
+   MEDIAQUERIES
+----------------------------------------------------- */
+@media screen and (min-width: 360px) and (max-width: 414px){
+	#basketContainer{
+		width: 80%;
+
+	}
+}
+
+@media screen and (max-width: 320px){
+	#basketContainer{
+		width: 80%;
+
+	}
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px){
+	
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1025px){
+	
+}

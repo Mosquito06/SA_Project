@@ -3,8 +3,7 @@
 <jsp:include page="../include/header.jsp"/>
 <script>
 	$(function(){
-		var login = "${login}";
-	
+			
 		$("#addReviewBtn").click(function(e){
 			if(login == "" || login == null){
 				$("#navLoginAtag").trigger("click");

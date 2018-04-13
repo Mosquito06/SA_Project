@@ -33,7 +33,12 @@ $(function(){
 	
 	// nav 버튼 처리
 	$("#cartBtn").click(function(){
+		if(login == "" || login == null){
+			$("#navLoginAtag").trigger("click");
+			return;
+		}
 		
+		location.href = contextPath + "/basket";
 	})
 	
 	$("#logoBtn").click(function(){
@@ -41,7 +46,7 @@ $(function(){
 	})
 	
 	$("#navText").click(function(){
-		
+		location.href = "/saproject/";
 	})
 	
 	$("#loginNameA").click(function(){
@@ -51,6 +56,17 @@ $(function(){
 		}else{
 			$("#loginMenu").css("display", "none");
 		}
+		
+	})
+	
+	$("#pcCartBtn").click(function(e){
+		e.preventDefault();
+		if(login == "" || login == null){
+			$("#navLoginAtag").trigger("click");
+			return;
+		}
+		
+		location.href = contextPath + "/basket";
 		
 	})
 	

@@ -5,7 +5,6 @@
 <jsp:include page="../include/header.jsp"/>
 <script>
 	$(function(){
-		var login = "${login}"; 
 		
 		$(".boardLi").click(function(){
 			var goLocation = $(this).attr("data-location");

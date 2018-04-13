@@ -20,16 +20,19 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/updateReview.css?a=d">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/add.css?a=d">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/update.css?a=d">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/basket.css?a=dd">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 	// js 파일에서는 el을 못쓰기 때문에 contextPath를 미리 받아둔 변수를 선언해둠
+	var login = "${login.id}";
+	
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/sign.js?a=ad"></script>
-<script src="${pageContext.request.contextPath }/resources/js/header.js?a=da"></script>
+<script src="${pageContext.request.contextPath }/resources/js/header.js?a=a"></script>
 <script src="${pageContext.request.contextPath }/resources/js/read.js?a=d"></script>
 <script src="${pageContext.request.contextPath }/resources/js/add.js?a=d"></script>
 <script src="${pageContext.request.contextPath }/resources/js/update.js?a=d"></script>
@@ -103,7 +106,7 @@
     	</c:if>
     	    	
         <li><a href="#" class="mobileNavBack">고객센터</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+        <li><a href="#" id="pcCartBtn"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
       </ul>
     </div>
    </div>
