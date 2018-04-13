@@ -52,6 +52,9 @@ public class BoardServiceImpl implements BoardService {
 		
 		boardContentDao.insert(createBoard.getBoardContent()); 
 		
+		// 삭제 목록에 있는 파일을 다시 올렸을 경우 문제가 발생함
+		// 오류 수정 필요(수정도 동일한 문제)
+		
 		if(!createBoard.getImgFiles().get(0).isEmpty()){
 			/*logger.info("저장하려는 파일이 존재함");*/
 			String uploadPath = createBoard.getRealPath() + "/" + UploadPath;
@@ -90,6 +93,10 @@ public class BoardServiceImpl implements BoardService {
 	@Transactional
 	public void updateBoard(UpdateBoard updateBoard) throws Exception {
 		logger.info("update Service 진입?");
+		
+		// 밑의 수정 알고리즘이 상당히 느림
+		// 개선 필요
+		
 		updateBoard.getBoard().setBoardUpdate(new Date());
 		dao.update(updateBoard.getBoard());
 		
