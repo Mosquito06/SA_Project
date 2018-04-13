@@ -6,12 +6,16 @@ $(function(){
 	
 	
 	// 파일 첨부 시 미리보기
-	$("#ImgFiles").change(function(){
-		$("#imgPreviewDiv").empty();
+	$("#updateImgFiles").change(function(){
+				
+		var file = document.getElementById("updateImgFiles");
 		
-		var file = document.getElementById("ImgFiles");
+		var currentLength = $("#updateImgPreviewDiv img").length;
+		var newFileLength = file.files.length;
 		
-		if(file.files.length > 6){
+		var totlaLength = currentLength + newFileLength;
+		
+		if(totlaLength > 6){
 			alert("최대 6장까지 등록가능합니다.");
 			return;
 		}
@@ -19,32 +23,47 @@ $(function(){
 		$(file.files).each(function(i, file){
 			var reader = new FileReader();
 			reader.onload = function(e){
+				var div = $("<div>");
 				var img = $("<img>").attr("src", e.target.result);
-				$("#imgPreviewDiv").append(img);
+				var button = $("<button>").attr("type", "button").addClass("btn btn-danger previewDelBtn").attr("data-del", file.name).text("삭제");
+				div.append(img);
+				div.append(button);
+				$("#updateImgPreviewDiv").append(div);
 			}
 			
 			reader.readAsDataURL(file);
 			
 		})
 
-		$("#imgPreviewDiv").css("display", "block");
+		$("#updateImgPreviewDiv").css("display", "block");
 	})
 	
+	// 파일 미리보기 삭제
+	$(document).on("click", ".previewDelBtn", function(){
+		$(this).parent().css("display", "none");
+		
+		var target = $(this).attr("data-del");
+		var input = $("<input>").attr("type", "hidden").attr("name", "updateDelFiles").attr("value", target);
+		
+		$("#boardUpdateForm").prepend(input);
+	})
+	
+	
 	// 입력 이벤트 처리
-	$(".addCheck").each(function(i, obj){
+	$(".updateCheck").each(function(i, obj){
 		$(obj).keyup(function(){
 			isCheckPattern($(this), i);
 		})
 		
 	})
 	
-	// 등록 버튼 클릭 시 발생 이벤트 처리
-	$("#addBoardBtn").click(function(e){ 
+	// 수정 버튼 클릭 시 발생 이벤트 처리
+	$("#updateBoardBtn").click(function(e){ 
 		e.preventDefault();
 		var checkEmpty = false;		
 		var checkCss = false;
 		
-		$(".addCheckMessage").each(function(i, obj){
+		$(".updateCheckMessage").each(function(i, obj){
 			var visible = $(obj).css("display");
 			
 			if(visible == "block"){
@@ -61,7 +80,7 @@ $(function(){
 			return;
 		}
 		
-		$(".addCheck").each(function(i, obj){
+		$(".updateCheck").each(function(i, obj){
 			var emptyCheck = isEmptyCheck($(obj));
 			if(emptyCheck){
 				checkEmpty = true;
@@ -74,7 +93,15 @@ $(function(){
 			return;
 		}
 		
-		$("#addForm").submit();
+		var exist = $("input[name='updateDelFiles']").length;
+		
+		if(exist == 0){
+			var input = $("<input>").attr("type", "hidden").attr("name", "updateDelFiles").attr("value", "");
+			$("#boardUpdateForm").prepend(input);
+		}
+		
+		
+		$("#boardUpdateForm").submit();
 	})
 	
 })

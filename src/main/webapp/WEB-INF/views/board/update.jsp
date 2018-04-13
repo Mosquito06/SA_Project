@@ -7,9 +7,10 @@
 		<div id="updateMainText">
 			게시글 수정
 		</div>
-		<div id="updateForm">
-			<form action="${pageContext.request.contextPath }/update" method="post" id="updateForm" enctype="multipart/form-data">
-			  <input type="hidden" name="num" value="${sectionNum }">
+		<div id="boardUpdateFormDiv">
+			<form action="${pageContext.request.contextPath }/update" method="post" id="boardUpdateForm" enctype="multipart/form-data">
+			  <input type="hidden" name="sNum" value="${sectionNum }">
+			  <input type="hidden" name="bNum" value="${boardNum }">
 			  <div class="form-group">
 			    <input type="text" class="form-control updateCheck" value="${login.name }" id="updateName" name="name" placeholder="이름을 입력하세요." readonly="readonly">
 			  </div>
@@ -55,7 +56,7 @@
 			  <div class="form-group">
 			  	<input type="button" id="updateFileBtn" value="파일선택">
 			  	<input type="file" multiple="multiple" class="btn btn-danger" id="updateImgFiles" name="ImgFiles" accept="image/*">
-			  	<input type="submit" id="updateBoardBtn" value="등록하기">
+			  	<input type="submit" id="updateBoardBtn" value="수정하기">
 			  </div>
 			  <div id="updateImgMessage">
 			  	※ 첫 번째 사진이 메인 사진으로 자동 등록 됩니다.<br>
@@ -66,7 +67,10 @@
 		<div id="updateImgPreviewDiv" ${(board.files != null)? "style='display:block'" : ''}>
 			<c:if test="${board.files != null }">
 				<c:forEach var="img" items="${board.files }">
-					<img class="boardImg" src="${pageContext.request.contextPath }/resources/upload${img.filePath}"> 
+					<div>
+						<img class="boardImg" src="${pageContext.request.contextPath }/resources/upload${img.filePath}">
+						<button data-del="${img.filePath }" type="button" class="btn btn-danger previewDelBtn">삭제</button>
+					</div>
 				</c:forEach>
 			</c:if>
 		</div>

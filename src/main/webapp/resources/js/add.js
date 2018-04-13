@@ -19,8 +19,10 @@ $(function(){
 		$(file.files).each(function(i, file){
 			var reader = new FileReader();
 			reader.onload = function(e){
+				var div = $("<div>");
 				var img = $("<img>").attr("src", e.target.result);
-				$("#imgPreviewDiv").append(img);
+				div.append(img);
+				$("#imgPreviewDiv").append(div);
 			}
 			
 			reader.readAsDataURL(file);
@@ -76,7 +78,8 @@ $(function(){
 		
 		$("#addForm").submit();
 	})
-	
+})
+
 	function isCheckPattern(input, index){
 		var value = input.val();
 		
@@ -109,5 +112,3 @@ $(function(){
 			return false;
 		}
 	}
-
-})

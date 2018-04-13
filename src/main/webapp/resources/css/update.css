@@ -21,16 +21,16 @@
 		margin: 0 auto 5%; 
 	}
 	
-	#updateForm{
+	#boardUpdateFormDiv{
 		width: 380px;
 		margin: 0 auto;
 	}
 	
-	#updateForm input{
+	#boardUpdateFormDiv input{
 		margin-top: 10%; 
 	}
 	
-	#updateForm textarea{
+	#boardUpdateFormDiv textarea{
 		margin-top: 10%; 
 	}
 	
@@ -78,8 +78,14 @@
 	#updateImgPreviewDiv img{
 		max-width: 150px;
 		margin: 10px;
+		
 	}
 	
+	#updateImgPreviewDiv button{
+		font-weight: bold;
+		font-size: 12px;
+	}
+
 	
 
 /* ---------------------------------------------------
@@ -95,13 +101,13 @@
 		width: 280px;
 	}
 	
-	#updateForm{
+	#boardUpdateFormDiv{
 		width: 280px;
 	}
 }
 
 @media screen and (max-width: 321px){
-	##updateContainer{
+	#updateContainer{
 		width: 90%; 
 		margin: 100px auto; 
 	}
@@ -110,7 +116,7 @@
 		width: 250px !important; 
 	}
 	
-	#updateForm{
+	#boardUpdateFormDiv{
 		width: 280px;
 	}
 }

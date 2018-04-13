@@ -14,6 +14,7 @@ import com.dgit.domain.AddFileVO;
 import com.dgit.domain.BoardVO;
 import com.dgit.domain.CreateBoard;
 import com.dgit.domain.Criteria;
+import com.dgit.domain.UpdateBoard;
 import com.dgit.persistence.AddFileDao;
 import com.dgit.persistence.BoardContentDao;
 import com.dgit.persistence.BoardDao;
@@ -86,8 +87,44 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void updateBoard(BoardVO board) throws Exception {
-		dao.update(board);
+	@Transactional
+	public void updateBoard(UpdateBoard updateBoard) throws Exception {
+		logger.info("update Service 진입?");
+		updateBoard.getBoard().setBoardUpdate(new Date());
+		dao.update(updateBoard.getBoard());
+		
+		boardContentDao.update(updateBoard.getBoardContent());
+		
+		if(!updateBoard.getImgFiles().get(0).isEmpty()){
+			String uploadPath = updateBoard.getRealPath() + "/" + UploadPath;
+			
+			for(MultipartFile f: updateBoard.getImgFiles()){
+				String savePath = UploadFileUtils.uploadFile(uploadPath, updateBoard.getUser().getId(), f.getOriginalFilename(), f.getBytes());
+				/*logger.info("savePath : " + savePath);*/
+				AddFileVO addFile = new AddFileVO();
+				addFile.setFilePath(savePath);
+				addFile.setBoardNum(updateBoard.getBoard());
+				addFile.setRegDate(new Date());
+				
+				addFileDao.insert(addFile);
+			}
+		}
+		
+		if(updateBoard.getUpdateDelFiles().length > 0){
+			for(String s : updateBoard.getUpdateDelFiles()){
+				if(s != null){
+					UploadFileUtils.deleteImg(updateBoard.getRealPath() + UploadPath + s.toString());
+					
+					AddFileVO addFile = new AddFileVO();
+					addFile.setFilePath(s.toString());
+					System.out.println("addFile.getFilePath() : " + addFile.getFilePath());
+					
+					addFileDao.delete(addFile);
+					
+				}
+			}
+		}
+		
 		
 	}
 

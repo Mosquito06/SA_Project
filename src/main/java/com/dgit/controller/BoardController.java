@@ -24,6 +24,7 @@ import com.dgit.domain.PageMaker;
 import com.dgit.domain.SearchCriteria;
 import com.dgit.domain.SectionVO;
 import com.dgit.domain.TypeInfo;
+import com.dgit.domain.UpdateBoard;
 import com.dgit.domain.UserVO;
 import com.dgit.service.BoardContentService;
 import com.dgit.service.BoardService;
@@ -31,7 +32,6 @@ import com.dgit.service.CategoryService;
 import com.dgit.service.DivisionService;
 import com.dgit.service.ReplyService;
 import com.dgit.service.SectionService;
-import com.dgit.service.UserService;
 
 @Controller
 public class BoardController {
@@ -184,7 +184,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/update", method = RequestMethod.GET)
-	public String updatePage(@ModelAttribute("sectionNum") int sectionNum, int boardNum, Model model){
+	public String updatePage(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("boardNum") int boardNum, Model model){
 		
 		try{
 			List<CategoryVO> category = categoryService.selectAll(); 
@@ -204,5 +204,50 @@ public class BoardController {
 			e.printStackTrace();
 		}
 		return "board/update";
+	}
+	
+	@RequestMapping(value="/update", method = RequestMethod.POST)
+	public String updateBoard(int sNum, int bNum, UserVO user, BoardVO board, BoardContentVO boardContent, 
+			List<MultipartFile> ImgFiles, String[] updateDelFiles, HttpServletRequest req, Model model){
+		logger.info("update Post 진입?");
+		
+		System.out.println("ImgFiles.get(0).isEmpty() : "  + ImgFiles.get(0).isEmpty());
+		System.out.println("updateDelFiles : "  + updateDelFiles.length);
+		
+		UserVO loginUser = (UserVO) req.getSession().getAttribute("login");
+		
+		if(!ImgFiles.get(0).isEmpty() && updateDelFiles.length > 0){
+			for(int i = ImgFiles.size() - 1; i >= 0; i--){
+				System.out.println("ImgFiles.size() : " + ImgFiles.size());
+				System.out.println("i : " + i);
+				for(int ii = 0; ii < updateDelFiles.length; ii++){
+					System.out.println("ii : " + ii);
+					if(updateDelFiles[ii] != null){
+						if(ImgFiles.get(i).getOriginalFilename().equals(updateDelFiles[ii].toString())){
+							ImgFiles.remove(i);
+							updateDelFiles[ii] = null;
+							break;
+						}
+					}
+				}
+			}
+		}
+		
+		board.setBoardNum(bNum);
+		boardContent.setBoardNum(board);		 
+		
+		String rootPath = req.getSession().getServletContext().getRealPath("/");
+		UpdateBoard updateBoard = new UpdateBoard(board, loginUser, boardContent, ImgFiles, updateDelFiles, rootPath);
+		
+
+		try{
+			boardService.updateBoard(updateBoard);
+			
+			model.addAttribute("sectionNum", sNum);
+			model.addAttribute("boardNum", bNum);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return "redirect: board";
 	}
 }

@@ -14,7 +14,7 @@
 	</insert>
 	
 	<delete id="delete">
-	    delete from add_File where file_num = #{fileNum}
+	    delete from add_File where file_path = #{filePath}
 	</delete>
     
 	<update id="update">

@@ -35,8 +35,8 @@
 	</delete>
     
 	<update id="update">
-	    update board set board_title = #{boardTitle}, board_price = #{boardPrice}, board_update = #{boardUpdate}, board_count = #{boardCount}, 
-	    board_total_count = #{boardTotalCount} where board_num = #{boardNum}
+	    update board set board_title = #{boardTitle}, board_price = #{boardPrice}, board_update = #{boardUpdate} 
+	    where board_num = #{boardNum}
 	</update>
     
 	<select id="selectAll" resultMap="boardResult">
