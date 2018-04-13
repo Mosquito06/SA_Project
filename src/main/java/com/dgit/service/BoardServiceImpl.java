@@ -134,8 +134,11 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	@Transactional
-	public BoardVO selectBoardByBoardNum(int num) throws Exception {
-			
+	public BoardVO selectBoardByBoardNum(int num, boolean readCheck) throws Exception {
+		if(readCheck){
+			dao.updateReadCount(num);
+		}		
+		
 		BoardVO board = dao.selectBoardByBoardNum(num);
 		
 		List<AddFileVO> files = addFileDao.selectAddFileByBoardNum(board.getBoardNum());

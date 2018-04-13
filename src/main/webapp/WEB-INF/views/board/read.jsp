@@ -111,7 +111,7 @@
 				<div id="DelAndUpBtnDiv">
 					<strong>수정 / 삭제</strong><br>
 					<button id="boardUpdateBtn" data-up="${pageContext.request.contextPath }/update${pageMaker.makeQuery(cri.page) }
-					&boardNum=${boardNum}&sectionNum=${sectionNum}">수정</button>
+					&boardNum=${boardNum}&sectionNum=${sectionNum}&readCheck=false">수정</button>
 					<button id="boardDeleteBtn" data-del="${pageContext.request.contextPath }/del?boardNum=${boardNum}&sectionNum=${sectionNum}">삭제</button>
 				</div>
 			</c:if>

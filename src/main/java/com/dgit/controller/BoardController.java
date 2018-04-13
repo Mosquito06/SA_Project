@@ -88,7 +88,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/read", method= RequestMethod.GET)
 	public String read(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("cri") SearchCriteria cri, 
-			@ModelAttribute("boardNum") int boardNum, Model model){
+			@ModelAttribute("boardNum") int boardNum, boolean readCheck, Model model){
 		
 		try{
 			List<CategoryVO> category = categoryService.selectAll(); 
@@ -99,7 +99,7 @@ public class BoardController {
 			model.addAttribute("division", division);
 			model.addAttribute("section", section);
 			
-			BoardVO board = boardService.selectBoardByBoardNum(boardNum);
+			BoardVO board = boardService.selectBoardByBoardNum(boardNum, readCheck);
 			BoardContentVO boardContent = boardContentService.selectboardContentByBoardNum(boardNum);
 			
 			
@@ -204,14 +204,15 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/update", method = RequestMethod.GET)
-	public String updatePage(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("boardNum") int boardNum, Model model){
+	public String updatePage(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("boardNum") int boardNum, 
+			boolean readCheck, Model model){
 		
 		try{
 			List<CategoryVO> category = categoryService.selectAll(); 
 			List<DivisionVO> division = divisionService.selectAll(); 
 			List<SectionVO> section = sectionService.selectAll(); 
 			
-			BoardVO board = boardService.selectBoardByBoardNum(boardNum);
+			BoardVO board = boardService.selectBoardByBoardNum(boardNum, readCheck);
 			BoardContentVO boardContent = boardContentService.selectboardContentByBoardNum(boardNum);
 			
 			
@@ -268,6 +269,6 @@ public class BoardController {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return "redirect: board";
+		return "redirect: read";
 	}
 }

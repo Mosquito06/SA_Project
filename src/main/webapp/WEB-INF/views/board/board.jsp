@@ -57,7 +57,7 @@
 					<c:choose>
 						<c:when test="${boards.size() > 0 }">
 							<c:forEach var="item" items="${boards }">
-								<li class="boardLi" data-location="${pageContext.request.contextPath }/read${pageMaker.makeQuery(pageMaker.cri.page)}&sectionNum=${sectionNum}&boardNum=${item.boardNum}">
+								<li class="boardLi" data-location="${pageContext.request.contextPath }/read${pageMaker.makeQuery(pageMaker.cri.page)}&sectionNum=${sectionNum}&boardNum=${item.boardNum}&readCheck=true">
 									<div >
 										<div class="boardTop">
 											<c:choose>

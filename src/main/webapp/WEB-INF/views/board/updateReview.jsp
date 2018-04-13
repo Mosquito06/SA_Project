@@ -33,6 +33,7 @@
 				<input type="hidden" name="boardNum" value="${boardNum }">
 				<input type="hidden" name="sectionNum" value="${sectionNum }">
 				<input type="hidden" name="replyNum" value="${replyNum }">
+				<input type="hidden" name="readCheck" value="false">
 				<div class="form-group">
 				   <input type="text" class="form-control" id="updateReplyTitle" name="replyTitle" value="${reply.replyTitle }" placeholder="제목을 입력해주세요.">
 				</div>

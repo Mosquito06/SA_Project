@@ -39,6 +39,7 @@
 				<input type="hidden" name="perPageNum" value="30">
 				<input type="hidden" name="boardNum" value="${boardNum }">
 				<input type="hidden" name="sectionNum" value="${sectionNum }">
+				<input type="hidden" name="readCheck" value="false">
 				<div class="form-group">
 				   <input type="text" class="form-control" id="replyTitle" name="replyTitle" placeholder="제목을 입력해주세요.">
 				</div>

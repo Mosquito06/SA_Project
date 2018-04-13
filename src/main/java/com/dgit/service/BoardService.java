@@ -12,7 +12,7 @@ public interface BoardService {
 	public void deleteBoard(BoardVO board, String rootPath) throws Exception;
 	public void updateBoard(UpdateBoard updateBoard) throws Exception;
 	public List<BoardVO> selectAll() throws Exception;
-	public BoardVO selectBoardByBoardNum(int num) throws Exception;
+	public BoardVO selectBoardByBoardNum(int num, boolean readCheck) throws Exception;
 	public List<BoardVO> selectBoardBySectionNum(int num, Criteria cri) throws Exception;
 	public int selectBoardCount(int num) throws Exception;
 	

@@ -60,4 +60,18 @@ public class BoardDaoImple implements BoardDao {
 		return sqlSession.selectOne(NAMESPACE + ".selectBoardCount", num);
 	}
 
+	@Override
+	public void updateReadCount(int num) throws Exception {
+		sqlSession.update(NAMESPACE + ".updateReadCount", num);
+		
+	}
+
+	@Override
+	public void updateTotalCount(int num) throws Exception {
+		sqlSession.update(NAMESPACE + ".updateTotalCount", num);
+		
+	}
+
+	
+
 }

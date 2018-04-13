@@ -100,7 +100,9 @@ public class ReplyController {
 	
 	@RequestMapping(value="/addReview", method = RequestMethod.POST)
 	public String addReview(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("cri") SearchCriteria cri, 
-			@ModelAttribute("boardNum") int boardNum, HttpServletRequest req, String replyTitle, String replyContent){
+			@ModelAttribute("boardNum") int boardNum, HttpServletRequest req, @ModelAttribute("readCheck") boolean readCheck, 
+			String replyTitle, String replyContent){
+		
 		UserVO user = (UserVO) req.getSession().getAttribute("login");
 		
 		BoardVO board = new BoardVO();
@@ -166,7 +168,7 @@ public class ReplyController {
 	
 	@RequestMapping(value="/updateReview", method = RequestMethod.POST)
 	public String updateReview(@ModelAttribute("sectionNum") int sectionNum, @ModelAttribute("cri") SearchCriteria cri, 
-			@ModelAttribute("boardNum") int boardNum, HttpServletRequest req, int replyNum, String replyTitle, String replyContent){
+			@ModelAttribute("boardNum") int boardNum, @ModelAttribute("readCheck") boolean readCheck, HttpServletRequest req, int replyNum, String replyTitle, String replyContent){
 		
 		
 		try {
