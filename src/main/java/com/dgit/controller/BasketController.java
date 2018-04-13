@@ -47,6 +47,6 @@ public class BasketController {
 			e.printStackTrace();
 		}
 		
-		return "basket/emptyBasket";
+		return "basket/basket";
 	}
 }
