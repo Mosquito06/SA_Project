@@ -211,22 +211,21 @@ public class BoardController {
 			List<MultipartFile> ImgFiles, String[] updateDelFiles, HttpServletRequest req, Model model){
 		logger.info("update Post 진입?");
 		
-		System.out.println("ImgFiles.get(0).isEmpty() : "  + ImgFiles.get(0).isEmpty());
-		System.out.println("updateDelFiles : "  + updateDelFiles.length);
+		/*System.out.println("ImgFiles.get(0).isEmpty() : "  + ImgFiles.get(0).isEmpty());
+		System.out.println("updateDelFiles : "  + updateDelFiles.length);*/
 		
 		UserVO loginUser = (UserVO) req.getSession().getAttribute("login");
 		
 		if(!ImgFiles.get(0).isEmpty() && updateDelFiles.length > 0){
 			for(int i = ImgFiles.size() - 1; i >= 0; i--){
-				System.out.println("ImgFiles.size() : " + ImgFiles.size());
-				System.out.println("i : " + i);
+				/*System.out.println("ImgFiles.size() : " + ImgFiles.size());
+				System.out.println("i : " + i);*/
 				for(int ii = 0; ii < updateDelFiles.length; ii++){
-					System.out.println("ii : " + ii);
+					/*System.out.println("ii : " + ii);*/
 					if(updateDelFiles[ii] != null){
 						if(ImgFiles.get(i).getOriginalFilename().equals(updateDelFiles[ii].toString())){
 							ImgFiles.remove(i);
 							updateDelFiles[ii] = null;
-							break;
 						}
 					}
 				}

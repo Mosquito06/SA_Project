@@ -117,7 +117,7 @@ public class BoardServiceImpl implements BoardService {
 					
 					AddFileVO addFile = new AddFileVO();
 					addFile.setFilePath(s.toString());
-					System.out.println("addFile.getFilePath() : " + addFile.getFilePath());
+					/*System.out.println("addFile.getFilePath() : " + addFile.getFilePath());*/
 					
 					addFileDao.delete(addFile);
 					

@@ -40,7 +40,12 @@ $(function(){
 	
 	// 파일 미리보기 삭제
 	$(document).on("click", ".previewDelBtn", function(){
-		$(this).parent().css("display", "none");
+		var currentLength = $("#updateImgPreviewDiv img").length;
+		if(currentLength <= 1){
+			$("#updateImgPreviewDiv").css("display", "none");
+		}
+		
+		$(this).parent().remove();
 		
 		var target = $(this).attr("data-del");
 		var input = $("<input>").attr("type", "hidden").attr("name", "updateDelFiles").attr("value", target);
