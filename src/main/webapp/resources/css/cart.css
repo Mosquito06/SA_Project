@@ -176,18 +176,238 @@
 /* ---------------------------------------------------
    MEDIAQUERIES
 ----------------------------------------------------- */
-@media screen and (min-width: 360px) and (max-width: 414px){
+@media screen and (max-width: 700px){
 	
 }
 
 @media screen and (max-width: 320px){
+	#cartContainer{
+		width: 95%;
+		margin: 70px auto; 
+	}
 	
+	#cartLeftDiv{
+		width: 100% !important;  
+	}
+	
+	#cartLeftDiv figcaption{
+		font-size: 17px !important;
+	}
+	
+	#cartLeftDiv .cartImg img{
+		width: 80px;
+		height: 80px;
+	}
+	
+	#cartLeftDiv .cartText .cartProductName{
+		font-size: 8px;
+	}
+	
+	#cartLeftDiv .cartOptionDiv input{
+		width: 20px;
+		height: 20px;
+		padding: 6px 5px;
+	} 
+	
+	#cartLeftDiv .cartOptionDiv button{
+		width: 20px;
+		height: 20px;
+	}
+		
+	#cartLeftDiv .cartPrice{
+		font-size: 8px;
+	}
+	
+	#cartLeftDiv .cartPrice{
+		font-size: 8px;
+	}
+	
+	#cartLeftDiv .cartDelBtn button{
+		width: 20px;
+		height: 20px;
+	}
+	
+	#cartRightDiv{
+		width: 100% !important ;
+	}
+	
+	#cartRightDiv figcaption{
+		font-size: 17px;
+	}
+	
+	#cartRightDiv table td{
+		font-size: 13px;
+		padding: 15px !important;
+	}
+	
+	#summaryText td{
+		font-size: 10px !important; 
+	}
+}
+
+@media screen and (min-width: 360px) and (max-width: 414px){
+	#cartContainer{
+		width: 90%;
+		margin: 70px auto;
+	}
+	
+	#cartLeftDiv{
+		width: 100% !important;  
+	}
+	
+	#cartLeftDiv figcaption{
+		font-size: 17px !important;
+	}
+	
+	#cartLeftDiv .cartImg img{
+		width: 90px;
+		height: 90px;
+	}
+	
+	#cartLeftDiv .cartText .cartProductName{
+		font-size: 10px;
+	}
+	
+	#cartLeftDiv .cartOptionDiv input{
+		width: 30px;
+		height: 30px;
+		padding: 6px 5px;
+	} 
+	
+	#cartLeftDiv .cartOptionDiv button{
+		width: 30px;
+		height: 30px;
+	}
+		
+	#cartLeftDiv .cartPrice{
+		font-size: 10px;
+	}
+	
+	#cartLeftDiv .cartPrice{
+		font-size: 10px;
+	}
+	
+	#cartLeftDiv .cartDelBtn button{
+		width: 30px;
+		height: 30px;
+	}
+	
+	#cartRightDiv{
+		width: 100% !important ;
+	}
+	
+	#cartRightDiv figcaption{
+		font-size: 17px;
+	}
+	
+	#cartRightDiv table td{
+		font-size: 13px;
+		padding: 15px !important;
+	}
+	
+	#summaryText td{
+		font-size: 10px !important; 
+	}
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px){
+	#cartContainer{
+		width: 90%; 
+		margin: 170px auto;
+		font-family: 'Nanum Gothic', sans-serif;
+		text-align: center;
+	}
 	
+	#cartLeftDiv figcaption{
+		font-size: 20px !important;
+
+	}
+	
+	#cartLeftDiv .cartText .cartProductName{
+		font-size: 10px;
+	}
+	
+	#cartLeftDiv .cartOptionDiv input{
+		width: 30px;
+		height: 30px;
+		padding: 6px 5px;
+	} 
+	
+	#cartLeftDiv .cartOptionDiv button{
+		width: 30px;
+		height: 30px;
+	}
+		
+	#cartLeftDiv .cartPrice{
+		font-size: 10px;
+	}
+	
+	#cartLeftDiv .cartDelBtn button{
+		width: 30px;
+		height: 30px;
+	}
+	
+	#cartRightDiv figcaption{
+		font-size: 20px;
+	}
+	
+	#cartRightDiv table td{
+		font-size: 14px;
+		padding: 15px !important;
+	}
+	
+	#summaryText td{
+		font-size: 10px !important; 
+	}
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1025px){
+	#cartContainer{
+		width: 80%;
+		margin: 170px auto;
+		font-family: 'Nanum Gothic', sans-serif;
+		text-align: center;
+	}
+	
+	#cartLeftDiv figcaption{
+		font-size: 20px !important;
+
+	}
+	
+	#cartLeftDiv .cartText .cartProductName{
+		font-size: 10px;
+	}
+	
+	#cartLeftDiv .cartOptionDiv input{
+		width: 30px;
+		height: 30px;
+		padding: 6px 5px;
+	} 
+	
+	#cartLeftDiv .cartOptionDiv button{
+		width: 30px;
+		height: 30px;
+	}
+		
+	#cartLeftDiv .cartPrice{
+		font-size: 10px;
+	}
+	
+	#cartLeftDiv .cartDelBtn button{
+		width: 30px;
+		height: 30px;
+	}
+	
+	#cartRightDiv figcaption{
+		font-size: 20px;
+	}
+	
+	#cartRightDiv table td{
+		font-size: 14px; 
+	}
+	
+	#summaryText td{
+		font-size: 10px !important; 
+	}
 	
 }
