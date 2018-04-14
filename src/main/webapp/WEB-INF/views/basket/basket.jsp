@@ -1,38 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp"/>
-<script>
-	
-</script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <section>
 	<div id="cartContainer">
 		<div id="cartLeftDiv" class="table-responsive">
 			<figure>
 				<figcaption>
-					장바구니<span>(0)</span>
+					장바구니<span>(${basketList.size() })</span>
 				</figcaption>
 				<table>
-				 	<tr class="cartProduct"> 
-				 		<td class="cartImg">
-				 			<img src="${pageContext.request.contextPath }/resources/img/sample.jpg">
-				 		</td>
-				 		<td class="cartText">
-				 			<span class="cartProductName">나이키 에어 베이퍼맥스 플라이니트 목 2</span>
-				 			<div class="cartOptionDiv">
-				 				<input type="text" value="1">
-				 				<button>-</button>
-				 				<button>+</button>
-				 			</div>
-				 			
-				 		</td> 
-				 		<td class="cartPrice">
-				 			239,000 원
-				 		</td>
-				 		<td class="cartDelBtn">
-				 			<button type="button" data-toggle="modal" data-target="#cartDelModal">X</button>
-				 		</td>
-				 	</tr>
-				 		
+					<c:forEach var="basket" items="${basketList }">
+						<tr class="cartProduct"> 
+							<c:choose>
+								<c:when test="${basket.boardNum.files.size() > 0 }">
+									<td class="cartImg">
+							 			<img src="${pageContext.request.contextPath }/resources/upload${basket.boardNum.files.get(0).filePath}">
+							 		</td>
+								</c:when>
+								<c:otherwise>
+									<td class="cartImg">
+										<img src="${pageContext.request.contextPath }/resources/img/board/basicImg.jpg">
+									</td>
+								</c:otherwise>
+							</c:choose>
+
+					 		<td class="cartText">
+					 			<span class="cartProductName">${basket.boardNum.boardTitle }</span>
+					 			<div class="cartOptionDiv">
+					 				<input type="text" value="${basket.orderAmount }">
+					 				<button class="cartCountMinusBtn">-</button>
+					 				<button class="cartCountPlusBtn">+</button>
+					 			</div>
+					 			
+					 		</td> 
+					 		<td class="cartPrice">
+					 			<span class="orderPrice" data-price="${basket.orderPrice }"><fmt:formatNumber value="${basket.orderPrice }" currencyCode="KRW"/> 원</span>
+					 		</td>
+					 		<td class="cartDelBtn">
+					 			<button type="button" data-toggle="modal" data-target="#cartDelModal">X</button>
+					 		</td>
+					 	</tr>					
+					</c:forEach>
 				</table>
 			</figure>
 		</div>

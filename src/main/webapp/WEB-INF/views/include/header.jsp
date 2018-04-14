@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?a=da">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sign.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/complete.css?a=da">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css?a=da">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/read.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/review.css?a=ss">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/updateReview.css?a=d">
@@ -37,6 +37,7 @@
 <script src="${pageContext.request.contextPath }/resources/js/read.js?a=ddd"></script>
 <script src="${pageContext.request.contextPath }/resources/js/add.js?a=d"></script>
 <script src="${pageContext.request.contextPath }/resources/js/update.js?a=d"></script>
+<script src="${pageContext.request.contextPath }/resources/js/basket.js?a=d"></script>
 </head>
 <body>
 

@@ -170,13 +170,21 @@
    MEDIAQUERIES
 ----------------------------------------------------- */
 @media screen and (max-width: 320px){
+	#ContentBottomDiv{
+		width: 99%;
+	}
+	
 	#ContentBottomDiv .boardLi{
-		width: 140px !important;  
+		width: 150px !important;  
 
 	}
 	
 	#ContentBottomDiv .boardLi .boardCountDiv{
-		font-size: 7px;
+		width: 100%;
+	}
+	
+	#ContentBottomDiv .boardLi .boardCountDiv{
+		font-size: 5px;
 	}
 	
 	#ContentBottomDiv .boardLi .boardBottom{

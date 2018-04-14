@@ -50,7 +50,9 @@ public class BasketController {
 	private BasketService basketService;
 	
 	@RequestMapping(value="/basket", method = RequestMethod.GET)
-	public String goBasket(Model model){
+	public String goBasket(HttpServletRequest req, Model model){
+		UserVO user = (UserVO) req.getSession().getAttribute("login");
+		
 		
 		try {
 			List<CategoryVO> category = categoryService.selectAll(); 
@@ -60,13 +62,25 @@ public class BasketController {
 			model.addAttribute("category", category);
 			model.addAttribute("division", division);
 			model.addAttribute("section", section);
+			
+			List<BasketVO> basketList = basketService.selectBasketByClienNum(user.getClientNum());
+			if(basketList.size() > 0){
+				for(BasketVO b : basketList){
+					BoardVO board = boardService.selectBoardByBoardNum(b.getBoardNum().getBoardNum(), false);
+					b.getBoardNum().setFiles(board.getFiles());
+				}
+				
+				model.addAttribute("basketList", basketList);
+				return "basket/basket";
+			}
+			
 
 		} catch (Exception e) {
 		
 			e.printStackTrace();
 		}
 		
-		return "basket/basket";
+		return "basket/emptyBasket";
 	}
 	
 	@ResponseBody
