@@ -36,7 +36,7 @@
 					 			
 					 		</td> 
 					 		<td class="cartPrice">
-					 			<span class="orderPrice" data-price="${basket.orderPrice }"><fmt:formatNumber value="${basket.orderPrice }" currencyCode="KRW"/> 원</span>
+					 			<span class="orderPrice" data-basicPrice="${basket.boardNum.boardPrice }" data-totalPrice="${basket.orderPrice }"><fmt:formatNumber value="${basket.orderPrice }" currencyCode="KRW"/> 원</span>
 					 		</td>
 					 		<td class="cartDelBtn">
 					 			<button type="button" data-toggle="modal" data-target="#cartDelModal">X</button>

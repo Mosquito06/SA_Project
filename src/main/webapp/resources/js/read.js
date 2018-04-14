@@ -94,7 +94,7 @@ $(function(){
 	
 	// 수량 input 이벤트 처리
 	$("#readCountInput").keyup(function(){
-		var pattern = /^[1-9]+$/;
+		var pattern = /^[0-9]+$/;
 		var value = $(this).val();
 		var check = pattern.test(value);
 		
