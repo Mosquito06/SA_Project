@@ -128,6 +128,9 @@
 					<button id="boardDeleteBtn" data-del="${pageContext.request.contextPath }/del?boardNum=${boardNum}&sectionNum=${sectionNum}">삭제</button>
 				</div>
 			</c:if>
+			<div id="backBoardDiv">
+				<a href="${pageContext.request.contextPath }/board?page=${cri.page }&perPageNum=30&sectionNum=${sectionNum}" id="backBoard">돌아가기</a>
+			</div>
 		</div>
 		
 	</div>
