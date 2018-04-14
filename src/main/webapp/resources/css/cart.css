@@ -58,6 +58,11 @@
 		margin-bottom: 7%;
 	}
 	
+	#cartLeftDiv .cartText .cartProductName a{
+		text-decoration: none;
+		color: #111;
+	}
+	
 	#cartLeftDiv .cartOptionDiv input{
 		width: 50px;
 		height: 40px;

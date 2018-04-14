@@ -27,8 +27,12 @@
 							</c:choose>
 
 					 		<td class="cartText">
-					 			<span class="cartProductName">${basket.boardNum.boardTitle }</span>
-					 			<div class="cartOptionDiv">
+					 			<span class="cartProductName">
+						 			<a href="${pageContext.request.contextPath }/read?sectionNum=${basket.boardNum.sectionNum.sectionNum}&boardNum=${basket.boardNum.boardNum}&readCheck=true">
+						 				${basket.boardNum.boardTitle }
+						 			</a>
+					 			</span>
+					 			<div class="cartOptionDiv" data-target="${basket.basketNum }">
 					 				<input type="text" value="${basket.orderAmount }">
 					 				<button class="cartCountMinusBtn">-</button>
 					 				<button class="cartCountPlusBtn">+</button>

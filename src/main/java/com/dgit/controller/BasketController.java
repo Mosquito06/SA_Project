@@ -89,7 +89,7 @@ public class BasketController {
 			HttpServletRequest req, int orderAmount, int orderPrice){
 		UserVO user = (UserVO) req.getSession().getAttribute("login");
 		
-		logger.info("basket rest api 진입");
+		logger.info("basket 추가 rest api 진입");
 		
 		ResponseEntity<String> entity = null;
 		
@@ -135,5 +135,29 @@ public class BasketController {
 		}
 		
 		return "redirect: basket";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/basket/{basketNum}", method = RequestMethod.PUT)
+	public ResponseEntity<String> updateBasket(@PathVariable int basketNum, @RequestBody BasketVO basket){
+		logger.info("basket update rest api 진입");
+
+		ResponseEntity<String> entity = null;
+		
+		try{
+			BasketVO basketVO = new BasketVO();
+			basketVO.setBasketNum(basketNum);
+			basketVO.setOrderAmount(basket.getOrderAmount());
+			basketVO.setOrderPrice(basket.getOrderPrice());
+			
+			basketService.update(basketVO);
+			
+			entity = new ResponseEntity<String>("success", HttpStatus.OK);
+		
+		}catch(Exception e){
+			entity = new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
 	}
 }
