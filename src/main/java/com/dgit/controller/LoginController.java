@@ -1,10 +1,13 @@
 package com.dgit.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.dgit.domain.BasketVO;
 import com.dgit.domain.UserVO;
+import com.dgit.service.BasketService;
 import com.dgit.service.UserService;
 
 @Controller
@@ -23,6 +28,9 @@ public class LoginController {
 	
 	@Inject
 	private UserService userService;
+	
+	@Autowired
+	private BasketService basketService;
 	
 	@RequestMapping(value="/loginCheck", method = RequestMethod.POST)
 	@ResponseBody
@@ -55,12 +63,17 @@ public class LoginController {
 	public String login(UserVO user, String path, String query, Model model){
 		String[] pathUpdate = path.split("/");
 		String finalPath = pathUpdate[pathUpdate.length - 1].substring(0, pathUpdate[pathUpdate.length - 1].indexOf("."));
-		logger.info("finalPath = " + finalPath);
-		logger.info("query = " + query);
+		/*logger.info("finalPath = " + finalPath);
+		logger.info("query = " + query);*/
 		
 		try {
 			UserVO loginUser = userService.selectUserByIdAndPw(user);
 			
+			List<BasketVO> list = basketService.selectBasketByClienNum(loginUser.getClientNum());
+			if(!list.isEmpty()){
+				model.addAttribute("basketCount", list.size());
+			}
+						
 			model.addAttribute("login", loginUser);
 			model.addAttribute("path", finalPath);
 			
@@ -79,6 +92,8 @@ public class LoginController {
 	@RequestMapping(value="/loginOut", method = RequestMethod.GET)
 	public String logOut(HttpServletRequest request){
 		request.getSession().removeAttribute("login");
+		request.getSession().removeAttribute("basketCount");
+		
 		String path = request.getContextPath() + "/";
 		
 		return "redirect: " + path;

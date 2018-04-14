@@ -100,7 +100,7 @@ public class BasketController {
 					return entity = new ResponseEntity<String>("exist", HttpStatus.OK); 
 				}
 			}
-						
+			
 			BoardVO board = new BoardVO();
 			board.setBoardNum(boardNum);
 			
@@ -112,6 +112,9 @@ public class BasketController {
 			
 			basketService.insert(basket);
 			
+			List<BasketVO> afterInsertList = basketService.selectBasketByClienNum(user.getClientNum());
+			req.getSession().setAttribute("basketCount", afterInsertList.size());
+			
 			entity = new ResponseEntity<String>("success", HttpStatus.OK);
 		
 		}catch(Exception e){
@@ -122,14 +125,22 @@ public class BasketController {
 	}
 	
 	@RequestMapping(value="/delBasket", method = RequestMethod.GET)
-	public String delBasket(int basketNum){		
+	public String delBasket(int basketNum, HttpServletRequest req){		
 		logger.info("basket del 진입");
-
+		UserVO user = (UserVO) req.getSession().getAttribute("login");
+		
 		BasketVO basket = new BasketVO();
 		basket.setBasketNum(basketNum);
 		
 		try{
 			basketService.delete(basket);
+		
+			List<BasketVO> basketList = basketService.selectBasketByClienNum(user.getClientNum());
+			if(basketList.isEmpty()){
+				req.getSession().removeAttribute("basketCount");
+			}else{
+				req.getSession().setAttribute("basketCount", basketList.size());
+			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}

@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=D">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=dD">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/footer.css?a=ddd">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/main.css?a=d">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?a=da">
@@ -108,8 +108,11 @@
     	</c:if>
     	    	
         <li><a href="#" class="mobileNavBack">고객센터</a></li>
-        <li><a href="#" id="pcCartBtn"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-      </ul>
+		<li><a href="#" id="pcCartBtn"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+      	<c:if test="${basketCount != null }">
+      		<li id="cartCountLi"><span class="badge">${basketCount }</span></li>
+      	</c:if>
+       </ul>
     </div>
    </div>
 </nav>

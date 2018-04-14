@@ -23,6 +23,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		Object object = modelAndView.getModel().get("login");
 		Object object2 = modelAndView.getModel().get("path");
 		Object object3 = modelAndView.getModel().get("query");
+		Object object4 = modelAndView.getModel().get("basketCount");
 		HttpSession session = request.getSession();
 		
 		if(object != null){
@@ -34,6 +35,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			if(object3 != null){
 				String query = (String) object3;
 				path = path + query;
+			}
+			
+			if(object4 != null){
+				int basketCount = (int) object4;
+				session.setAttribute("basketCount", basketCount);
 			}
 						
 			response.sendRedirect(request.getContextPath() + "/" + path);
