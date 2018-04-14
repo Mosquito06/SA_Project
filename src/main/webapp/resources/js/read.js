@@ -126,7 +126,7 @@ $(function(){
 	$("#addBtn").click(function(){
 		var orderAmount = Number($("#readCountInput").val());
 		
-		var pattern = /^[1-9]+$/;
+		var pattern = /^[0-9]+$/;
 		var check = pattern.test(orderAmount);
 		
 		if(!check){

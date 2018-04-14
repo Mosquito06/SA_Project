@@ -28,13 +28,25 @@
 		<div id="readLeftDiv">
 			<c:choose>
 				<c:when test="${board.files.size() > 0 }">
-					<c:forEach var="img" items="${board.files }">
-						<img src="${pageContext.request.contextPath }/resources/upload${img.filePath}">
-					</c:forEach>
+					<c:choose>
+						<c:when test="${board.files.size() == 6 }">
+							<c:forEach var="img" items="${board.files }">
+								<img src="${pageContext.request.contextPath }/resources/upload${img.filePath}">
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="img" items="${board.files }">
+								<img src="${pageContext.request.contextPath }/resources/upload${img.filePath}">
+							</c:forEach>
+							<c:forEach begin="1" end="${6 - board.files.size() }">
+								<img src="${pageContext.request.contextPath }/resources/img/board/basicImg(435).png">
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
 				</c:when>
 				<c:otherwise>
 					<c:forEach begin="1" end="6">
-						<img src="${pageContext.request.contextPath }/resources/img/board/emptyImg(435).png">
+						<img src="${pageContext.request.contextPath }/resources/img/board/basicImg(435).png">
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
