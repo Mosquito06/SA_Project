@@ -239,6 +239,20 @@
 		background-color: #C0C0C0; 
 		border: 1px solid #C0C0C0;
 	}
+	
+	#cartSuccessModal button{
+		font-family: 'Nanum Gothic', sans-serif;
+		font-weight: bold;
+	}
+	
+	button[class~='cartMoveConfirmBtn']{
+		background-color: #111;
+		color: white;
+	}
+	
+	button[class~='cartMoveConfirmBtn']:hover{
+		background-color: #fff;
+	}	
 }
 	
 /* ---------------------------------------------------

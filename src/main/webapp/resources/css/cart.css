@@ -169,7 +169,19 @@
 		text-align: left;
 	}
 	
+	#cartDelModal button{
+		font-family: 'Nanum Gothic', sans-serif;
+		font-weight: bold;
+	}
 	
+	button[class~='cartDelModalConfirm']{
+		background-color: #111;
+		color: white;
+	}
+	
+	button[class~='cartDelModalConfirm']:hover{
+		background-color: #fff;
+	}	
 }
 	
 	

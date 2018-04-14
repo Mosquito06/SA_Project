@@ -89,7 +89,7 @@
       </div>
       <div class="modal-footer">
       	<button type="button" class="btn" data-dismiss="modal">취소</button>
-        <button type="button" class="btn" data-dismiss="modal">확인</button>
+        <button type="button" class="btn cartDelModalConfirm" data-dismiss="modal">확인</button>
       </div>
     </div>
 

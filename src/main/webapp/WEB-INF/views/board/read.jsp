@@ -43,7 +43,7 @@
 		<div id="readRightDiv">
 			<div id="readTitle">
 				${board.boardTitle }<br>
-				<span><fmt:formatNumber value="${board.boardPrice}" currencyCode="KRW" /> 원</span>
+				<span data-price="${board.boardPrice}"><fmt:formatNumber value="${board.boardPrice}" currencyCode="KRW" /> 원</span>
 			</div>
 			<div id="readseller">
 				<strong>판매자</strong><br>
@@ -57,16 +57,17 @@
 			</div>
 			<div id="readCountDiv">
 				<strong>수량</strong><br> 
-				<input type="text" value="1">
-				<button>
+				<input type="text" value="1" id="readCountInput">
+				<button id="readCountMinusBtn">
 					-
 				</button>
-				<button>
+				<button id="readCountPlusBtn">
 					+
 				</button>
 			</div>
 			<div id="readBtnDiv">
 				<button id="addBtn">장바구니</button>
+				<button type="button" id="cartSuccessModalBtn" data-toggle="modal" style="display:none" data-target="#cartSuccessModal"></button>
 				<button id="buyBtn">구매하기</button>
 			</div>
 			<div id="AsTextDiv">
@@ -119,6 +120,23 @@
 		
 	</div>
 </section>
+
+<div id="cartSuccessModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">상품이 추가되었습니다. 장바구니로 이동하시겠습니까??</h5>
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn" data-dismiss="modal">취소</button>
+        <button type="button" class="btn cartMoveConfirmBtn" data-dismiss="modal">확인</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 <jsp:include page="../include/footer.jsp"/>
 
 

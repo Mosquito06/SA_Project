@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sign.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/complete.css?a=da">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css?a=da">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/read.css?a=da">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/read.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/review.css?a=ss">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/updateReview.css?a=d">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/add.css?a=d">
@@ -34,7 +34,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/sign.js?a=ad"></script>
 <script src="${pageContext.request.contextPath }/resources/js/header.js?a=a"></script>
-<script src="${pageContext.request.contextPath }/resources/js/read.js?a=d"></script>
+<script src="${pageContext.request.contextPath }/resources/js/read.js?a=ddd"></script>
 <script src="${pageContext.request.contextPath }/resources/js/add.js?a=d"></script>
 <script src="${pageContext.request.contextPath }/resources/js/update.js?a=d"></script>
 </head>

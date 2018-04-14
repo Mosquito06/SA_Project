@@ -91,6 +91,71 @@ $(function(){
 		location.href = target;
 	})
 	
+	
+	// 수량 input 이벤트 처리
+	$("#readCountInput").keyup(function(){
+		var pattern = /^[1-9]+$/;
+		var value = $(this).val();
+		var check = pattern.test(value);
+		
+		if(!check){
+			$(this).val("");
+			$(this).val("1");
+		}
+		
+	})
+	
+	// 수량 선택 버튼 이벤트
+	$("#readCountMinusBtn").click(function(){
+		var value = Number($("#readCountInput").val());
+		if(value > 1){
+			value -= 1;
+			$("#readCountInput").val(value);
+		}
+	})
+	
+	$("#readCountPlusBtn").click(function(){
+		var value = Number($("#readCountInput").val());
+		if(value >= 0){
+			value += 1;
+			$("#readCountInput").val(value);
+		}
+	})
+	
+	// 장바구니 버튼 이벤트
+	$("#addBtn").click(function(){
+		var orderAmount = Number($("#readCountInput").val());
+		
+		var pattern = /^[1-9]+$/;
+		var check = pattern.test(orderAmount);
+		
+		if(!check){
+			alert("수량 정보를 다시 확인해주세요.");
+			return;
+		}
+		var orderPrice = Number($("#readTitle span").attr("data-price")) * orderAmount;
+
+		
+		$.ajax({
+			url : contextPath + "/basket/" + boardNum,
+			type : "post",
+			data : {"orderAmount" : orderAmount, "orderPrice" : orderPrice},
+			dataType : "text",
+			success: function(result){
+				console.log(result);
+				
+				if(result == "exist"){
+					alert("이미 추가된 상품입니다. 장바구니를 확인해주세요.");
+				}else if("success"){
+					$("#cartSuccessModalBtn").trigger("click");
+				}
+			}
+		})
+		
+		
+	})
+	
+	
 	// 댓글 획득 ajax
 	function getReples(page){
 		

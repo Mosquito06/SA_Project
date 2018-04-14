@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.persistence.BasketDao">
+    
+    <resultMap type="BasketVO" id="basketResult">
+        <result property="basketNum" column="basket_num"/>
+        <result property="orderDate" column="order_date"/>
+        <result property="orderPrice" column="order_price"/>
+        <result property="orderAmount" column="order_amount"/>
+    	<result property="clientNum.clientNum" column="client_num"/>
+    	<association property="boardNum" resultMap="com.dgit.persistence.BoardDao.boardResult"></association>
+    </resultMap>    
+    
+	<insert id="insert">
+	    insert into shopping_basket(order_price, order_amount, client_num, board_num) 
+	    values(#{orderPrice}, #{orderAmount},  #{clientNum.clientNum}, #{boardNum.boardNum})
+	</insert>
+	
+	<delete id="delete">
+	    delete from shopping_basket where basket_num = #{basketNum}
+	</delete>
+    
+	<update id="update">
+	    update shopping_basket set order_price = #{orderPrice}, order_amount = #{orderAmount} 
+	    where basket_num = #{basketNum}
+	</update>
+    
+	<select id="selectBasketByClienNum" resultMap="basketResult">
+	    select * from shopping_basket s, board b where s.board_num = b.board_num and s.client_num = #{num} 
+	</select>
+
+</mapper>
