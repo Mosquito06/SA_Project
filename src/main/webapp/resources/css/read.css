@@ -251,6 +251,7 @@
 	}
 	
 	button[class~='cartMoveConfirmBtn']:hover{
+		color: #111;
 		background-color: #fff;
 	}	
 }

@@ -120,4 +120,20 @@ public class BasketController {
 		
 		return entity;
 	}
+	
+	@RequestMapping(value="/delBasket", method = RequestMethod.GET)
+	public String delBasket(int basketNum){		
+		logger.info("basket del 진입");
+
+		BasketVO basket = new BasketVO();
+		basket.setBasketNum(basketNum);
+		
+		try{
+			basketService.delete(basket);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return "redirect: basket";
+	}
 }

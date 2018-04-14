@@ -39,7 +39,8 @@
 					 			<span class="orderPrice" data-basicPrice="${basket.boardNum.boardPrice }" data-totalPrice="${basket.orderPrice }"><fmt:formatNumber value="${basket.orderPrice }" currencyCode="KRW"/> 원</span>
 					 		</td>
 					 		<td class="cartDelBtn">
-					 			<button type="button" data-toggle="modal" data-target="#cartDelModal">X</button>
+					 			<button class="cartVisibleDelBtn" data-target="${basket.basketNum }" type="button">X</button>
+					 			<button style="display:none" type="button" data-toggle="modal" data-target="#cartDelModal">X</button>
 					 		</td>
 					 	</tr>					
 					</c:forEach>
@@ -99,7 +100,7 @@
       </div>
       <div class="modal-footer">
       	<button type="button" class="btn" data-dismiss="modal">취소</button>
-        <button type="button" class="btn cartDelModalConfirm" data-dismiss="modal">확인</button>
+        <button type="button" class="btn" data-dismiss="modal" id="cartDelModalConfirm">확인</button>
       </div>
     </div>
 

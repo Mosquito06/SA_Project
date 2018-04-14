@@ -29,6 +29,7 @@
 	
 	#cartLeftDiv table{
 		width: 100%;
+		margin-bottom: 5%;
 	}
 	
 	#cartLeftDiv .cartProduct{
@@ -174,12 +175,13 @@
 		font-weight: bold;
 	}
 	
-	button[class~='cartDelModalConfirm']{
+	#cartDelModalConfirm{
 		background-color: #111;
 		color: white;
 	}
 	
-	button[class~='cartDelModalConfirm']:hover{
+	#cartDelModalConfirm:hover{
+		color: #111;
 		background-color: #fff;
 	}	
 }

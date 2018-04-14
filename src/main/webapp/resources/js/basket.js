@@ -45,6 +45,19 @@ $(function(){
 			getPrice($(this), value);
 			getTotalPrice();
 		})
+		
+		// 장바구니 삭제 버튼 이벤트
+		$(".cartVisibleDelBtn").click(function(){
+			var target = $(this).attr("data-target");
+			$(this).next().trigger("click");
+			$("#cartDelModalConfirm").attr("data-target", target);
+		})
+				
+		
+		$("#cartDelModalConfirm").click(function(){
+			var target = $(this).attr("data-target");
+			location.href = contextPath + "/delBasket?basketNum=" + target;
+		})
 	})
 	
 	function getTotalPrice(){
