@@ -160,7 +160,10 @@
 		text-align: right;
 		line-height: 35px;
 	}
-	
+	#orderRightDiv .rigthProductInfo a{
+		text-decoration: none;
+		color: #000;
+	}
 	#orderRightDiv .rigthProductInfo span{
 		color: #fa5400;
 	}

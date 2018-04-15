@@ -90,7 +90,9 @@
 										</c:otherwise>
 									</c:choose>
 							 		<td class="rigthProductInfo">
-							 			${basket.boardNum.boardTitle }<br> 
+							 			<a href="${pageContext.request.contextPath }/read?sectionNum=${basket.boardNum.sectionNum.sectionNum}&boardNum=${basket.boardNum.boardNum}&readCheck=true">
+							 				${basket.boardNum.boardTitle }
+							 			</a><br> 
 							 			<span class="finalOrderPrice" data-basicPrice="${basket.boardNum.boardPrice }" data-totalPrice="${basket.orderPrice}">
 							 				<fmt:formatNumber value="${basket.boardNum.boardPrice }" currencyCode="KRW" /> 원</span><br>
 							 			${basket.orderAmount } 개
@@ -113,7 +115,9 @@
 									</c:otherwise>
 								</c:choose>
 						 		<td class="rigthProductInfo">
-						 			${board.boardTitle }<br> 
+						 			<a href="${pageContext.request.contextPath }/read?sectionNum=${board.sectionNum.sectionNum}&boardNum=${board.boardNum}&readCheck=true">
+							 			${board.boardTitle }
+						 			</a><br> 
 						 			<span class="finalOrderPrice" data-basicPrice="${board.boardPrice }" data-totalPrice="${board.boardPrice * amount}">
 						 				<fmt:formatNumber value="${board.boardPrice }" currencyCode="KRW" /> 원</span><br>
 						 			${amount } 개
