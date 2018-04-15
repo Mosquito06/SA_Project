@@ -176,7 +176,7 @@
 	
 	#ContentBottomDiv .boardLi{
 		width: 150px !important;  
-
+		height: 300px !important;
 	}
 	
 	#ContentBottomDiv .boardLi .boardCountDiv{
@@ -200,6 +200,7 @@
 @media screen and (min-width: 360px) and (max-width: 414px){
 	#ContentBottomDiv .boardLi{
 		width: 160px !important;  
+		height: 300px !important;
 
 	}
 	
