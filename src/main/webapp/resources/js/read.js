@@ -124,6 +124,11 @@ $(function(){
 	
 	// 장바구니 버튼 이벤트
 	$("#addBtn").click(function(){
+		if(login == "" || login == null){
+			$("#navLoginAtag").trigger("click");
+			return;
+		} 
+		
 		var orderAmount = Number($("#readCountInput").val());
 		
 		var pattern = /^[0-9]+$/;
@@ -158,6 +163,19 @@ $(function(){
 	// 장바구니 이동 버튼 이벤트
 	$(".cartMoveConfirmBtn").click(function(){
 		location.href= contextPath + "/basket";
+	})
+	
+	// 구매하기 버튼 이벤트
+	$("#buyBtn").click(function(){
+		if(login == "" || login == null){
+			$("#navLoginAtag").trigger("click");
+			return;
+		}  
+		
+		var target = $(this).attr("data-buy");
+		var amount = $("#readCountInput").val();
+		
+		location.href= contextPath + "/order?boardNum=" + target + "&amount=" + amount;
 	})
 
 	// 댓글 획득 ajax

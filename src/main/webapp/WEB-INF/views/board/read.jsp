@@ -80,7 +80,7 @@
 			<div id="readBtnDiv">
 				<button id="addBtn">장바구니</button>
 				<button type="button" id="cartSuccessModalBtn" data-toggle="modal" style="display:none" data-target="#cartSuccessModal"></button>
-				<button id="buyBtn">구매하기</button>
+				<button id="buyBtn" data-buy="${board.boardNum }">구매하기</button>
 			</div>
 			<div id="AsTextDiv">
 				<strong>배송 / 반품 / AS</strong><br>

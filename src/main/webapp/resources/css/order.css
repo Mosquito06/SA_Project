@@ -126,7 +126,19 @@
 		width: 100%;
 	}
 	
-	#orderRightDiv table tr:FIRST-CHILD{
+	#orderRightDiv table .orderLeftTd{
+		float: left;
+		text-align: left;
+		width: 60% !important;
+	}
+	
+	#orderRightDiv table .orderRightTd{
+		float: right;
+		text-align: right;
+		width: 40% !important;
+	}  
+	
+	#orderRightDiv table .orderProduct{
 		border-bottom: 1px solid #dedfda;
 	}
 	

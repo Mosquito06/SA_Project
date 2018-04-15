@@ -18,11 +18,11 @@
 									<span>주문고객</span>
 									<div class="form-group">
 								    	<label for="email">아이디</label>
-								    	<input type="text" class="form-control" id="orderId" placeholder="아이디">
+								    	<input type="text" class="form-control" value="${login.id }" id="orderId" placeholder="아이디">
 								  	</div>
 								  	<div class="form-group">
 								    	<label for="email">연락처</label>
-								    	<input type="text" class="form-control" id="orderPhone" placeholder="-없이 입력">
+								    	<input type="text" class="form-control" value="${login.phone }" id="orderPhone" placeholder="-없이 입력">
 								  	</div>
 								</div>
 							</td>
@@ -73,35 +73,73 @@
 					ORDER SUMMARY
 				</figcaption>
 				<table>
+					<c:choose>
+						<c:when test="${basketList != null }">
+							<c:forEach var="basket" items="${basketList }">
+								<tr class="orderProduct">
+									<c:choose>
+										<c:when test="${basket.boardNum.files.size() > 0 }">
+											<td class="leftProductImg">
+									 			<img src="${pageContext.request.contextPath }/resources/upload${basket.boardNum.files.get(0).filePath}">
+									 		</td>
+										</c:when>
+										<c:otherwise>
+											<td class="leftProductImg">
+												<img src="${pageContext.request.contextPath }/resources/img/board/basicImg.jpg">
+											</td>
+										</c:otherwise>
+									</c:choose>
+							 		<td class="rigthProductInfo">
+							 			${basket.boardNum.boardTitle }<br> 
+							 			<span class="finalOrderPrice" data-basicPrice="${basket.boardNum.boardPrice }" data-totalPrice="${basket.orderPrice}">
+							 				<fmt:formatNumber value="${basket.boardNum.boardPrice }" currencyCode="KRW" /> 원</span><br>
+							 			${basket.orderAmount } 개
+							 		</td>
+							 	</tr>	
+							</c:forEach>	
+						</c:when> 
+						<c:otherwise>
+							<tr class="orderProduct">
+						 		<c:choose>
+									<c:when test="${board.files.size() > 0 }">
+										<td class="leftProductImg">
+								 			<img src="${pageContext.request.contextPath }/resources/upload${board.files.get(0).filePath}">
+								 		</td>
+									</c:when>
+									<c:otherwise>
+										<td class="leftProductImg">
+											<img src="${pageContext.request.contextPath }/resources/img/board/basicImg.jpg">
+										</td>
+									</c:otherwise>
+								</c:choose>
+						 		<td class="rigthProductInfo">
+						 			${board.boardTitle }<br> 
+						 			<span class="finalOrderPrice" data-basicPrice="${board.boardPrice }" data-totalPrice="${board.boardPrice * amount}">
+						 				<fmt:formatNumber value="${board.boardPrice }" currencyCode="KRW" /> 원</span><br>
+						 			${amount } 개
+						 		</td>
+						 	</tr>
+						</c:otherwise>
+					</c:choose>
 					<tr>
-				 		<td class="leftProductImg">
-				 			<img src="${pageContext.request.contextPath }/resources/img/sample.jpg">
-				 		</td>
-				 		<td class="rigthProductInfo">
-				 			나이키 에어맥스 90프리미엄<br>
-				 			<span>159,000 원</span><br>
-				 			1개
-				 		</td>
+				 		<td class="orderLeftTd">상품금액</td>
+				 		<td class="orderRightTd"></td>
+				 	</tr> 
+				 	<tr>
+				 		<td class="orderLeftTd">배송비</td>
+				 		<td class="orderRightTd">0 원</td>
 				 	</tr>
 				 	<tr>
-				 		<td class="leftTd">상품금액</td>
-				 		<td class="rightTd">0 원</td>
+				 		<td class="orderLeftTd">상품할인금액</td>
+				 		<td class="orderRightTd colorText">0 원</td>
 				 	</tr>
 				 	<tr>
-				 		<td class="leftTd">배송비</td>
-				 		<td class="rightTd">0 원</td>
-				 	</tr>
-				 	<tr>
-				 		<td class="leftTd">상품할인금액</td>
-				 		<td class="rightTd colorText">0 원</td>
-				 	</tr>
-				 	<tr>
-				 		<td class="leftTd">주문할인금액</td>
-				 		<td class="rightTd colorText">0 원</td>
+				 		<td class="orderLeftTd">주문할인금액</td>
+				 		<td class="orderRightTd colorText">0 원</td>
 				 	</tr>
 				 	<tr id="orderTotalPay">
-				 		<td class="leftTd">총 결제 예정 금액</td>
-				 		<td class="rightTd colorText">0 원</td>
+				 		<td class="orderLeftTd">총 결제 예정 금액</td>
+				 		<td class="orderRightTd colorText"></td>
 				 	</tr>
 				 	<tr id="summaryText">
 				 		<td colspan="2">

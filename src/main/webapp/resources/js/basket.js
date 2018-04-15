@@ -1,6 +1,6 @@
 $(function(){
 		// 첫 화면 가격 계산 함수 호출
-		getTotalPrice()
+		getTotalPrice();
 	
 		//수량 input 이벤트 처리
 		$(".cartOptionDiv input").keyup(function(){
@@ -61,6 +61,12 @@ $(function(){
 			var target = $(this).attr("data-target");
 			location.href = contextPath + "/delBasket?basketNum=" + target;
 		})
+		
+		// 구매하기 버튼 이벤트
+		$("#cartOrderBtn").click(function(){
+			location.href= contextPath + "/basketOrder";
+		})
+		
 	})
 	
 	// 총 가격 get 함수
