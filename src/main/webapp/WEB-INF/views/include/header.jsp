@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=dD">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=D">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/footer.css?a=ddd">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/main.css?a=d">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?a=da">
@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/update.css?a=d">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/emptyBasket.css?a=dd">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/cart.css?a=d">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/order.css?a=sd">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
@@ -33,7 +34,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/sign.js?a=ad"></script>
-<script src="${pageContext.request.contextPath }/resources/js/header.js?a=a"></script>
+<script src="${pageContext.request.contextPath }/resources/js/header.js?a=dd"></script>
 <script src="${pageContext.request.contextPath }/resources/js/read.js?a=d"></script>
 <script src="${pageContext.request.contextPath }/resources/js/add.js?a=d"></script>
 <script src="${pageContext.request.contextPath }/resources/js/update.js?a=d"></script>

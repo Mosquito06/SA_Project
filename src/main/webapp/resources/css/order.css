@@ -1,0 +1,376 @@
+@CHARSET "UTF-8";
+/* ---------------------------------------------------
+   CONTENT
+----------------------------------------------------- */
+	#orderContainer{
+		width: 70%;
+		margin: 170px auto;
+		font-family: 'Nanum Gothic', sans-serif;
+	}
+	
+	#orderLeftDiv{
+		width: 60%;
+		float: left;
+	}
+	
+	#orderLeftDiv figcaption{
+		font-size: 24px;
+    	font-weight: bold;
+    	color: #111;
+    	text-align: left;
+    	padding: 20px 0;
+    	border-bottom: 1px solid #dedfda;
+	}
+	
+	#orderLeftDiv table{
+		width: 100%;
+		margin-bottom: 5%;
+	}
+	
+	#orderLeftDiv tr{
+		border-bottom: 1px solid #dedfda;
+	}
+	
+	#orderLeftDiv td{
+		padding: 10px 20px;
+	}
+	
+	#orderLeftDiv .orderInfo{
+		text-align: center;
+	}
+	
+	#orderLeftDiv .orderInfo span{
+		font-size: 15px;
+		font-weight: bold;
+		display: block;
+		color: #000;
+		margin-bottom: 3%;
+		text-align: left;
+	}
+		
+	#orderLeftDiv .orderInfo .form-group{
+		display: inline-block !important;
+		width: 48% !important;
+		text-align: left;
+		font-size: 13px; 
+	}
+	
+	#orderLeftDiv #orderRecipientInfo .form-group:LAST-CHILD{  
+		display: inline-block !important;
+		width: 96% !important;
+		text-align: left;
+		font-size: 13px; 
+	}
+	
+	#orderLeftDiv #orderPayInfo .payment{
+		width: 60%;
+		background-color: #fff;
+		border: 1px solid #dedfda;
+		color: #8d8d8d;
+		text-align: center;
+		font-size: 12px;
+		padding: 10px;
+	}
+	
+	#orderLeftDiv #orderPayInfo .payment{
+		margin-bottom: 0 !important; 
+		cursor: pointer;
+	}
+	
+	#orderLeftDiv #orderPayInfo .payment:HOVER{
+		background-color: #111;
+		color: white;
+	}
+	
+	#orderLeftDiv #orderPayInfo .orderPayText{
+		margin: 3% 0;
+		font-size: 12px;
+		color: #8d8d8d;
+	}
+	
+	div[class~='orderPayCheckBox']{
+		font-size: 12px;
+		text-align: left;
+	}
+	
+	#finalOrderBtn{
+		width: 100%;
+		background-color: black;
+		padding: 15px 60px; 
+		color: white;
+		font-weight: bold;
+		margin: 3% 0;
+		font-size: 13px;
+	}
+	
+	#finalOrderBtn:hover{
+		background-color: #C0C0C0;
+		border: 1px solid #C0C0C0;
+	}
+	
+	#orderRightDiv{
+		width: 35%;
+		float: right;
+	}
+	
+	#orderRightDiv figcaption{
+		font-size: 24px;
+    	font-weight: bold;
+    	color: #111;
+    	text-align: left;
+    	padding: 20px 0;
+    	border-bottom: 1px solid #dedfda;
+	}
+	
+	#orderRightDiv table{
+		width: 100%;
+	}
+	
+	#orderRightDiv table tr:FIRST-CHILD{
+		border-bottom: 1px solid #dedfda;
+	}
+	
+	#orderRightDiv .leftProductImg{
+		display: inline-block;
+		width: 30% !important;
+	}
+	
+	#orderRightDiv .leftProductImg img{
+		width: 110px;
+		height: 110px;
+		display: block;
+	}
+	
+	#orderRightDiv .rigthProductInfo{
+		font-size: 15px;
+		display: inline-block;
+		width: 70% !important;
+		text-align: right;
+		line-height: 35px;
+	}
+	
+	#orderRightDiv .rigthProductInfo span{
+		color: #fa5400;
+	}
+	
+	#orderRightDiv table td{
+		font-size: 17px;
+		font-weight: 1000;
+		color: #000;
+		padding: 20px 0; 
+	}
+	
+	#orderRightDiv table .leftTd{
+		float: left;
+		text-align: left;
+		width: 60% !important;
+	}
+	
+	#orderRightDiv table .rightTd{
+		float: right;
+		text-align: right;
+		width: 40% !important;
+	}
+	
+	#orderRightDiv .colorText{
+		color: #fa5400;
+	}
+	
+	#orderTotalPay{
+		border-top: 1px solid #dedfda;
+		border-bottom: 1px solid #dedfda;
+	}
+	
+	
+/* ---------------------------------------------------
+   MEDIAQUERIES
+----------------------------------------------------- */
+@media screen and (max-width: 700px){
+	
+}
+
+@media screen and (max-width: 320px){
+	#orderContainer{
+		width: 95%;
+		margin: 70px auto; 
+	}
+	
+	#orderLeftDiv{
+		width: 100% !important;  
+	}
+	
+	#orderLeftDiv figcaption{
+		font-size: 17px !important;
+	}
+	
+	#orderLeftDiv #orderPayInfo .orderPayText{
+		font-size: 10px;
+	}
+	
+	div[class~='orderPayCheckBox']{
+		font-size: 10px;
+		line-height: 20px;
+	}
+	
+	#orderRightDiv{
+		width: 100% !important ;
+	}
+	
+	#orderRightDiv figcaption{
+		font-size: 17px;
+	}
+	
+	#orderRightDiv .leftProductImg img{
+		width: 90px;
+		height: 90px;
+	}
+	
+	#orderRightDiv .rigthProductInfo{
+		font-size: 12px;
+	}
+	
+	#orderRightDiv table td{
+		font-size: 13px;
+		padding: 15px !important;
+	}
+	
+	#summaryText td{
+		font-size: 10px !important; 
+	}
+}
+
+@media screen and (min-width: 360px) and (max-width: 414px){
+	#orderContainer{
+		width: 90%;
+		margin: 70px auto;
+	}
+	
+	#orderLeftDiv{
+		width: 100% !important;  
+	}
+	
+	#orderLeftDiv figcaption{
+		font-size: 17px !important;
+	}
+	
+	#orderLeftDiv #orderPayInfo .orderPayText{
+		font-size: 10px;
+	}
+	
+	#orderRightDiv{
+		width: 100% !important ;
+	}
+	
+	#orderRightDiv figcaption{
+		font-size: 17px;
+	}
+	
+	#orderRightDiv table td{
+		font-size: 13px;
+		padding: 15px !important;
+	}
+	
+	#orderRightDiv .leftProductImg img{
+		width: 100px;
+		height: 100px;
+	}
+	
+	#orderRightDiv .rigthProductInfo{
+		font-size: 13px;
+	}
+	
+	#summaryText td{
+		font-size: 10px !important; 
+	}
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px){
+	#orderContainer{
+		width: 95%; 
+		margin: 170px auto;
+		font-family: 'Nanum Gothic', sans-serif;
+		text-align: center;
+	}
+	
+	#orderLeftDiv{
+		width: 50% !important;  
+	}
+	
+	#orderLeftDiv figcaption{
+		font-size: 20px !important;
+
+	}
+	
+	#orderLeftDiv #orderPayInfo .orderPayText{
+		font-size: 10px;
+	}
+	
+	div[class~='orderPayCheckBox']{
+		font-size: 10px; 
+	}
+	
+	#orderRightDiv{
+		width: 45% !important;  
+	}
+	
+	#orderRightDiv figcaption{
+		font-size: 20px;
+	}
+	
+	#orderRightDiv table td{
+		font-size: 14px;
+		padding: 15px !important;
+	}
+	
+	#orderRightDiv .leftProductImg img{
+		width: 100px;
+		height: 100px;
+	}
+	
+	#orderRightDiv .rigthProductInfo{
+		font-size: 12px;
+	}
+		
+	#summaryText td{
+		font-size: 10px !important; 
+	}
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1025px){
+	#orderContainer{
+		width: 80%;
+		margin: 170px auto;
+		font-family: 'Nanum Gothic', sans-serif;
+		text-align: center;
+	}
+	
+	#orderLeftDiv{
+		width: 50% !important;  
+	}
+	
+	#orderLeftDiv figcaption{
+		font-size: 20px !important;
+
+	}
+	
+	#orderRightDiv{
+		width: 45% !important;  
+	}
+	
+	#orderRightDiv figcaption{
+		font-size: 20px;
+	}
+	
+	#orderRightDiv table td{
+		font-size: 13px; 
+		padding: 15px 0;
+	}
+	
+	#orderRightDiv .rigthProductInfo{
+		font-size: 13px;
+	}
+	
+	#summaryText td{
+		font-size: 10px !important; 
+	}
+}

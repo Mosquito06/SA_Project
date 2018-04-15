@@ -65,7 +65,7 @@ nav[class~='TopNav']{
 
 #myNavbar #cartCountLi{
 	position: absolute;
-	top: 10px;
+	top: 7px; 
 	right: -8px; 
 }
 
