@@ -34,7 +34,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/sign.js?a=add"></script>
-<script src="${pageContext.request.contextPath }/resources/js/header.js?a=d"></script>
+<script src="${pageContext.request.contextPath }/resources/js/header.js?a=dd"></script>
 <script src="${pageContext.request.contextPath }/resources/js/read.js?a=dd"></script>
 <script src="${pageContext.request.contextPath }/resources/js/add.js?a=d"></script>
 <script src="${pageContext.request.contextPath }/resources/js/update.js?a=dd"></script>
@@ -109,7 +109,7 @@
     		</c:forEach>
     	</c:if>
     	    	
-        <li><a href="#" class="mobileNavBack">고객센터</a></li>
+        <li><a href="#" class="mobileNavBack" id="customerCenterBtn">고객센터</a></li>
 		<li><a href="#" id="pcCartBtn"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
       	<c:if test="${basketCount != null }">
       		<li id="cartCountLi"><span class="badge">${basketCount }</span></li>
@@ -141,7 +141,7 @@
 	  </div>
 	  
 	  <div class="col-md-2 col-sm-3" id="secondNavThirdDiv">
-	  	<form class="navbar-form navbar-right" action="/action_page.php">
+	  	<form class="navbar-form navbar-right" action="">
 		  <div class="input-group">
 		    <input type="text" class="form-control" placeholder="Search">
 		    <div class="input-group-btn">

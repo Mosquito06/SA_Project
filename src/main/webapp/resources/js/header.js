@@ -59,6 +59,12 @@ $(function(){
 		
 	})
 	
+	$("#customerCenterBtn").click(function(e){
+		e.preventDefault();
+		alert("준비중입니다.");
+	})
+	
+	
 	$("#pcCartBtn").click(function(e){
 		e.preventDefault();
 		if(login == "" || login == null){
@@ -68,6 +74,16 @@ $(function(){
 		
 		location.href = contextPath + "/basket";
 		
+	})
+	
+	$("#loginMenu li:eq(0)").click(function(e){
+		e.preventDefault();
+		alert("준비중입니다.");
+	})
+	
+	$("#searchBtn").click(function(e){
+		e.preventDefault();
+		alert("준비중입니다.");
 	})
 	
 	

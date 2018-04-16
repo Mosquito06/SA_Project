@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script>
+	$(function(){
+		$(".alertA").click(function(e){
+			e.preventDefault();
+			alert("준비중입니다."); 
+		})
+	})
+</script>
 <footer>
 	<div id="footerFirstDiv">
 		<div>
@@ -28,17 +36,17 @@
 				      			<th></th>
 				      		</c:otherwise>
 				      	</c:choose>
-				        <td><a href="#">주문배송조회</a></td>
+				        <td><a href="#" class="alertA">주문배송조회</a></td>
 				        <td></td>
 				      </tr>
 				      <tr>
 				        <td></td>
-				        <td><a href="#">1:1 이메일 문의</a></td>
+				        <td><a href="#" class="alertA">1:1 이메일 문의</a></td>
 				        <td></td>
 				      </tr>
 				      <tr>
 				        <td></td>
-				        <td><a href="#">이용약관</a></td>
+				        <td><a href="#" class="alertA">이용약관</a></td>
 				        <td></td>
 				      </tr>
 				   </tbody>
