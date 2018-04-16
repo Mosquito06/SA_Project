@@ -3,6 +3,8 @@ package com.dgit.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -110,44 +112,11 @@ public class OrderController {
 		loginUser.setId(user.getId());
 		loginUser.setPhone(user.getPhone());
 		
+		HttpSession session =  req.getSession();
+		
 		try {
-			List<BasketVO> basket = basketService.selectBasketByClienNum(loginUser.getClientNum());
-			int[] insertBoardNum = new int[orders.length];
-			
-			for(int i = 0; i < orders.length; i++){
-				String[] orderArray = orders[i].split("/");
-				
-				BoardVO board = new BoardVO();
-				board.setBoardNum(Integer.parseInt(orderArray[0]));
-				
-				order.setOrderAmount(Integer.parseInt(orderArray[1]));
-				order.setOrderPrice(Integer.parseInt(orderArray[2]));
-				order.setClientNum(loginUser);
-				order.setBoardNum(board);
-				
-				orderService.insert(order);
-				insertBoardNum[i] = Integer.parseInt(orderArray[0]);				
-			}
-			
-			for(int i = 0; i < insertBoardNum.length; i++){
-				/*System.out.println("basket.size() : " + basket.size());
-				System.out.println("i : " + i);*/
-				if(basket.size() > 0){
-					for(int ii = basket.size() - 1; ii >= 0 ; ii--){
-						// System.out.println("insertBoardNum = " + insertBoardNum[i] + " : " + "basketBoardNum = " + basket.get(ii).getBoardNum().getBoardNum());
-						if(insertBoardNum[i] == basket.get(ii).getBoardNum().getBoardNum()){
-							basketService.delete(basket.get(ii));
-							basket.remove(ii);
-						}
-					}
-				}
-			}
-			
-			if(basket.size() == 0){
-				req.getSession().removeAttribute("basketCount");
-			}else{
-				req.getSession().setAttribute("basketCount", basket.size());
-			}
+			orderService.insert(orders, order, loginUser, session);
+						
 		} catch (Exception e) {
 		
 			e.printStackTrace();
