@@ -37,12 +37,15 @@ $(function(){
 			if(checkEmpty){
 				return;
 			}else{
-				var id = $("#signFormDiv input[class='form-control']:eq(0)").val();	
+				var id = encodeURIComponent($("#signFormDiv input[class='form-control']:eq(0)").val());	
+				
+				var sendData = {id : id};
 				
 				$.ajax({
 					url : contextPath + "/checkId",
 					type: "get",
-					data : {"id" : id},
+					headers : {"Content-Type" : "application/json"},
+					data : JSON.stringify(sendData),
 					dataType : "text",
 					success: function(result){
 						if(result == "exist"){

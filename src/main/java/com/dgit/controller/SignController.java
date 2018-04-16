@@ -1,5 +1,6 @@
 package com.dgit.controller;
 
+import java.net.URLDecoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -84,9 +85,9 @@ public class SignController {
 	public ResponseEntity<String> checkId(String id){
 		ResponseEntity<String> entity = null;
 		UserVO checkId  = null;
-		
+				
 		try{
-			checkId = userService.selectUserById(id);
+			checkId = userService.selectUserById(URLDecoder.decode(id));
 			
 			if(checkId != null){
 				entity = new ResponseEntity<String>("exist", HttpStatus.OK);
