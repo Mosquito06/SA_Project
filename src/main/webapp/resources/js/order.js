@@ -7,6 +7,7 @@ $(function(){
 		})
 	})
 	
+	// 결제하기 버튼 이벤트
 	$("#finalOrderBtn").click(function(e){
 		e.preventDefault();
 		
@@ -47,9 +48,27 @@ $(function(){
 			return;
 		}
 		
+		
+		$(".orderProduct").each(function(i, obj){
+			var order = $(obj).attr("data-order");
+			var input = $("<input>").attr("type", "hidden").attr("name", "orders").attr("value", order);
+			
+			$("#orderForm").prepend(input);
+		})
+		
+		
 		$("#orderForm").submit();
 		
 	})
+	
+	//결제 수단 선택 이벤트
+	$(".payment").each(function(i, obj){
+		$(obj).click(function(){
+			$(".payment").removeClass("paySelected");
+			$(".payment").eq(i).addClass("paySelected");
+		})
+	})
+	
 	
 })
 

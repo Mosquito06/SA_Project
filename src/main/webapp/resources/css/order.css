@@ -93,9 +93,9 @@
 		cursor: pointer;
 	}
 	
-	#orderLeftDiv #orderPayInfo .payment:HOVER{
-		background-color: #111;
-		color: white;
+	.paySelected{
+		background-color: #111 !important; 
+		color: white !important;
 	}
 	
 	#orderLeftDiv #orderPayInfo .orderPayText{

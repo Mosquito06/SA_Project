@@ -10,11 +10,11 @@
 				<figcaption>
 					주문 / 결제
 				</figcaption>
-				<form action="" method="post" id="orderForm">
+				<form action="${pageContext.request.contextPath }/order" method="post" id="orderForm">
 					<table>
 						<tr id="orderClientInfo">
 							<td>
-								<div class="orderInfo">
+								<div class="orderInfo"> 
 									<span>주문고객</span>
 									<div class="form-group">
 								    	<label for="email">아이디</label>
@@ -33,15 +33,15 @@
 									<span>배송지 정보</span>
 									<div class="form-group">
 								    	<label for="email">받으시는분</label> 
-								    	<input type="text" class="form-control orderCheck" name="" id="recipientId" placeholder="이름">
+								    	<input type="text" class="form-control orderCheck" name="orderRecipient" id="orderRecipient" placeholder="이름">
 								  	</div>
 								  	<div class="form-group">
 								    	<label for="email">연락처</label>
-								    	<input type="text" class="form-control orderCheck" id="recipientPhone" placeholder="-없이 입력">
+								    	<input type="text" class="form-control orderCheck" name="recipientPhone" id="recipientPhone" placeholder="-없이 입력">
 								  	</div>
 								  	<div class="form-group">
 								    	<label for="email">배송정보</label>
-								    	<input type="text" class="form-control orderCheck" id="recipientAddress" placeholder="예) 경산시 정평동">
+								    	<input type="text" class="form-control orderCheck" name="recipientAddress" id="recipientAddress" placeholder="예) 경산시 정평동">
 								  	</div>
 								  </div>
 							</td>
@@ -50,7 +50,7 @@
 							<td>
 								<div class="orderInfo">
 									<span>결제 수단 선택</span>
-									<span class="payment">신용카드</span>
+									<span class="payment paySelected">신용카드</span> 
 									<span class="payment">실시간 계좌 이체</span>
 									<span class="orderPayText">
 										주문한 상품은 영업일 3일(공휴일/주말제외)이내에 받아보실 수 있습니다.<br>
@@ -76,7 +76,7 @@
 					<c:choose>
 						<c:when test="${basketList != null }">
 							<c:forEach var="basket" items="${basketList }">
-								<tr class="orderProduct">
+								<tr class="orderProduct" data-order="${basket.boardNum.boardNum }/${basket.orderAmount}/${basket.orderPrice}">
 									<c:choose>
 										<c:when test="${basket.boardNum.files.size() > 0 }">
 											<td class="leftProductImg">
@@ -101,7 +101,7 @@
 							</c:forEach>	
 						</c:when> 
 						<c:otherwise>
-							<tr class="orderProduct">
+							<tr class="orderProduct" data-order="${board.boardNum }/${amount}/${board.boardPrice * amount}">
 						 		<c:choose>
 									<c:when test="${board.files.size() > 0 }">
 										<td class="leftProductImg">

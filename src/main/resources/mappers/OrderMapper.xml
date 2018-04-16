@@ -6,16 +6,17 @@
         <result property="orderNum" column="order_num"/>
         <result property="orderDate" column="oder_date"/>
         <result property="orderAmount" column="order_amount"/>
+        <result property="orderPrice" column="order_price"/>
         <result property="orderRecipient" column="order_recipient"/>
         <result property="recipientPhone" column="recipient_phone"/>
-        <result property="orderPrice" column="order_price"/>
+        <result property="recipientAddress" column="recipient_address"/>
         <result property="boardNum.boardNum" column="board_num"/>
    		<association property="clientNum" resultMap="com.dgit.persistence.UserDao.userResult"/>
     </resultMap>
     
-	<insert id="insert" useGeneratedKeys="true" keyProperty="boardNum">
-	    insert into product_order(order_amount, order_recipient, recipient_phone, order_price, client_num, board_num) values 
-	    (#{orderAmount}, #{orderRecipient}, #{recipientPhone}, #{orderPrice}  #{boardNum.boardNum}, #{clientNum.clientNum})
+	<insert id="insert">
+	    insert into product_order(order_amount, order_price, order_recipient, recipient_phone, recipient_address, board_num, client_num) values 
+	    (#{orderAmount}, #{orderPrice}, #{orderRecipient}, #{recipientPhone}, #{recipientAddress}, #{boardNum.boardNum}, #{clientNum.clientNum})
 	</insert>
 	
 	<delete id="delete">
@@ -23,8 +24,8 @@
 	</delete>
     
 	<update id="update">
-	    update product_order set order_amount = #{orderAmount}, order_recipient = #{orderRecipient}, recipient_phone = #{recipientPhone}, order_price = #{orderPrice}
-	    where order_num = #{orderNum}
+	    update product_order set order_amount = #{orderAmount}, order_price = #{orderPrice}, order_recipient = #{orderRecipient}, recipient_phone = #{recipientPhone}, 
+	    recipient_address = #{recipientAddress} where order_num = #{orderNum}
 	</update>
 	
 	<select id="selectOrderByClientNum" resultMap="orderJoinResult">
@@ -33,7 +34,7 @@
 	</select>
 	
 	<select id="selectOrderByBoardNum" resultMap="orderJoinResult">
-	    select order_num, oder_date, order_amount, order_recipient, recipient_phone, order_price, product_order.client_num,
+	    select order_num, oder_date, order_amount, order_price, order_recipient, recipient_phone, recipient_address, product_order.client_num,
 		product_order.board_num, user.client_num, id, pw, name, email, phone, home_tel, address, join_date, status
 		from product_order, board, user where product_order.board_num = board.board_num 
 		and board.board_num = #{num} and product_order.client_num = user.client_num  order by oder_date

@@ -6,9 +6,10 @@ public class OrderVO {
 	private int orderNum;
 	private Date orderDate;
 	private int orderAmount;
+	private int orderPrice;
 	private String orderRecipient;
 	private String recipientPhone;
-	private int orderPrice;
+	private String recipientAddress;
 	private UserVO clientNum;
 	private BoardVO boardNum;
 
@@ -41,6 +42,14 @@ public class OrderVO {
 		this.orderAmount = orderAmount;
 	}
 
+	public int getOrderPrice() {
+		return orderPrice;
+	}
+
+	public void setOrderPrice(int orderPrice) {
+		this.orderPrice = orderPrice;
+	}
+
 	public String getOrderRecipient() {
 		return orderRecipient;
 	}
@@ -57,12 +66,12 @@ public class OrderVO {
 		this.recipientPhone = recipientPhone;
 	}
 
-	public int getOrderPrice() {
-		return orderPrice;
+	public String getRecipientAddress() {
+		return recipientAddress;
 	}
 
-	public void setOrderPrice(int orderPrice) {
-		this.orderPrice = orderPrice;
+	public void setRecipientAddress(String recipientAddress) {
+		this.recipientAddress = recipientAddress;
 	}
 
 	public UserVO getClientNum() {
@@ -84,8 +93,9 @@ public class OrderVO {
 	@Override
 	public String toString() {
 		return "OrderVO [orderNum=" + orderNum + ", orderDate=" + orderDate + ", orderAmount=" + orderAmount
-				+ ", orderRecipient=" + orderRecipient + ", recipientPhone=" + recipientPhone + ", orderPrice="
-				+ orderPrice + ", clientNum=" + clientNum + ", boardNum=" + boardNum + "]";
+				+ ", orderPrice=" + orderPrice + ", orderRecipient=" + orderRecipient + ", recipientPhone="
+				+ recipientPhone + ", recipientAddress=" + recipientAddress + ", clientNum=" + clientNum + ", boardNum="
+				+ boardNum + "]";
 	}
 
 }

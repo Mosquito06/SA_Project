@@ -62,8 +62,20 @@ public class SignController {
 	}
 	
 	@RequestMapping(value="/complete", method = RequestMethod.GET)
-	public String signComplete(){
+	public String signComplete(Model model){
 		
+		try{
+			List<CategoryVO> category = categoryService.selectAll(); 
+			List<DivisionVO> division = divisionService.selectAll(); 
+			List<SectionVO> section = sectionService.selectAll(); 
+			
+			model.addAttribute("category", category);
+			model.addAttribute("division", division);
+			model.addAttribute("section", section);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+				
 		return "sign/complete";
 	}
 	
