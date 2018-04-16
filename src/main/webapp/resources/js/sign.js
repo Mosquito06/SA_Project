@@ -91,7 +91,7 @@ $(function(){
 			message = "성명을 정확히 입력해주세요.";
 		}else if(index == 4){
 			pattern = /^[0-9]{11,12}$/;
-			var containCheck = /[a-zA-Z가-힣!@#$%^&*()_-]+/;
+			var containCheck = /[ㄱ-ㅎ가-힣a-zA-Z~!`@#$%^&*()_-]+/;
 			
 			if(containCheck.test(value)){
 				message = "숫자만 입력 가능합니다.";

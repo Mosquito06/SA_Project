@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/update.css?a=d">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/emptyBasket.css?a=dd">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/cart.css?a=d">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/order.css?b=d">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/order.css?b=dd">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
@@ -33,13 +33,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
-<script src="${pageContext.request.contextPath }/resources/js/sign.js?a=ad"></script>
+<script src="${pageContext.request.contextPath }/resources/js/sign.js?a=add"></script>
 <script src="${pageContext.request.contextPath }/resources/js/header.js?a=d"></script>
 <script src="${pageContext.request.contextPath }/resources/js/read.js?a=dd"></script>
 <script src="${pageContext.request.contextPath }/resources/js/add.js?a=d"></script>
 <script src="${pageContext.request.contextPath }/resources/js/update.js?a=dd"></script>
 <script src="${pageContext.request.contextPath }/resources/js/basket.js?b=d"></script>
-<script src="${pageContext.request.contextPath }/resources/js/order.js?a=dd"></script>
+<script src="${pageContext.request.contextPath }/resources/js/order.js?a=d"></script>
 </head>
 <body>
 

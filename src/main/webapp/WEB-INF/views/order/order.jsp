@@ -18,11 +18,11 @@
 									<span>주문고객</span>
 									<div class="form-group">
 								    	<label for="email">아이디</label>
-								    	<input type="text" class="form-control" value="${login.id }" id="orderId" placeholder="아이디">
+								    	<input type="text" class="form-control orderCheck" value="${login.id }" id="orderId" placeholder="아이디">
 								  	</div>
 								  	<div class="form-group">
 								    	<label for="email">연락처</label>
-								    	<input type="text" class="form-control" value="${login.phone }" id="orderPhone" placeholder="-없이 입력">
+								    	<input type="text" class="form-control orderCheck" value="${login.phone }" id="orderPhone" placeholder="-없이 입력">
 								  	</div>
 								</div>
 							</td>
@@ -33,17 +33,17 @@
 									<span>배송지 정보</span>
 									<div class="form-group">
 								    	<label for="email">받으시는분</label> 
-								    	<input type="text" class="form-control" id="recipientId" placeholder="이름">
+								    	<input type="text" class="form-control orderCheck" id="recipientId" placeholder="이름">
 								  	</div>
 								  	<div class="form-group">
 								    	<label for="email">연락처</label>
-								    	<input type="text" class="form-control" id="recipientPhone" placeholder="-없이 입력">
+								    	<input type="text" class="form-control orderCheck" id="recipientPhone" placeholder="-없이 입력">
 								  	</div>
 								  	<div class="form-group">
 								    	<label for="email">배송정보</label>
-								    	<input type="text" class="form-control" id="recipientAddress" placeholder="예) 경산시 정평동">
+								    	<input type="text" class="form-control orderCheck" id="recipientAddress" placeholder="예) 경산시 정평동">
 								  	</div>
-								</div>
+								  </div>
 							</td>
 						</tr>
 						<tr id="orderPayInfo">
