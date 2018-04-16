@@ -181,6 +181,22 @@ public class BoardServiceImpl implements BoardService {
 		return dao.selectBoardCount(num);
 	}
 
+	@Override
+	public List<BoardVO> selectBoardByClientNum(int num) throws Exception {
+		
+		List<BoardVO> boards = dao.selectBoardByClientNum(num);
+		
+		for(BoardVO b : boards){
+			List<AddFileVO> files = addFileDao.selectAddFileByBoardNum(b.getBoardNum());
+			
+			if(!files.isEmpty()){
+				b.setFiles(files); 
+			}
+		}
+		
+		return boards;
+	}
+
 	
 
 	

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.persistence.OrderDao">
+    
+    <resultMap type="OrderVO" id="orderJoinResult">
+        <result property="orderNum" column="order_num"/>
+        <result property="orderDate" column="oder_date"/>
+        <result property="orderAmount" column="order_amount"/>
+        <result property="orderRecipient" column="order_recipient"/>
+        <result property="recipientPhone" column="recipient_phone"/>
+        <result property="orderPrice" column="order_price"/>
+        <result property="boardNum.boardNum" column="board_num"/>
+   		<association property="clientNum" resultMap="com.dgit.persistence.UserDao.userResult"/>
+    </resultMap>
+    
+	<insert id="insert" useGeneratedKeys="true" keyProperty="boardNum">
+	    insert into product_order(order_amount, order_recipient, recipient_phone, order_price, client_num, board_num) values 
+	    (#{orderAmount}, #{orderRecipient}, #{recipientPhone}, #{orderPrice}  #{boardNum.boardNum}, #{clientNum.clientNum})
+	</insert>
+	
+	<delete id="delete">
+	    delete from product_order where order_num = #{orderNum}
+	</delete>
+    
+	<update id="update">
+	    update product_order set order_amount = #{orderAmount}, order_recipient = #{orderRecipient}, recipient_phone = #{recipientPhone}, order_price = #{orderPrice}
+	    where order_num = #{orderNum}
+	</update>
+	
+	<select id="selectOrderByClientNum" resultMap="orderJoinResult">
+	    select * from product_order, user where product_order.client_num = user.client_num 
+		and user.client_num = #{num} order by oder_date desc
+	</select>
+	
+	<select id="selectOrderByBoardNum" resultMap="orderJoinResult">
+	    select order_num, oder_date, order_amount, order_recipient, recipient_phone, order_price, product_order.client_num,
+		product_order.board_num, user.client_num, id, pw, name, email, phone, home_tel, address, join_date, status
+		from product_order, board, user where product_order.board_num = board.board_num 
+		and board.board_num = #{num} and product_order.client_num = user.client_num  order by oder_date
+	</select>
+</mapper>

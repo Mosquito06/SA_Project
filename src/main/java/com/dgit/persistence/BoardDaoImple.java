@@ -72,6 +72,11 @@ public class BoardDaoImple implements BoardDao {
 		
 	}
 
+	@Override
+	public List<BoardVO> selectBoardByClientNum(int num) throws Exception {
+		return sqlSession.selectList(NAMESPACE + ".selectBoardByClientNum", num);
+	}
+
 	
 
 }

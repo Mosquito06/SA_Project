@@ -63,4 +63,10 @@
 	<select id="selectBoardCount" resultType="int">
 	   select count(board_num) from board where section_num = #{num}
 	</select>
+	
+	<select id="selectBoardByClientNum" resultMap="boardJoinResult">
+	   select * from board, user where board.client_num = user.client_num 
+	   and user.client_num = #{num} order by board_date desc
+	</select>
+	
 </mapper>
