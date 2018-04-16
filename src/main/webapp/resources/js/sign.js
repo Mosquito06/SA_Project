@@ -37,7 +37,7 @@ $(function(){
 			if(checkEmpty){
 				return;
 			}else{
-				var id = encodeURIComponent($("#signFormDiv input[class='form-control']:eq(0)").val());	
+				var id = $("#signFormDiv input[class='form-control']:eq(0)").val();	
 				
 				var sendData = {id : id};
 				

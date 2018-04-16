@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -82,12 +83,12 @@ public class SignController {
 	
 	@RequestMapping(value="/checkId", method = RequestMethod.GET)
 	@ResponseBody
-	public ResponseEntity<String> checkId(String id){
+	public ResponseEntity<String> checkId(@RequestBody UserVO user){
 		ResponseEntity<String> entity = null;
 		UserVO checkId  = null;
-				
+		
 		try{
-			checkId = userService.selectUserById(URLDecoder.decode(id));
+			checkId = userService.selectUserById(user.getId());
 			
 			if(checkId != null){
 				entity = new ResponseEntity<String>("exist", HttpStatus.OK);
