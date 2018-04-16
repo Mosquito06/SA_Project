@@ -29,14 +29,14 @@
 	</update>
 	
 	<select id="selectOrderByClientNum" resultMap="orderJoinResult">
-	    select * from product_order, user where product_order.client_num = user.client_num 
-		and user.client_num = #{num} order by oder_date desc
+	    select * from product_order, client where product_order.client_num = client.client_num 
+		and client.client_num = #{num} order by oder_date desc
 	</select>
 	
 	<select id="selectOrderByBoardNum" resultMap="orderJoinResult">
 	    select order_num, oder_date, order_amount, order_price, order_recipient, recipient_phone, recipient_address, product_order.client_num,
 		product_order.board_num, user.client_num, id, pw, name, email, phone, home_tel, address, join_date, status
-		from product_order, board, user where product_order.board_num = board.board_num 
-		and board.board_num = #{num} and product_order.client_num = user.client_num  order by oder_date
+		from product_order, sa_board, client where product_order.board_num = sa_board.board_num 
+		and sa_board.board_num = #{num} and product_order.client_num = client.client_num  order by oder_date
 	</select>
 </mapper>

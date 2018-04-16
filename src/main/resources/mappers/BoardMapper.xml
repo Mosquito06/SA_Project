@@ -27,46 +27,47 @@
     </resultMap>   
     
 	<insert id="insert" useGeneratedKeys="true" keyProperty="boardNum">
-	    insert into board(board_title, board_price, client_num, section_num) values (#{boardTitle}, #{boardPrice}, #{clientNum.clientNum}, #{sectionNum.sectionNum})
+	    insert into sa_board(board_title, board_price, client_num, section_num) values 
+	    (#{boardTitle}, #{boardPrice}, #{clientNum.clientNum}, #{sectionNum.sectionNum})
 	</insert>
 	
 	<delete id="delete">
-	    delete from board where board_num = #{boardNum}
+	    delete from sa_board where board_num = #{boardNum}
 	</delete>
     
 	<update id="update">
-	    update board set board_title = #{boardTitle}, board_price = #{boardPrice}, board_update = #{boardUpdate} 
+	    update sa_board set board_title = #{boardTitle}, board_price = #{boardPrice}, board_update = #{boardUpdate} 
 	    where board_num = #{boardNum}
 	</update>
 	
 	<update id="updateReadCount">
-	    update board set board_count = board_count + 1 where board_num = #{boardNum}
+	    update sa_board set board_count = board_count + 1 where board_num = #{boardNum}
 	</update>
 	
 	<update id="updateTotalCount">
-	    update board set board_total_count = board_total_count + 1 where board_num = #{boardNum}
+	    update sa_board set board_total_count = board_total_count + 1 where board_num = #{boardNum}
 	</update>
     
 	<select id="selectAll" resultMap="boardResult">
-	    select * from board
+	    select * from sa_board
 	</select>
     
 	<select id="selectBoardByBoardNum" resultMap="boardJoinResult">
-	    select * from board, user where board.client_num = user.client_num and board_num = #{num}
+	    select * from sa_board, client where sa_board.client_num = client.client_num and board_num = #{num}
 	</select> 
 	
 	<select id="selectBoardBySectionNum" resultMap="boardJoinResult">
-	    select * from board, user where board.client_num = user.client_num 
+	    select * from sa_board, client where sa_board.client_num = client.client_num 
 	    and section_num = #{num} order by board_date desc limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
 	
 	<select id="selectBoardCount" resultType="int">
-	   select count(board_num) from board where section_num = #{num}
+	   select count(board_num) from sa_board where section_num = #{num}
 	</select>
 	
 	<select id="selectBoardByClientNum" resultMap="boardJoinResult">
-	   select * from board, user where board.client_num = user.client_num 
-	   and user.client_num = #{num} order by board_date desc
+	   select * from sa_board, client where sa_board.client_num = client.client_num 
+	   and client.client_num = #{num} order by board_date desc
 	</select>
 	
 </mapper>

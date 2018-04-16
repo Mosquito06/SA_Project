@@ -16,24 +16,24 @@
     </resultMap>   
         
     <insert id="insertUser" useGeneratedKeys="true" keyProperty="clientNum">
-    	insert into user(id, pw, name, email, phone, home_tel, address, status) 
+    	insert into client(id, pw, name, email, phone, home_tel, address, status) 
     	values (#{id}, password(#{pw}), #{name}, #{email}, #{phone}, #{homeTel}, #{address}, #{status})
     </insert>
     
     <update id="updateUser">
-       update user set name = #{name}, email = #{email}, phone = #{phone}, 
+       update client set name = #{name}, email = #{email}, phone = #{phone}, 
        home_tel = #{homeTel}, address = #{address}, status = #{status} where client_num = #{clientNum}
     </update>
     
     <delete id="deleteUser">
-        delete from user where client_num = #{clientNum}
+        delete from client where client_num = #{clientNum}
     </delete>
     
     <select id="selectUserByIdAndPw" resultMap="userResult">
-        select * from user where id = #{id} and pw = password(#{pw})
+        select * from client where id = #{id} and pw = password(#{pw})
     </select>
     
     <select id="selectUserById" resultMap="userResult">
-        select * from user where id = #{id}
+        select * from client where id = #{id} 
     </select>
 </mapper>

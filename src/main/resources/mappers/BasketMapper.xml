@@ -26,7 +26,7 @@
 	</update>
     
 	<select id="selectBasketByClienNum" resultMap="basketResult">
-	    select * from shopping_basket s, board b where s.board_num = b.board_num and s.client_num = #{num} 
+	    select * from shopping_basket s, sa_board b where s.board_num = b.board_num and s.client_num = #{num}  
 	</select>
 
 </mapper>
