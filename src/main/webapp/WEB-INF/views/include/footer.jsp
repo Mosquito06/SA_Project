@@ -7,6 +7,11 @@
 			e.preventDefault();
 			alert("준비중입니다."); 
 		})
+		
+		$("a[class~='fa']").click(function(e){
+			e.preventDefault();
+			alert("준비중입니다."); 
+		})
 	})
 </script>
 <footer>
@@ -37,7 +42,12 @@
 				      		</c:otherwise>
 				      	</c:choose>
 				        <td><a href="#" class="alertA">주문배송조회</a></td>
-				        <td></td>
+				        <td>
+				        	<a href="#" class="fa fa-twitter"></a>
+				        	<a href="#" class="fa fa-facebook"></a>
+				        	<a href="#" class="fa fa-youtube"></a>
+				        	<a href="#" class="fa fa-instagram"></a>
+				        </td>
 				      </tr>
 				      <tr>
 				        <td></td>
