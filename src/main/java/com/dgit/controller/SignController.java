@@ -83,12 +83,12 @@ public class SignController {
 	
 	@RequestMapping(value="/checkId", method = RequestMethod.GET)
 	@ResponseBody
-	public ResponseEntity<String> checkId(@RequestBody UserVO user){
+	public ResponseEntity<String> checkId(String id){
 		ResponseEntity<String> entity = null;
 		UserVO checkId  = null;
 		
 		try{
-			checkId = userService.selectUserById(user.getId());
+			checkId = userService.selectUserById(id);
 			
 			if(checkId != null){
 				entity = new ResponseEntity<String>("exist", HttpStatus.OK);
@@ -97,7 +97,7 @@ public class SignController {
 			}
 		}catch(Exception e){
 			e.printStackTrace();
-			entity = new ResponseEntity<String>("error", HttpStatus.BAD_REQUEST);
+			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 
 		return entity; 
@@ -119,6 +119,6 @@ public class SignController {
 			e.printStackTrace();
 		}
  
-		return "redirect: complete";
+		return "redirect:complete";
 	}
 }

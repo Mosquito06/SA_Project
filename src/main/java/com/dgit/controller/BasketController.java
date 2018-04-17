@@ -145,7 +145,7 @@ public class BasketController {
 			e.printStackTrace();
 		}
 		
-		return "redirect: basket";
+		return "redirect:basket";
 	}
 	
 	@ResponseBody

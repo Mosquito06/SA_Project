@@ -122,7 +122,7 @@ public class OrderController {
 			e.printStackTrace();
 		}
 		
-		return "redirect: orderComplete";
+		return "redirect:orderComplete";
 	}
 	
 	@RequestMapping(value="/orderComplete", method = RequestMethod.GET)

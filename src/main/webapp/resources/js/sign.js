@@ -39,13 +39,10 @@ $(function(){
 			}else{
 				var id = $("#signFormDiv input[class='form-control']:eq(0)").val();	
 				
-				var sendData = {id : id};
-				
 				$.ajax({
 					url : contextPath + "/checkId",
 					type: "get",
-					headers : {"Content-Type" : "application/json"},
-					data : JSON.stringify(sendData),
+					data : {id : id},
 					dataType : "text",
 					success: function(result){
 						if(result == "exist"){

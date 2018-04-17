@@ -121,7 +121,7 @@ public class ReplyController {
 			e.printStackTrace();
 		}
 				
-		return "redirect: read";
+		return "redirect:read";
 	}
 	
 	@ResponseBody
@@ -183,6 +183,6 @@ public class ReplyController {
 			e1.printStackTrace();
 		}
 				
-		return "redirect: read";
+		return "redirect:read";
 	}
 }

@@ -94,9 +94,7 @@ public class LoginController {
 		request.getSession().removeAttribute("login");
 		request.getSession().removeAttribute("basketCount");
 		
-		String path = request.getContextPath() + "/";
-		
-		return "redirect: " + path;
+		return "redirect:/";
 	}
 
 }

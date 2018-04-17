@@ -181,7 +181,7 @@ public class BoardController {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return "redirect: board";
+		return "redirect:board";
 	}
 	
 	@RequestMapping(value="/del", method = RequestMethod.GET)
@@ -200,7 +200,7 @@ public class BoardController {
 		
 		}	
 		
-		return "redirect: board";
+		return "redirect:board";
 	}
 	
 	@RequestMapping(value="/update", method = RequestMethod.GET)
@@ -269,6 +269,6 @@ public class BoardController {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return "redirect: read";
+		return "redirect:read";
 	}
 }
