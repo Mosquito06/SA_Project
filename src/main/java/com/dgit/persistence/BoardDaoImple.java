@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.dgit.domain.BoardVO;
 import com.dgit.domain.Criteria;
+import com.dgit.domain.MaxVO;
 
 @Repository
 public class BoardDaoImple implements BoardDao {
@@ -75,6 +76,11 @@ public class BoardDaoImple implements BoardDao {
 	@Override
 	public List<BoardVO> selectBoardByClientNum(int num) throws Exception {
 		return sqlSession.selectList(NAMESPACE + ".selectBoardByClientNum", num);
+	}
+
+	@Override
+	public MaxVO selectMaxTotalCount() throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".selectMaxTotalCount");
 	}
 
 	

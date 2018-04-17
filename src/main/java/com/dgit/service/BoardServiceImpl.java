@@ -14,6 +14,7 @@ import com.dgit.domain.AddFileVO;
 import com.dgit.domain.BoardVO;
 import com.dgit.domain.CreateBoard;
 import com.dgit.domain.Criteria;
+import com.dgit.domain.MaxVO;
 import com.dgit.domain.UpdateBoard;
 import com.dgit.persistence.AddFileDao;
 import com.dgit.persistence.BoardContentDao;
@@ -195,6 +196,11 @@ public class BoardServiceImpl implements BoardService {
 		}
 		
 		return boards;
+	}
+
+	@Override
+	public MaxVO selectMaxTotalCount() throws Exception {
+		return dao.selectMaxTotalCount();
 	}
 
 	

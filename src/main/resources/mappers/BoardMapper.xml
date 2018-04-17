@@ -70,4 +70,9 @@
 	   and client.client_num = #{num} order by board_date desc
 	</select>
 	
+	<select id="selectMaxTotalCount" resultType="MaxVO">
+	    select board_num as boardNum, section_num as SectionNum 
+	    from sa_board where board_total_count = (select max(board_total_count) from sa_board) limit 1 
+	</select>
+	
 </mapper>

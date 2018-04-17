@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=D">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/footer.css?a=ddd">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/main.css?a=d">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/main.css?a=dd">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?a=da">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sign.css?a=a">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/complete.css?a=a">

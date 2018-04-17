@@ -5,6 +5,7 @@ import java.util.List;
 import com.dgit.domain.BoardVO;
 import com.dgit.domain.CreateBoard;
 import com.dgit.domain.Criteria;
+import com.dgit.domain.MaxVO;
 import com.dgit.domain.UpdateBoard;
 
 public interface BoardService {
@@ -16,5 +17,6 @@ public interface BoardService {
 	public List<BoardVO> selectBoardBySectionNum(int num, Criteria cri) throws Exception;
 	public List<BoardVO> selectBoardByClientNum(int num) throws Exception;
 	public int selectBoardCount(int num) throws Exception;
+	public MaxVO selectMaxTotalCount() throws Exception;
 	
 }

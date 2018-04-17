@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.dgit.domain.BoardVO;
 import com.dgit.domain.Criteria;
+import com.dgit.domain.MaxVO;
 
 public interface BoardDao {
 	public void insert(BoardVO board) throws Exception;
@@ -16,4 +17,5 @@ public interface BoardDao {
 	public List<BoardVO> selectBoardBySectionNum(int num, Criteria cri) throws Exception;
 	public List<BoardVO> selectBoardByClientNum(int num) throws Exception;
 	public int selectBoardCount(int num) throws Exception;
+	public MaxVO selectMaxTotalCount() throws Exception;
 }
