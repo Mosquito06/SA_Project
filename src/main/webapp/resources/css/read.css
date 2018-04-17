@@ -382,10 +382,10 @@
 	}
 	
 	#backBoardDiv #backBoard{
-		padding: 10px 30px;
+		padding: 10px 20px;
 	    color: white;
 	    margin: 3% auto;
-	    width: 80%;
+	    width: 50%;
 	    font-size: 10px;
 	}
 }	
@@ -486,11 +486,11 @@
 	}
 	
 	#backBoardDiv #backBoard{
-		padding: 10px 30px;
+		padding: 8px 10px;
 	    color: white;
 	    margin: 3% auto;
-	    width: 80%;
-	    font-size: 10px;
+	    width: 50%; 
+	    font-size: 8px;
 	}
 	
 }
