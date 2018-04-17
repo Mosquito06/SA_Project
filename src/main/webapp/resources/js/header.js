@@ -42,11 +42,11 @@ $(function(){
 	})
 	
 	$("#logoBtn").click(function(){
-		location.href = "/saproject/";
+		location.href = contextPath + "/";
 	})
 	
 	$("#navText").click(function(){
-		location.href = "/saproject/";
+		location.href = contextPath + "/";
 	})
 	
 	$("#loginNameA").click(function(){
