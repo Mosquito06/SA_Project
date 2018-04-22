@@ -183,6 +183,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
+	@Transactional
 	public List<BoardVO> selectBoardByClientNum(int num) throws Exception {
 		
 		List<BoardVO> boards = dao.selectBoardByClientNum(num);
