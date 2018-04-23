@@ -2,6 +2,7 @@ package com.dgit.persistence;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,8 +69,12 @@ public class BoardDaoImple implements BoardDao {
 	}
 
 	@Override
-	public void updateTotalCount(int num) throws Exception {
-		sqlSession.update(NAMESPACE + ".updateTotalCount", num);
+	public void updateTotalCount(int num, int amount) throws Exception {
+		HashMap<String, Integer> map = new HashMap<>();
+		map.put("boardNum", num);
+		map.put("amount", amount);
+		
+		sqlSession.update(NAMESPACE + ".updateTotalCount", map);
 		
 	}
 

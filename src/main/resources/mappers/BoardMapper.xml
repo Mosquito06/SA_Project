@@ -45,7 +45,7 @@
 	</update>
 	
 	<update id="updateTotalCount">
-	    update sa_board set board_total_count = board_total_count + 1 where board_num = #{boardNum}
+	    update sa_board set board_total_count = board_total_count + #{amount} where board_num = #{boardNum}
 	</update>
     
 	<select id="selectAll" resultMap="boardResult">

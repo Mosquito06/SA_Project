@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dgit.domain.BasketVO;
 import com.dgit.domain.BoardVO;
+import com.dgit.domain.OrderStatus;
 import com.dgit.domain.OrderVO;
 import com.dgit.domain.UserVO;
 import com.dgit.persistence.BasketDao;
@@ -47,9 +48,10 @@ public class OrderServiceImpl implements OrderService {
 				order.setOrderPrice(Integer.parseInt(orderArray[2]));
 				order.setClientNum(loginUser);
 				order.setBoardNum(board);
+				order.setOrderStatus(OrderStatus.READY);
 				
 				dao.insert(order);
-				boardDao.updateTotalCount(board.getBoardNum());
+				boardDao.updateTotalCount(board.getBoardNum(), Integer.parseInt(orderArray[1]));
 				
 				insertBoardNum[i] = Integer.parseInt(orderArray[0]);				
 			}

@@ -11,7 +11,7 @@ public interface BoardDao {
 	public void delete(BoardVO board) throws Exception;
 	public void update(BoardVO board) throws Exception;
 	public void updateReadCount(int num) throws Exception;
-	public void updateTotalCount(int num) throws Exception;
+	public void updateTotalCount(int num, int amount) throws Exception;
 	public List<BoardVO> selectAll() throws Exception;
 	public BoardVO selectBoardByBoardNum(int num) throws Exception;
 	public List<BoardVO> selectBoardBySectionNum(int num, Criteria cri) throws Exception;

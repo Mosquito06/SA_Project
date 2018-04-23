@@ -10,13 +10,15 @@
         <result property="orderRecipient" column="order_recipient"/>
         <result property="recipientPhone" column="recipient_phone"/>
         <result property="recipientAddress" column="recipient_address"/>
+        <result property="orderStatus" column="order_status"/>
         <result property="boardNum.boardNum" column="board_num"/>
    		<association property="clientNum" resultMap="com.dgit.persistence.UserDao.userResult"/>
     </resultMap>
     
 	<insert id="insert">
-	    insert into product_order(order_amount, order_price, order_recipient, recipient_phone, recipient_address, board_num, client_num) values 
-	    (#{orderAmount}, #{orderPrice}, #{orderRecipient}, #{recipientPhone}, #{recipientAddress}, #{boardNum.boardNum}, #{clientNum.clientNum})
+	    insert into product_order(order_amount, order_price, order_recipient, recipient_phone, recipient_address, order_status, board_num, client_num)
+	    values (#{orderAmount}, #{orderPrice}, #{orderRecipient}, #{recipientPhone}, #{recipientAddress}, #{orderStatus}, 
+	    #{boardNum.boardNum}, #{clientNum.clientNum})
 	</insert>
 	
 	<delete id="delete">
@@ -34,8 +36,8 @@
 	</select>
 	
 	<select id="selectOrderByBoardNum" resultMap="orderJoinResult">
-	    select order_num, oder_date, order_amount, order_price, order_recipient, recipient_phone, recipient_address, product_order.client_num,
-		product_order.board_num, user.client_num, id, pw, name, email, phone, home_tel, address, join_date, status
+	    select order_num, oder_date, order_amount, order_price, order_recipient, recipient_phone, recipient_address, order_status, product_order.client_num,
+		product_order.board_num, client.client_num, id, pw, name, email, phone, home_tel, address, join_date, status
 		from product_order, sa_board, client where product_order.board_num = sa_board.board_num 
 		and sa_board.board_num = #{num} and product_order.client_num = client.client_num  order by oder_date
 	</select>

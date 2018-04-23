@@ -10,6 +10,7 @@ public class OrderVO {
 	private String orderRecipient;
 	private String recipientPhone;
 	private String recipientAddress;
+	private OrderStatus orderStatus;
 	private UserVO clientNum;
 	private BoardVO boardNum;
 
@@ -74,6 +75,14 @@ public class OrderVO {
 		this.recipientAddress = recipientAddress;
 	}
 
+	public OrderStatus getOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(OrderStatus orderStatus) {
+		this.orderStatus = orderStatus;
+	}
+
 	public UserVO getClientNum() {
 		return clientNum;
 	}
@@ -94,8 +103,8 @@ public class OrderVO {
 	public String toString() {
 		return "OrderVO [orderNum=" + orderNum + ", orderDate=" + orderDate + ", orderAmount=" + orderAmount
 				+ ", orderPrice=" + orderPrice + ", orderRecipient=" + orderRecipient + ", recipientPhone="
-				+ recipientPhone + ", recipientAddress=" + recipientAddress + ", clientNum=" + clientNum + ", boardNum="
-				+ boardNum + "]";
+				+ recipientPhone + ", recipientAddress=" + recipientAddress + ", orderStatus=" + orderStatus
+				+ ", clientNum=" + clientNum + ", boardNum=" + boardNum + "]";
 	}
 
 }
