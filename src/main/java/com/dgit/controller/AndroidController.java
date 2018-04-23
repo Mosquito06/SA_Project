@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -76,8 +77,8 @@ public class AndroidController {
 		return entity;
 	}
 	
-	@RequestMapping(value="/menu", method = RequestMethod.GET)
-	public ResponseEntity<Map<String, Object>> getMenu(int clientNum){
+	@RequestMapping(value="/menu/{clientNum}", method = RequestMethod.GET)
+	public ResponseEntity<Map<String, Object>> getMenu(@PathVariable("clientNum") int clientNum){
 		/*logger.info("menu 함수 진입??");
 		logger.info("clientNum?? " + clientNum);*/
 				
@@ -102,8 +103,8 @@ public class AndroidController {
 		return entity;
 	}
 	
-	@RequestMapping(value="/board", method = RequestMethod.GET)
-	public ResponseEntity<Map<String, Object>> getBoard(int sectionNum){
+	@RequestMapping(value="/board/{sectionNum}", method = RequestMethod.GET)
+	public ResponseEntity<Map<String, Object>> getBoard(@PathVariable("sectionNum") int sectionNum){
 		logger.info("board 함수 진입??");
 		logger.info("sectionNum?? " + sectionNum);
 		
