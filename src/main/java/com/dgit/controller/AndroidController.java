@@ -102,4 +102,27 @@ public class AndroidController {
 		return entity;
 	}
 	
+	@RequestMapping(value="/board", method = RequestMethod.GET)
+	public ResponseEntity<Map<String, Object>> getBoard(int sectionNum){
+		logger.info("board 함수 진입??");
+		logger.info("sectionNum?? " + sectionNum);
+		
+		ResponseEntity<Map<String, Object>> entity = null;
+		Map<String, Object> map = new HashMap<>();
+		
+		try{
+
+			List<BoardVO> board = boardService.selectBoardNoCriBySectionNum(sectionNum);
+
+			map.put("board", board);
+			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+			
+		}catch(Exception e){
+			map.put("result", e.getMessage());
+			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.BAD_REQUEST);
+		}
+				
+		return entity;
+	}
+	
 }

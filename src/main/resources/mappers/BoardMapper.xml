@@ -61,6 +61,11 @@
 	    and section_num = #{num} order by board_date desc limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
 	
+	<select id="selectBoardNoCriBySectionNum" resultMap="boardJoinResult">
+	    select * from sa_board, client where sa_board.client_num = client.client_num 
+	    and section_num = #{num} order by board_date desc
+	</select>
+		
 	<select id="selectBoardCount" resultType="int">
 	   select count(board_num) from sa_board where section_num = #{num}
 	</select>

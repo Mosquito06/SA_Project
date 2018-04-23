@@ -83,6 +83,11 @@ public class BoardDaoImple implements BoardDao {
 		return sqlSession.selectOne(NAMESPACE + ".selectMaxTotalCount");
 	}
 
+	@Override
+	public List<BoardVO> selectBoardNoCriBySectionNum(int num) throws Exception {
+		return sqlSession.selectList(NAMESPACE + ".selectBoardNoCriBySectionNum", num);
+	}
+
 	
 
 }

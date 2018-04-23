@@ -15,7 +15,10 @@ public interface BoardDao {
 	public List<BoardVO> selectAll() throws Exception;
 	public BoardVO selectBoardByBoardNum(int num) throws Exception;
 	public List<BoardVO> selectBoardBySectionNum(int num, Criteria cri) throws Exception;
+	public List<BoardVO> selectBoardNoCriBySectionNum(int num) throws Exception;
 	public List<BoardVO> selectBoardByClientNum(int num) throws Exception;
 	public int selectBoardCount(int num) throws Exception;
 	public MaxVO selectMaxTotalCount() throws Exception;
+	
+	
 }
