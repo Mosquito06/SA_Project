@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dgit.domain.BoardVO;
 import com.dgit.domain.DivisionVO;
+import com.dgit.domain.OrderVO;
 import com.dgit.domain.SectionVO;
 import com.dgit.domain.UserVO;
 import com.dgit.service.BoardService;
 import com.dgit.service.DivisionService;
+import com.dgit.service.OrderService;
 import com.dgit.service.SectionService;
 import com.dgit.service.UserService;
 
@@ -40,6 +42,9 @@ public class AndroidController {
 	
 	@Autowired
 	private BoardService boardService;
+	
+	@Autowired
+	private OrderService orderService;
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<Map<String, Object>> checkAndroid(String id, String pw){
@@ -105,9 +110,6 @@ public class AndroidController {
 	
 	@RequestMapping(value="/board/{sectionNum}", method = RequestMethod.GET)
 	public ResponseEntity<Map<String, Object>> getBoard(@PathVariable("sectionNum") int sectionNum){
-		logger.info("board 함수 진입??");
-		logger.info("sectionNum?? " + sectionNum);
-		
 		ResponseEntity<Map<String, Object>> entity = null;
 		Map<String, Object> map = new HashMap<>();
 		
@@ -116,6 +118,51 @@ public class AndroidController {
 			List<BoardVO> board = boardService.selectBoardNoCriBySectionNum(sectionNum);
 
 			map.put("board", board);
+			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+			
+		}catch(Exception e){
+			map.put("result", e.getMessage());
+			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.BAD_REQUEST);
+		}
+				
+		return entity;
+	}
+	
+	@RequestMapping(value="/order/{boardNum}", method = RequestMethod.GET)
+	public ResponseEntity<Map<String, Object>> getOrder(@PathVariable("boardNum") int boardNum){
+		logger.info("getOrder 함수 진입??");
+		logger.info("boardNum?? " + boardNum);
+		
+		ResponseEntity<Map<String, Object>> entity = null;
+		Map<String, Object> map = new HashMap<>();
+		
+		try{
+			
+			List<OrderVO> orders = orderService.selectOrderByBoardNum(boardNum);
+			map.put("orders", orders);
+			
+			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+			
+		}catch(Exception e){
+			map.put("result", e.getMessage());
+			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.BAD_REQUEST);
+		}
+				
+		return entity;
+	}
+	
+	@RequestMapping(value="/client/{clientNum}", method = RequestMethod.GET)
+	public ResponseEntity<Map<String, Object>> getAllOrder(@PathVariable("clientNum") int clientNum){
+		logger.info("getAllOrder 함수 진입??");
+		logger.info("clientNum?? " + clientNum);
+		
+		ResponseEntity<Map<String, Object>> entity = null;
+		Map<String, Object> map = new HashMap<>();
+		
+		try{
+			List<OrderVO> orders = orderService.selectAllOrderByWriterClientNum(clientNum);
+			map.put("orders", orders);
+			
 			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
 			
 		}catch(Exception e){
