@@ -103,4 +103,19 @@ public class OrderServiceImpl implements OrderService {
 		return dao.selectOrderByBoardNum(num); 
 	}
 
+	@Override
+	public List<OrderVO> selectAllOrderByWriterClientNum(int num) throws Exception {
+		return dao.selectAllOrderByWriterClientNum(num);
+	}
+
+	@Override
+	public List<OrderVO> selectOrderByBoardNumAndStatus(int num, OrderStatus status) throws Exception {
+		return dao.selectOrderByBoardNumAndStatus(num, status);
+	}
+
+	@Override
+	public List<OrderVO> selectAllOrderByWriterClientNumAndStatus(int num, OrderStatus status) throws Exception {
+		return dao.selectAllOrderByWriterClientNumAndStatus(num, status);
+	}
+
 }

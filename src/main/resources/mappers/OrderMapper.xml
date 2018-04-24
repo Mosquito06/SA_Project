@@ -15,6 +15,19 @@
    		<association property="clientNum" resultMap="com.dgit.persistence.UserDao.userResult"/>
     </resultMap>
     
+    <resultMap type="OrderVO" id="orderAllJoinResult">
+        <result property="orderNum" column="order_num"/>
+        <result property="orderDate" column="oder_date"/>
+        <result property="orderAmount" column="order_amount"/>
+        <result property="orderPrice" column="order_price"/>
+        <result property="orderRecipient" column="order_recipient"/>
+        <result property="recipientPhone" column="recipient_phone"/>
+        <result property="recipientAddress" column="recipient_address"/>
+        <result property="orderStatus" column="order_status"/>
+        <association property="boardNum" resultMap="com.dgit.persistence.BoardDao.boardResult"/>
+   		<association property="clientNum" resultMap="com.dgit.persistence.UserDao.userResult"/>
+    </resultMap>
+    
 	<insert id="insert">
 	    insert into product_order(order_amount, order_price, order_recipient, recipient_phone, recipient_address, order_status, board_num, client_num)
 	    values (#{orderAmount}, #{orderPrice}, #{orderRecipient}, #{recipientPhone}, #{recipientAddress}, #{orderStatus}, 
@@ -32,13 +45,29 @@
 	
 	<select id="selectOrderByClientNum" resultMap="orderJoinResult">
 	    select * from product_order, client where product_order.client_num = client.client_num 
-		and client.client_num = #{num} order by oder_date desc
+		and product_order.client_num = #{num} order by oder_date asc
 	</select>
 	
-	<select id="selectOrderByBoardNum" resultMap="orderJoinResult">
-	    select order_num, oder_date, order_amount, order_price, order_recipient, recipient_phone, recipient_address, order_status, product_order.client_num,
-		product_order.board_num, client.client_num, id, pw, name, email, phone, home_tel, address, join_date, status
-		from product_order, sa_board, client where product_order.board_num = sa_board.board_num 
-		and sa_board.board_num = #{num} and product_order.client_num = client.client_num  order by oder_date
+	<select id="selectOrderByBoardNum" resultMap="orderAllJoinResult">
+	    select * from product_order, client, sa_board where  
+		product_order.client_num = client.client_num and product_order.board_num = sa_board.board_num 
+		and product_order.board_num = #{num} order by oder_date
+	</select>
+	
+	<select id="selectOrderByBoardNumAndStatus" resultMap="orderAllJoinResult">
+	    select * from product_order, client, sa_board where  
+		product_order.client_num = client.client_num and product_order.board_num = sa_board.board_num 
+		and product_order.board_num = #{num} and order_status = #{status} order by oder_date
+	</select>
+	
+	<select id="selectAllOrderByWriterClientNum" resultMap="orderAllJoinResult">
+	    select * from sa_board, client, product_order where client.client_num = sa_board.client_num
+		and product_order.board_num = sa_board.board_num and sa_board.client_num = #{num} order by product_order.oder_date
+	</select>
+	
+	<select id="selectAllOrderByWriterClientNumAndStatus" resultMap="orderAllJoinResult">
+	    select * from sa_board, client, product_order where client.client_num = sa_board.client_num
+		and product_order.board_num = sa_board.board_num and sa_board.client_num = #{num} and order_status = #{status} 
+		order by product_order.oder_date
 	</select>
 </mapper>

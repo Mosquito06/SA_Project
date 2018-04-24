@@ -1,11 +1,13 @@
 package com.dgit.persistence;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.dgit.domain.OrderStatus;
 import com.dgit.domain.OrderVO;
 
 @Repository
@@ -42,6 +44,29 @@ private static final String NAMESPACE = "com.dgit.persistence.OrderDao";
 	@Override
 	public List<OrderVO> selectOrderByBoardNum(int num) throws Exception {
 		return sqlSession.selectList(NAMESPACE + ".selectOrderByBoardNum" , num);
+	}
+
+	@Override
+	public List<OrderVO> selectAllOrderByWriterClientNum(int num) throws Exception {
+		return sqlSession.selectList(NAMESPACE + ".selectAllOrderByWriterClientNum" , num);
+	}
+
+	@Override
+	public List<OrderVO> selectOrderByBoardNumAndStatus(int num, OrderStatus status) throws Exception {
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("num", num);
+		map.put("status", status);
+		
+		return sqlSession.selectList(NAMESPACE + ".selectOrderByBoardNumAndStatus" , map);
+	}
+
+	@Override
+	public List<OrderVO> selectAllOrderByWriterClientNumAndStatus(int num, OrderStatus status) throws Exception {
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("num", num);
+		map.put("status", status);
+		
+		return sqlSession.selectList(NAMESPACE + ".selectAllOrderByWriterClientNumAndStatus" , map);
 	}
 
 }

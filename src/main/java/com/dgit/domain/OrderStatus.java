@@ -1,5 +1,5 @@
 package com.dgit.domain;
 
 public enum OrderStatus {
-	READY, ING, COMPLETE;
+	READY, ING, COMPLETE, CANCEL;
 }
