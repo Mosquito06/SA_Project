@@ -118,4 +118,10 @@ public class OrderServiceImpl implements OrderService {
 		return dao.selectAllOrderByWriterClientNumAndStatus(num, status);
 	}
 
+	@Override
+	public void updateOrderStatus(OrderVO order) throws Exception {
+		dao.updateOrderStatus(order);
+		
+	}
+
 }

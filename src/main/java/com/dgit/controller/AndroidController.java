@@ -1,5 +1,6 @@
 package com.dgit.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dgit.domain.BoardVO;
 import com.dgit.domain.DivisionVO;
+import com.dgit.domain.OrderStatus;
 import com.dgit.domain.OrderVO;
 import com.dgit.domain.SectionVO;
 import com.dgit.domain.UserVO;
@@ -151,6 +153,49 @@ public class AndroidController {
 		return entity;
 	}
 	
+	@RequestMapping(value="/order/{boardNum}/{statusNum}", method = RequestMethod.GET)
+	public ResponseEntity<Map<String, Object>> getOrderBystatusNum(@PathVariable("boardNum") int boardNum, 
+			@PathVariable("statusNum") int statusNum){
+		logger.info("getOrderBystatusNum 함수 진입??");
+		logger.info("boardNum : " + boardNum + " statusNum : " + statusNum);	
+		
+		
+		ResponseEntity<Map<String, Object>> entity = null;
+		Map<String, Object> map = new HashMap<>();
+		
+		try{
+			List<OrderVO> orders = new ArrayList<>();
+			
+			switch(statusNum){
+				case 0:
+					orders = orderService.selectOrderByBoardNum(boardNum);
+					break;
+				case 1:
+					orders = orderService.selectOrderByBoardNumAndStatus(boardNum, OrderStatus.READY);
+					break;
+				case 2:
+					orders = orderService.selectOrderByBoardNumAndStatus(boardNum, OrderStatus.ING);
+					break;
+				case 3:
+					orders = orderService.selectOrderByBoardNumAndStatus(boardNum, OrderStatus.COMPLETE);
+					break;
+				case 4:
+					orders = orderService.selectOrderByBoardNumAndStatus(boardNum, OrderStatus.CANCEL);
+					break;
+			}
+			
+			map.put("orders", orders);
+			
+			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+			
+		}catch(Exception e){
+			map.put("result", e.getMessage());
+			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.BAD_REQUEST);
+		}
+				
+		return entity;
+	}
+	
 	@RequestMapping(value="/client/{clientNum}", method = RequestMethod.GET)
 	public ResponseEntity<Map<String, Object>> getAllOrder(@PathVariable("clientNum") int clientNum){
 		logger.info("getAllOrder 함수 진입??");
@@ -161,6 +206,49 @@ public class AndroidController {
 		
 		try{
 			List<OrderVO> orders = orderService.selectAllOrderByWriterClientNum(clientNum);
+			map.put("orders", orders);
+			
+			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+			
+		}catch(Exception e){
+			map.put("result", e.getMessage());
+			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.BAD_REQUEST);
+		}
+				
+		return entity;
+	}
+	
+	@RequestMapping(value="/client/{clientNum}/{statusNum}", method = RequestMethod.GET)
+	public ResponseEntity<Map<String, Object>> getAllOrderBystatusNum(@PathVariable("clientNum") int clientNum, 
+			@PathVariable("statusNum") int statusNum){
+		logger.info("getOrderBystatusNum 함수 진입??");
+		logger.info("boardNum : " + clientNum + " statusNum : " + statusNum);	
+		
+		
+		ResponseEntity<Map<String, Object>> entity = null;
+		Map<String, Object> map = new HashMap<>();
+		
+		try{
+			List<OrderVO> orders = new ArrayList<>();
+			
+			switch(statusNum){
+				case 0:
+					orders = orderService.selectAllOrderByWriterClientNum(clientNum);
+					break;
+				case 1:
+					orders = orderService.selectAllOrderByWriterClientNumAndStatus(clientNum, OrderStatus.READY);
+					break;
+				case 2:
+					orders = orderService.selectAllOrderByWriterClientNumAndStatus(clientNum, OrderStatus.ING);
+					break;
+				case 3:
+					orders = orderService.selectAllOrderByWriterClientNumAndStatus(clientNum, OrderStatus.COMPLETE);
+					break;
+				case 4:
+					orders = orderService.selectAllOrderByWriterClientNumAndStatus(clientNum, OrderStatus.CANCEL);
+					break;
+			}
+			
 			map.put("orders", orders);
 			
 			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);

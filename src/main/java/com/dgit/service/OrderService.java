@@ -12,6 +12,7 @@ public interface OrderService {
 	public void insert(String[] orders, OrderVO order, UserVO loginUser, HttpSession session) throws Exception;
 	public void delete(OrderVO order) throws Exception;
 	public void update(OrderVO order) throws Exception;
+	public void updateOrderStatus(OrderVO order) throws Exception;
 	public List<OrderVO> selectOrderByClientNum(int num) throws Exception;
 	public List<OrderVO> selectOrderByBoardNum(int num) throws Exception;
 	public List<OrderVO> selectOrderByBoardNumAndStatus(int num, OrderStatus status) throws Exception;

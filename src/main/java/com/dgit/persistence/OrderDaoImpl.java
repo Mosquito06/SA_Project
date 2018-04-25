@@ -35,6 +35,12 @@ private static final String NAMESPACE = "com.dgit.persistence.OrderDao";
 		sqlSession.update(NAMESPACE + ".update", order);
 
 	}
+	
+	@Override
+	public void updateOrderStatus(OrderVO order) throws Exception {
+		sqlSession.update(NAMESPACE + ".updateOrderStatus", order);
+		
+	}
 
 	@Override
 	public List<OrderVO> selectOrderByClientNum(int num) throws Exception {
