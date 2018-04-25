@@ -198,8 +198,6 @@ public class AndroidController {
 	
 	@RequestMapping(value="/client/{clientNum}", method = RequestMethod.GET)
 	public ResponseEntity<Map<String, Object>> getAllOrder(@PathVariable("clientNum") int clientNum){
-		logger.info("getAllOrder 함수 진입??");
-		logger.info("clientNum?? " + clientNum);
 		
 		ResponseEntity<Map<String, Object>> entity = null;
 		Map<String, Object> map = new HashMap<>();
@@ -221,9 +219,6 @@ public class AndroidController {
 	@RequestMapping(value="/client/{clientNum}/{statusNum}", method = RequestMethod.GET)
 	public ResponseEntity<Map<String, Object>> getAllOrderBystatusNum(@PathVariable("clientNum") int clientNum, 
 			@PathVariable("statusNum") int statusNum){
-		logger.info("getOrderBystatusNum 함수 진입??");
-		logger.info("boardNum : " + clientNum + " statusNum : " + statusNum);	
-		
 		
 		ResponseEntity<Map<String, Object>> entity = null;
 		Map<String, Object> map = new HashMap<>();
@@ -246,6 +241,54 @@ public class AndroidController {
 					break;
 				case 4:
 					orders = orderService.selectAllOrderByWriterClientNumAndStatus(clientNum, OrderStatus.CANCEL);
+					break;
+			}
+			
+			map.put("orders", orders);
+			
+			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+			
+		}catch(Exception e){
+			map.put("result", e.getMessage());
+			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.BAD_REQUEST);
+		}
+				
+		return entity;
+	}
+	
+	@RequestMapping(value="/update/{orderNum}/{statusNum}/{checkNum}/{num}", method = RequestMethod.GET)
+	public ResponseEntity<Map<String, Object>> updateOrderStatus(@PathVariable("orderNum") int orderNum, 
+			@PathVariable("statusNum") int statusNum, @PathVariable("checkNum") int checkNum, @PathVariable("num") int num){
+				
+		ResponseEntity<Map<String, Object>> entity = null;
+		Map<String, Object> map = new HashMap<>();
+		
+		try{
+			List<OrderVO> orders = new ArrayList<>();
+			OrderVO order;
+			
+			
+			switch(statusNum){
+				case 1:
+					order = new OrderVO();
+					order.setOrderNum(orderNum);
+					order.setOrderStatus(OrderStatus.ING);
+					orderService.updateOrderStatus(order);
+					break;
+				case 2:
+					order = new OrderVO();
+					order.setOrderNum(orderNum);
+					order.setOrderStatus(OrderStatus.COMPLETE);
+					orderService.updateOrderStatus(order);
+					break;
+			}
+			
+			switch(checkNum){
+				case 0:
+					orders = orderService.selectOrderByBoardNum(num);
+					break;
+				case 1:
+					orders = orderService.selectAllOrderByWriterClientNum(num);
 					break;
 			}
 			
