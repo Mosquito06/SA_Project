@@ -75,4 +75,9 @@ private static final String NAMESPACE = "com.dgit.persistence.OrderDao";
 		return sqlSession.selectList(NAMESPACE + ".selectAllOrderByWriterClientNumAndStatus" , map);
 	}
 
+	@Override
+	public List<OrderVO> selectOrderSumGroupByBoardNum(int num) throws Exception {
+		return sqlSession.selectList(NAMESPACE + ".selectOrderSumGroupByBoardNum" , num);
+	}
+
 }

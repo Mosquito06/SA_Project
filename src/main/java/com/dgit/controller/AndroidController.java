@@ -304,4 +304,28 @@ public class AndroidController {
 		return entity;
 	}
 	
+	@RequestMapping(value="/static/{clientNum}", method = RequestMethod.GET)
+	public ResponseEntity<Map<String, Object>> getStaticValue(@PathVariable("clientNum") int clientNum){
+		logger.info("getStaticValue 함수 진입??");
+		logger.info("clientNum : " + clientNum);	
+		
+		
+		ResponseEntity<Map<String, Object>> entity = null;
+		Map<String, Object> map = new HashMap<>();
+		
+		try{
+			List<OrderVO> orders = orderService.selectOrderSumGroupByBoardNum(clientNum);
+			
+			map.put("orders", orders);
+			
+			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+			
+		}catch(Exception e){
+			map.put("result", e.getMessage());
+			entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.BAD_REQUEST);
+		}
+				
+		return entity;
+	}
+	
 }

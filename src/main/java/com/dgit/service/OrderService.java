@@ -18,4 +18,5 @@ public interface OrderService {
 	public List<OrderVO> selectOrderByBoardNumAndStatus(int num, OrderStatus status) throws Exception;
 	public List<OrderVO> selectAllOrderByWriterClientNum(int num) throws Exception;
 	public List<OrderVO> selectAllOrderByWriterClientNumAndStatus(int num, OrderStatus status) throws Exception;
+	public List<OrderVO> selectOrderSumGroupByBoardNum(int num) throws Exception;
 }

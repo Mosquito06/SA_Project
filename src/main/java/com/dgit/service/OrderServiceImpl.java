@@ -124,4 +124,9 @@ public class OrderServiceImpl implements OrderService {
 		
 	}
 
+	@Override
+	public List<OrderVO> selectOrderSumGroupByBoardNum(int num) throws Exception {
+		return dao.selectOrderSumGroupByBoardNum(num);
+	}
+
 }

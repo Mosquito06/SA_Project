@@ -74,4 +74,10 @@
 		and product_order.board_num = sa_board.board_num and sa_board.client_num = #{num} and order_status = #{status} 
 		order by product_order.oder_date
 	</select>
+	
+	<select id="selectOrderSumGroupByBoardNum" resultMap="orderAllJoinResult">
+	    select sa_board.board_num, sa_board.board_title, sum(order_price) as order_price from client, sa_board, product_order 
+		where client.client_num = sa_board.client_num and sa_board.board_num = product_order.board_num 
+		and sa_board.client_num = #{num} group by sa_board.board_num
+	</select>
 </mapper>

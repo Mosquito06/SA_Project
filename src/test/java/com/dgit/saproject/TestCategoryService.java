@@ -57,7 +57,7 @@ public class TestCategoryService {
 	@Test
 	public void testSelectAll(){
 		try {
-			List<OrderVO> list = order.selectAllOrderByWriterClientNumAndStatus(2, OrderStatus.READY);
+			List<OrderVO> list = order.selectOrderSumGroupByBoardNum(1);
 			for(OrderVO o : list){
 				System.out.println(o.toString());
 			}
