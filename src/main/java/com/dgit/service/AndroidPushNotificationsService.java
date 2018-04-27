@@ -18,16 +18,16 @@ public class AndroidPushNotificationsService {
 	private static final String FIREBASE_API_URL = "https://fcm.googleapis.com/fcm/send";
 	
 	@Async
-	public CompletableFuture<String> send(HttpEntity<String> entity) {
+	public CompletableFuture<String> send(HttpEntity<byte[]> request) {
 
 		RestTemplate restTemplate = new RestTemplate();
 
 		ArrayList<ClientHttpRequestInterceptor> interceptors = new ArrayList<>();
 		interceptors.add(new HeaderRequestInterceptor("Authorization", "key=" + FIREBASE_SERVER_KEY));
-		interceptors.add(new HeaderRequestInterceptor("Content-Type", "application/json"));
+		interceptors.add(new HeaderRequestInterceptor("Content-Type", "application/json; charset=UTF-8"));
 		restTemplate.setInterceptors(interceptors);
 
-		String firebaseResponse = restTemplate.postForObject(FIREBASE_API_URL, entity, String.class);
+		String firebaseResponse = restTemplate.postForObject(FIREBASE_API_URL, request, String.class);
 
 		return CompletableFuture.completedFuture(firebaseResponse);
 	}

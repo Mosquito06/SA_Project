@@ -1,5 +1,6 @@
 package com.dgit.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -31,9 +32,10 @@ public class WebController {
 		body.put("priority", "high");
 
 		JSONObject notification = new JSONObject();
+		
 		notification.put("title", "주문내역이 도착했습니다.");
 		notification.put("body", "주문이 왔네요");
-			
+
 		JSONObject data = new JSONObject();
 		data.put("Key-1", "JSA Data 1");
 		data.put("Key-2", "JSA Data 2");
@@ -41,15 +43,17 @@ public class WebController {
 		body.put("notification", notification);
 		body.put("data", data);
 
-		HttpEntity<String> request = new HttpEntity<>(body.toString());
-
-		CompletableFuture<String> pushNotification = androidPushNotificationsService.send(request);
-		CompletableFuture.allOf(pushNotification).join();
-
 		try {
+			HttpEntity<byte[]> request = new HttpEntity<>(body.toString().getBytes("UTF-8"));
+			CompletableFuture<String> pushNotification = androidPushNotificationsService.send(request);
+			CompletableFuture.allOf(pushNotification).join();
+			
 			String firebaseResponse = pushNotification.get();
 			
 			return new ResponseEntity<>(firebaseResponse, HttpStatus.OK);
+			
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (ExecutionException e) {
