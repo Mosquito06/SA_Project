@@ -25,7 +25,7 @@ public class WebController {
 	AndroidPushNotificationsService androidPushNotificationsService;
 
 	@RequestMapping(value = "/send", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<String> send() throws JSONException {
+	public ResponseEntity<String> send(String name) throws JSONException {
 
 		JSONObject body = new JSONObject();
 		body.put("to", "/topics/" + TOPIC);
@@ -33,9 +33,13 @@ public class WebController {
 
 		JSONObject notification = new JSONObject();
 		
-		notification.put("title", "주문내역이 도착했습니다.");
-		notification.put("body", "주문이 왔네요");
-
+		notification.put("title", name+ "님의 주문이 도착했습니다.");
+		notification.put("body", "주문 내역을 확인하세요.");
+		notification.put("sound", "default");
+		notification.put("icon", "message_logo");
+		notification.put("color", "#FFFFFF"); 
+		
+		
 		JSONObject data = new JSONObject();
 		data.put("Key-1", "JSA Data 1");
 		data.put("Key-2", "JSA Data 2");
@@ -49,17 +53,14 @@ public class WebController {
 			CompletableFuture.allOf(pushNotification).join();
 			
 			String firebaseResponse = pushNotification.get();
+			return new ResponseEntity<>("success", HttpStatus.OK);
 			
-			return new ResponseEntity<>(firebaseResponse, HttpStatus.OK);
-			
-		} catch (UnsupportedEncodingException e1) {
-			e1.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		} catch (ExecutionException e) {
-			e.printStackTrace();
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
-
-		return new ResponseEntity<>("Push Notification ERROR!", HttpStatus.BAD_REQUEST);
 	}
 }

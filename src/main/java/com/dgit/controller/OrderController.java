@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dgit.domain.BasketVO;
 import com.dgit.domain.BoardVO;
@@ -104,7 +105,8 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value="/order", method = RequestMethod.POST)
-	public String fianlOrder(String[] orders, UserVO user, OrderVO order, HttpServletRequest req){
+	public String fianlOrder(String[] orders, UserVO user, OrderVO order, 
+			HttpServletRequest req, RedirectAttributes redirect){
 		// orders 게시판 번호 / 주문 수량/ 최종가격 순으로 데이터가  하나의 객체로 전달
 		logger.info("최종 주문 함수 진입?");
 		
@@ -116,7 +118,8 @@ public class OrderController {
 		
 		try {
 			orderService.insert(orders, order, loginUser, session);
-						
+			redirect.addAttribute("clientName", loginUser.getName());
+			
 		} catch (Exception e) {
 		
 			e.printStackTrace();
@@ -126,7 +129,7 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value="/orderComplete", method = RequestMethod.GET)
-	public String Complete(Model model){
+	public String Complete(@ModelAttribute("clientName") String clientName,Model model){
 		try {
 			List<CategoryVO> category = categoryService.selectAll(); 
 			List<DivisionVO> division = divisionService.selectAll(); 

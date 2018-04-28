@@ -3,6 +3,15 @@
 <jsp:include page="../include/header.jsp"/>
 <script>
 	$(function(){
+		$.ajax({
+			url: contextPath + "/send?name=${clientName}",
+			type: "get",
+			dataType: "text",
+			success : function(result){
+				console.log(result);
+			}
+		})
+		
 		$("#completeContainer img").click(function(){
 			location.href = "${pageContext.request.contextPath}/";
 		})

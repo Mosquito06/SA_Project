@@ -86,8 +86,8 @@ public class AndroidController {
 	
 	@RequestMapping(value="/menu/{clientNum}", method = RequestMethod.GET)
 	public ResponseEntity<Map<String, Object>> getMenu(@PathVariable("clientNum") int clientNum){
-		/*logger.info("menu 함수 진입??");
-		logger.info("clientNum?? " + clientNum);*/
+		logger.info("getMenu 함수 진입??");
+		logger.info("clientNum?? " + clientNum);
 				
 		ResponseEntity<Map<String, Object>> entity = null;
 		Map<String, Object> map = new HashMap<>();
@@ -112,6 +112,9 @@ public class AndroidController {
 	
 	@RequestMapping(value="/board/{sectionNum}", method = RequestMethod.GET)
 	public ResponseEntity<Map<String, Object>> getBoard(@PathVariable("sectionNum") int sectionNum){
+		logger.info("getBoard 함수 진입??");
+		logger.info("sectionNum?? " + sectionNum);
+		
 		ResponseEntity<Map<String, Object>> entity = null;
 		Map<String, Object> map = new HashMap<>();
 		
@@ -256,10 +259,11 @@ public class AndroidController {
 		return entity;
 	}
 	
-	@RequestMapping(value="/update/{orderNum}/{statusNum}/{checkNum}/{num}", method = RequestMethod.GET)
+	@RequestMapping(value="/update/{orderNum}/{statusNum}/{checkNum}/{num}", method = RequestMethod.PUT)
 	public ResponseEntity<Map<String, Object>> updateOrderStatus(@PathVariable("orderNum") int orderNum, 
 			@PathVariable("statusNum") int statusNum, @PathVariable("checkNum") int checkNum, @PathVariable("num") int num){
-				
+		logger.info("updateOrderStatus 함수 진입??");		
+		
 		ResponseEntity<Map<String, Object>> entity = null;
 		Map<String, Object> map = new HashMap<>();
 		
