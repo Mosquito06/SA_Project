@@ -76,11 +76,6 @@ $(function(){
 		
 	})
 	
-	$("#loginMenu li:eq(0)").click(function(e){
-		e.preventDefault();
-		alert("준비중입니다.");
-	})
-	
 	$("#searchBtn").click(function(e){
 		e.preventDefault();
 		alert("준비중입니다.");

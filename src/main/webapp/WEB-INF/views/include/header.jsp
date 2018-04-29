@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/emptyBasket.css?a=dd">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/cart.css?a=d">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/order.css?b=d">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/mypage.css?b=d">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
@@ -81,6 +82,8 @@
       		</c:when>
       		<c:otherwise>
       			<li><a href="#" id="loginNameA">${login.name }</a></li>
+      			<!-- 마이페이지 메뉴 추가하는 곳 -->
+      			
       		</c:otherwise>
       	</c:choose>
     	
@@ -233,7 +236,7 @@
 <!-- 로그인 시 메뉴 -->
 <div id="loginMenu">
 	<ul>
-		<li><a href="#">마이페이지</a></li>
+		<li><a href="${pageContext.request.contextPath }/mypage">마이페이지</a></li>
 		<li><a href="${pageContext.request.contextPath }/loginOut">로그아웃</a></li>
 	</ul>
 </div>
