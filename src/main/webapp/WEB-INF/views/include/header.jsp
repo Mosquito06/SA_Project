@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=D">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/header.css?a=d">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/footer.css?a=dd">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/main.css?a=dd">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/login.css?a=da">
@@ -36,7 +36,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/sign.js?a=d"></script>
-<script src="${pageContext.request.contextPath }/resources/js/header.js?a=dd"></script>
+<script src="${pageContext.request.contextPath }/resources/js/header.js?a=a"></script>
 <script src="${pageContext.request.contextPath }/resources/js/read.js?a=dd"></script>
 <script src="${pageContext.request.contextPath }/resources/js/add.js?a=d"></script>
 <script src="${pageContext.request.contextPath }/resources/js/update.js?a=dd"></script>
@@ -83,6 +83,31 @@
       		<c:otherwise>
       			<li><a href="#" id="loginNameA">${login.name }</a></li>
       			<!-- 마이페이지 메뉴 추가하는 곳 -->
+      			<li class="mobileCategory"><a href="#">마이페이지</a></li>
+    			<li class="dropdown mobileDropdown">
+    				<a class="dropdown-toggle mobileDropdownA" data-toggle="dropdown" href="#">쇼핑정보<span class="caret"></span></a>
+   					<ul class="dropdown-menu">
+   						<li class="mypageLastLi"><a href="${pageContext.request.contextPath }/mypage">주문 배송</a></li>
+   						<li class="mypageLastLi"><a href="#">취소 / 반품</a></li>
+   						<li class="mypageLastLi"><a href="#">반품 현황</a></li>   
+   					</ul>
+    			</li>
+    			<li class="dropdown mobileDropdown">
+    				<a class="dropdown-toggle mobileDropdownA" data-toggle="dropdown" href="#">나의정보<span class="caret"></span></a>
+   					<ul class="dropdown-menu">
+   						<li class="mypageLastLi"><a href="#">배송지 관리</a></li>
+   						<li class="mypageLastLi"><a href="#">회원정보 관리</a></li>
+   						<li class="mypageLastLi"><a href="#">비밀번호 변경</a></li>  
+   						<li class="mypageLastLi"><a href="#">회원탈퇴</a></li>  
+   				
+   					</ul>
+    			</li>
+    			<li class="dropdown mobileDropdown">
+    				<a class="dropdown-toggle mobileDropdownA" data-toggle="dropdown" href="#">고객센터<span class="caret"></span></a>
+   					<ul class="dropdown-menu">
+   						<li class="mypageLastLi"><a href="#">1:1 E-mail 문의</a></li>
+   					</ul>
+    			</li>
       			
       		</c:otherwise>
       	</c:choose>

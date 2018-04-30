@@ -226,6 +226,10 @@ nav[class~=hoverNav] li[class~=divisionLi] li{
 		display: none;
 	}
 	
+	.mypageLastLi{
+		display: block !important;
+	}
+	
 	li.mobileCategory, li[class~=mobileDropdown]{
 		display: block;
 	}

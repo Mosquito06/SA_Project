@@ -50,6 +50,11 @@ $(function(){
 	})
 	
 	$("#loginNameA").click(function(){
+		var width = screen.width;
+		if(width < 768){
+			return;
+		}
+				
 		var css = $("#loginMenu").css("display");
 		if(css == "none"){
 			$("#loginMenu").css("display", "block");
@@ -58,6 +63,17 @@ $(function(){
 		}
 		
 	})
+	
+	$(".mypageLastLi a").click(function(e){
+		var index = $(".mypageLastLi a").index(this);
+		if(index > 0){
+			e.preventDefault();
+			alert("준비중입니다.");
+		}
+	
+	
+	})
+		
 	
 	$("#customerCenterBtn").click(function(e){
 		e.preventDefault();
