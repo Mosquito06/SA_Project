@@ -127,7 +127,28 @@
 	
 	#mypageContentDiv figure > table tr.mypageOrderInfo tr:LAST-CHILD {
 		border-bottom: 2px solid #e5e5e5;
-	} 
+	}
+	
+	#emptyOrderTr td{
+		border-top: 2px solid #e5e5e5 !important;
+		border-bottom: 2px solid #e5e5e5;
+		padding: 23% 0;
+		text-align: center;
+		font-size: 13px !important;
+	}
+	
+	#pagingTr{
+		text-align: center;
+	}
+	
+	#pagingTr ul.pagination a{
+		color: black !important;
+	}
+	
+	#pagingTr ul.pagination .active a{
+		background-color: #ccc !important;
+		border-color: #ccc !important;
+	}
 	
 }
 	

@@ -152,7 +152,11 @@
 							</tr>
 						</c:when>
 						<c:otherwise>
-							
+							<tr id="emptyOrderTr">
+								<td>
+									현재 진행중인 주문 / 배송 상품이 없습니다.
+								</td>
+							</tr>
 						</c:otherwise>
 					</c:choose>
 				</table>
