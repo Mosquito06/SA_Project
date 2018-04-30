@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dgit.domain.BasketVO;
 import com.dgit.domain.BoardVO;
+import com.dgit.domain.Criteria;
 import com.dgit.domain.OrderStatus;
 import com.dgit.domain.OrderVO;
 import com.dgit.domain.UserVO;
@@ -94,8 +95,8 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public List<OrderVO> selectOrderByClientNum(int num) throws Exception {
-		return dao.selectOrderByClientNum(num);
+	public List<OrderVO> selectOrderByClientNum(int num, Criteria cri) throws Exception {
+		return dao.selectOrderByClientNum(num, cri);
 	}
 
 	@Override
@@ -127,6 +128,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<OrderVO> selectOrderSumGroupByBoardNum(int num) throws Exception {
 		return dao.selectOrderSumGroupByBoardNum(num);
+	}
+
+	@Override
+	public int selectOrderTotal(int num) throws Exception {
+		return dao.selectOrderTotal(num);
 	}
 
 }

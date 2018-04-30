@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.dgit.domain.Criteria;
 import com.dgit.domain.OrderStatus;
 import com.dgit.domain.OrderVO;
 
@@ -43,8 +44,12 @@ private static final String NAMESPACE = "com.dgit.persistence.OrderDao";
 	}
 
 	@Override
-	public List<OrderVO> selectOrderByClientNum(int num) throws Exception {
-		return sqlSession.selectList(NAMESPACE + ".selectOrderByClientNum" , num); 
+	public List<OrderVO> selectOrderByClientNum(int num , Criteria cri) throws Exception {
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("num", num);
+		map.put("cri", cri);
+		
+		return sqlSession.selectList(NAMESPACE + ".selectOrderByClientNum" , map); 
 	}
 
 	@Override
@@ -78,6 +83,11 @@ private static final String NAMESPACE = "com.dgit.persistence.OrderDao";
 	@Override
 	public List<OrderVO> selectOrderSumGroupByBoardNum(int num) throws Exception {
 		return sqlSession.selectList(NAMESPACE + ".selectOrderSumGroupByBoardNum" , num);
+	}
+
+	@Override
+	public int selectOrderTotal(int num) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".selectOrderTotal", num);
 	}
 
 }

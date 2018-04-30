@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/emptyBasket.css?a=dd">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/cart.css?a=d">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/order.css?b=d">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/mypage.css?b=d">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/mypage.css?b=dd">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 <script>
 	var contextPath = "${pageContext.request.contextPath}";

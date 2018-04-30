@@ -8,7 +8,6 @@
 		margin: 200px auto;
 		min-height: 700px;
 		font-family: 'Nanum Gothic', sans-serif;
-		border: 1px solid black;
 	}
 	
 	#mypageLeftDiv{
@@ -54,13 +53,81 @@
 		font-size: 12px;
 	}
 	
+	#mypageLeftDiv .selectOrderMenu{
+		font-weight: bold;
+		font-size: 13px;
+	}
+	
 	#mypageContentDiv{
 		width: 75%;
 		float: right;
-		border: 1px solid black;
 		min-height: 700px;
 		margin-left: 20px;
 	}
+	
+	#mypageContentDiv figcaption{
+		font-size: 26px;
+		color: #111;
+		font-weight: bold;
+		margin-bottom: 10px; 
+		padding: 10px 0;
+	}
+	
+	#mypageContentDiv figure > table{
+		width: 100%;
+		margin-bottom: 5%;
+	}
+	
+	#mypageContentDiv tr.mypageOrderInfo table{
+		width: 100%;
+	}
+	
+	#mypageContentDiv span.mypageBoldText{
+		font-weight: bold;
+	}
+	
+	#mypageContentDiv figure > table tr.mypageOrderInfo tr:FIRST-CHILD td{
+		background-color: #e5e5e5;
+	}
+	
+	#mypageContentDiv figure > table tr.mypageOrderInfo tr:FIRST-CHILD div:FIRST-CHILD{
+		float: left;
+	}
+	
+	#mypageContentDiv figure > table tr.mypageOrderInfo tr:FIRST-CHILD div:LAST-CHILD{
+		float: right;
+	}
+	
+	#mypageContentDiv figure > table tr.mypageOrderInfo td{
+		padding: 10px 10px; 
+		font-size: 13px;
+		font-weight: normal !important;  
+	}
+	
+	#mypageContentDiv figure > table tr.mypageOrderInfo th{
+		text-align: center;
+		border-top: 2px solid #e5e5e5;
+		border-bottom: 2px solid #e5e5e5;
+		padding: 10px 0;
+		
+	}
+	
+	#mypageContentDiv td.mypageOrderImgTd{
+		width: 200px !important;
+	}
+	
+	#mypageContentDiv td.mypageOrderImgTd img{
+		width: 110px;
+		height: 110px;
+	}
+	
+	#mypageContentDiv td.mypageOrderText{
+		text-align: center;
+	}
+	
+	#mypageContentDiv figure > table tr.mypageOrderInfo tr:LAST-CHILD {
+		border-bottom: 2px solid #e5e5e5;
+	} 
 	
 }
 	

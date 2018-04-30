@@ -49,7 +49,7 @@
 	
 	<select id="selectOrderByClientNum" resultMap="orderJoinResult">
 	    select * from product_order, client where product_order.client_num = client.client_num 
-		and product_order.client_num = #{num} order by oder_date asc
+		and product_order.client_num = #{num} order by oder_date asc limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
 	
 	<select id="selectOrderByBoardNum" resultMap="orderAllJoinResult">
@@ -79,5 +79,9 @@
 	    select sa_board.board_num, sa_board.board_title, sum(order_price) as order_price from client, sa_board, product_order 
 		where client.client_num = sa_board.client_num and sa_board.board_num = product_order.board_num 
 		and sa_board.client_num = #{num} group by sa_board.board_num
+	</select>
+	
+	<select id="selectOrderTotal" resultType="int">
+	    select count(order_num) from product_order where client_num = #{num}
 	</select>
 </mapper>
