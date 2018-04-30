@@ -106,7 +106,9 @@
 															<img src="${pageContext.request.contextPath }/resources/img/board/basicImg.jpg">
 														</c:otherwise>
 													</c:choose>
-													${order.boardNum.boardTitle }
+													<a href="${pageContext.request.contextPath }/read?sectionNum=${order.boardNum.sectionNum.sectionNum}&boardNum=${order.boardNum.boardNum}&readCheck=true">
+										 				${order.boardNum.boardTitle }
+										 			</a>
 												</td>
 												<td class="mypageOrderText">
 													${order.orderAmount } 개

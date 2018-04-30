@@ -46,7 +46,6 @@ public class MyPageController {
 	@Autowired
 	private BoardService boardService;
 	
-	@Transactional
 	@RequestMapping(value="/mypage", method=RequestMethod.GET)
 	public String goMyPage(HttpServletRequest req, Model model, Criteria cri){
 		PageMaker pageMaker = new PageMaker();

@@ -6,7 +6,6 @@
 	#mypageContainer{
 		width: 70%;
 		margin: 200px auto;
-		min-height: 700px;
 		font-family: 'Nanum Gothic', sans-serif;
 	}
 	
@@ -61,7 +60,6 @@
 	#mypageContentDiv{
 		width: 75%;
 		float: right;
-		min-height: 700px;
 		margin-left: 20px;
 	}
 	
@@ -116,6 +114,11 @@
 		width: 200px !important;
 	}
 	
+	#mypageContentDiv td.mypageOrderImgTd a{
+		color: #111;
+		text-decoration: none;
+	}
+	
 	#mypageContentDiv td.mypageOrderImgTd img{
 		width: 110px;
 		height: 110px;
@@ -156,23 +159,126 @@
 /* ---------------------------------------------------
    MEDIAQUERIES
 ----------------------------------------------------- */
-@media screen and (max-width: 320px){
+@media screen and (max-width: 700px){
+
 	
+}
+
+@media screen and (max-width: 320px){
+	#mypageContainer{
+		width: 95%; 
+		margin: 100px auto;
+	}
+	
+	
+	#mypageLeftDiv{
+		display: none;
+	}
+	
+	#mypageContentDiv figcaption{
+		font-size: 23px;
+	}
+	
+	
+	#mypageContentDiv{
+		width: 100%;
+		margin: 0 auto;
+		margin-left: 20px;
+	}
+	
+	#mypageContentDiv figure > table tr td.mypageOrderImgTd{
+		text-align: center;  
+		padding: 11px 0 !important;
+	} 
+	
+	#mypageContentDiv figure > table tr td.mypageOrderImgTd img{
+		display: block;
+		margin: 0 auto;
+	}
+	
+	.mypageOrderText{
+		font-size: 10px !important;
+		padding: 10px 0 !important;
+		
+	}
+	
+	#mypageContentDiv figure > table tr.mypageOrderInfo tr:FIRST-CHILD div:FIRST-CHILD{
+		float: none;
+	}
+	
+	#mypageContentDiv figure > table tr.mypageOrderInfo tr:FIRST-CHILD div:LAST-CHILD{
+		float: none;
+	}
+	
+	#pagingTr ul.pagination a{
+		padding: 10px !important;
+	}
 }
 
 @media screen and (min-width: 360px) and (max-width: 414px){
+	#mypageContainer{
+		width: 95%;
+		margin: 100px auto;
+	}
 	
+	
+	#mypageLeftDiv{
+		display: none;
+	}
+	
+	#mypageContentDiv figcaption{
+		font-size: 23px;
+	}
+	
+	
+	#mypageContentDiv{
+		width: 100%;
+		margin: 0 auto;
+		margin-left: 20px;
+	}
+	
+	#mypageContentDiv figure > table tr td.mypageOrderImgTd{
+		text-align: center;  
+		padding: 11px 0 !important;
+	} 
+	
+	#mypageContentDiv figure > table tr td.mypageOrderImgTd img{
+		display: block;
+		margin: 0 auto;
+	}
+	
+	.mypageOrderText{
+		font-size: 10px !important;
+		padding: 10px 0 !important;
+		
+	}
+	
+	#mypageContentDiv figure > table tr.mypageOrderInfo tr:FIRST-CHILD div:FIRST-CHILD{
+		float: none;
+	}
+	
+	#mypageContentDiv figure > table tr.mypageOrderInfo tr:FIRST-CHILD div:LAST-CHILD{
+		float: none;
+	}
+	
+	#pagingTr ul.pagination a{
+		padding: 10px !important;
+	}
 }	
 
-
-@media screen and (max-width: 700px){
-	
-}
-
 @media screen and (min-width: 767px) and (max-width: 1023px){
+	#mypageContainer{
+		width: 100%;
+	}
 	
+	#mypageContentDiv td.mypageOrderImgTd img{
+		width: 90px;
+		height: 90px;
+	}
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1366px){
-	
+	#mypageContainer{
+		width: 90%;
+	}
 }
