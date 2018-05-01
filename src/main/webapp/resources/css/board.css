@@ -142,6 +142,7 @@
 	
 	#ContentPagingDiv{
 		clear: both;
+		text-align: center; 
 		width: 95%;
 		margin: 5% auto;
 		padding: 3%;
@@ -149,8 +150,7 @@
 	}
 	
 	#ContentPagingDiv ul{
-		width: 40%; 
-		display: block;
+		display: inline-block;
 		margin: 0 auto !important;
 	}
 	
@@ -239,12 +239,7 @@
 	
 	#ContentPagingDiv{
 		padding: 5% 0 !important;
-	}
-	
-	#ContentPagingDiv ul{
-		width: 100%;	
-	}
-	
+	}	
 	
 }
 
@@ -281,18 +276,10 @@
 		font-size: 11px;
 		font-weight: bold;
 	}
-	
-	#ContentPagingDiv ul{
-		width: 95%;
-	}
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1366px){
 	#boardContent img{
 		width: 100%;
-	}
-	
-	#ContentPagingDiv ul{
-		width: 95%;
 	}
 }
